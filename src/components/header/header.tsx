@@ -1,6 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { Bars3Icon } from '@heroicons/react/24/solid';
-import AvatarDropdown from '@/components/header/avatar-dropdown';
+import AvatarPicture from '@/components/header/avatar/avatar-picture';
 import Image from 'next/image';
 
 export default function Header() {
@@ -24,7 +26,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <AvatarDropdown />
+        <AvatarPicture />
       </div>
     </header>
   );

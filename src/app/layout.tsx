@@ -1,8 +1,7 @@
-import './globals.css';
+import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@radix-ui/themes/styles.css';
-import Header from '@/components/header/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,10 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       {/* TODO: figure out a way to set the icon */}
 
-      <body className={inter.className}>
-        <Header />
-        {children}
-      </body>
+      <body className={`${inter.className} h-[100dvh] max-h-[100dvh]`}>{children}</body>
     </html>
   );
 }

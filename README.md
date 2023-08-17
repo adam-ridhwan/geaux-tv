@@ -2,6 +2,8 @@
 
 This is the new codebase for GeauxTV.
 
+<br>
+
 ## Technologies
 
 1. Framework - **Next.js**
@@ -15,11 +17,15 @@ This is the new codebase for GeauxTV.
 9. Testing - **Jest & React Testing Library**
 10. Cloud Storage - **Google Cloud Storage**
 
+<br>
+
 ## How to run the project
 
 1. Clone the repository.
 2. Run `npm install` to install all the dependencies.
 3. Run `npm run dev` to start the development server.
+
+<br>
 
 ## How to contribute
 
@@ -44,6 +50,8 @@ This is the new codebase for GeauxTV.
 6. Wait for the pull request to be reviewed and merged.
 
 #### **_ALSO IMPORTANT_: Please do not merge your pull request** 
+
+<br>
 
 ## **Commit convention**
 
@@ -84,6 +92,8 @@ empty separator line
 
   The error because of new guide logic
   ```
+
+<br>
 
 
 ## Todos

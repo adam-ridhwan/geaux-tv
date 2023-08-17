@@ -19,11 +19,11 @@ export const LANGUAGES: { label: string; value: string }[] = [
 ];
 
 type LanguageState = {
-  language: string;
-  setLanguage: (language: string) => void;
+  currentLanguage: string;
+  setCurrentLanguage: (currentLangugage: string) => void;
 };
 
 export const useLanguageStore = create<LanguageState>()(set => ({
-  language: LANGUAGES[0].value,
-  setLanguage: (language: string) => set({ language }),
+  currentLanguage: LANGUAGES[0].value,
+  setCurrentLanguage: (currentLanguage: string) => set({ currentLanguage }),
 }));

@@ -2,15 +2,15 @@
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import * as Avatar from '@radix-ui/react-avatar';
-import { useState } from 'react';
 import AvatarTooltip from '@/components/header/avatar/avatar-tooltip';
 import AvatarContent from '@/components/header/avatar/avatar-content';
-
+import { useAvatarDropdownStore } from '@/store/useOverlayStore';
 
 export default function AvatarPicture() {
-  const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useState<boolean>(false);
-
-  const closeAvatarDropdown = () => setIsAvatarDropdownOpen(false);
+  const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useAvatarDropdownStore(state => [
+    state.isAvatarDropdownOpen,
+    state.setIsAvatarDropdownOpen,
+  ]);
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function AvatarPicture() {
           </Avatar.Root>
         </DropdownMenu.Trigger>
 
-        <AvatarContent closeAvatarDropdown={closeAvatarDropdown} />
+        <AvatarContent />
       </DropdownMenu.Root>
     </>
   );

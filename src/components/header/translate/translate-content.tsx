@@ -3,31 +3,36 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 import { DotIcon } from 'lucide-react';
 import { FC } from 'react';
 import { useAvatarDropdownStore } from '@/store/useOverlayStore';
+import Button from '@/components/ui/button';
+import { cn } from '@/lib/cn';
 
 const TranslateContent: FC = () => {
-  const [language, setLanguage] = useLanguageStore(state => [state.language, state.setLanguage]);
-  const { closeAvatarDropdown } = useAvatarDropdownStore();
+  const [currentLanguage, setCurrentLanguage] = useLanguageStore(state => [
+    state.currentLanguage,
+    state.setCurrentLanguage,
+  ]);
+  const [closeAvatarDropdown] = useAvatarDropdownStore(state => [state.closeAvatarDropdown]);
 
   const selectLanguage = (language: string) => {
-    setLanguage(language);
+    setCurrentLanguage(language);
     closeAvatarDropdown();
   };
 
   return (
     <>
-      <RadioGroup.Root className='flex flex-col' defaultValue={language} aria-label='View density'>
+      <RadioGroup.Root className='flex flex-col' defaultValue={currentLanguage} aria-label='View density'>
         {LANGUAGES.map(language => (
-          <RadioGroup.Item
-            key={language.label}
-            value={language.value}
-            onClick={() => selectLanguage(language.value)}
-            className='relative h-[40px] pl-9 rounded-md flex flex-row items-center cursor-pointer
-            hover:bg-pink-6 hover:text-pink-12'
-          >
-            {language.label}
-            <RadioGroup.Indicator className='absolute left-[-5px]'>
-              <DotIcon className='h-10 w-10' />
-            </RadioGroup.Indicator>
+          <RadioGroup.Item asChild key={language.label} value={language.value}>
+            <Button
+              className={cn('relative pl-9')}
+              state={currentLanguage === language.value}
+              onClick={() => selectLanguage(language.value)}
+            >
+              <span>{language.label}</span>
+              <RadioGroup.Indicator className='absolute left-[-2px]'>
+                <DotIcon className='h-10 w-10' />
+              </RadioGroup.Indicator>
+            </Button>
           </RadioGroup.Item>
         ))}
       </RadioGroup.Root>

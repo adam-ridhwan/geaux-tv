@@ -6,7 +6,7 @@ import TranslateDropdown from '@/components/header/translate/translate-dropdown'
 import { useAvatarDropdownStore } from '@/store/useOverlayStore';
 
 const AvatarContent: FC = () => {
-  const { closeAvatarDropdown } = useAvatarDropdownStore();
+  const [closeAvatarDropdown] = useAvatarDropdownStore(state => [state.closeAvatarDropdown]);
 
   return (
     <>

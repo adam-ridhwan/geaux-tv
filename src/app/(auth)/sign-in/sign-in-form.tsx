@@ -67,7 +67,7 @@ const SignInForm: FC = () => {
         </Form.Field>
 
         <div className='w-full mb-[10px] flex justify-end'>
-          <Link href='/forgot-password' className='text-pink-12 text-[14px]'>
+          <Link href='/account/forgot-password' className='text-pink-12 text-[14px]'>
             Forgot password?
           </Link>
         </div>

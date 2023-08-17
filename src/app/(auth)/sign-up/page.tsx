@@ -6,10 +6,10 @@ import Header from '@/components/header/header';
 export default function SignUpPage() {
   return (
     <>
-      <main className='bg-radial-top-right'>
+      <main className='bg-radial-top-right h-[100dvh] max-h-[100dvh] min-h-[100dvh] flex flex-col'>
         <Header />
 
-        <section className='flex flex-col items-center'>
+        <section className='relative flex flex-col items-center flex-1'>
           <div className='flex items-center flex-col mt-8 w-[90%] max-w-md'>
             <div className='flex flex-col w-full gap-2'>
               <span className='text-[35px] text-slate-12 font-bold'>Sign Up</span>

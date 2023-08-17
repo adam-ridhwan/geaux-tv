@@ -6,7 +6,7 @@ This is the new codebase for GeauxTV.
 
 1. Framework - **Next.js**
 2. Language - **Typescript**
-3. Styling - **Tailwind CSS**
+3. Styling - **Tailwind CSS and Lucide Icons**
 4. Frontend library - **Radix UI**
 5. Global State Management - **Zustand**
 6. Database - **MongoDB**

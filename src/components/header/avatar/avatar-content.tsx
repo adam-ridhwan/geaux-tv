@@ -3,18 +3,18 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
 import { HeartHandshakeIcon, LogIn as LoginIcon, UserCircle2 as AvatarIcon } from 'lucide-react';
 import TranslateDropdown from '@/components/header/translate/translate-dropdown';
+import { useAvatarDropdownStore } from '@/store/useOverlayStore';
 
-interface AvatarContentProps {
-  closeAvatarDropdown: () => void;
-}
+const AvatarContent: FC = () => {
+  const { closeAvatarDropdown } = useAvatarDropdownStore();
 
-const AvatarContent: FC<AvatarContentProps> = ({ closeAvatarDropdown }) => {
   return (
     <>
       <DropdownMenu.Content
         align='end'
         className='w-40 bg-slate-1 border-2 border-slate-3 rounded-md flex flex-col p-2.5
           will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
+        onInteractOutside={closeAvatarDropdown}
       >
         <DropdownMenu.Item className='w-full rounded-md'>
           <Link

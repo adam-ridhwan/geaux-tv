@@ -86,7 +86,7 @@ empty separator line
   ```
 
 
-## TODOS
+## Todos
 
 #### **Pages** (user interface):
 

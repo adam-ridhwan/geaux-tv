@@ -9,6 +9,7 @@ This is the new codebase for GeauxTV.
 #### **Pages** (user interface):
 
 - [ ] Player (root)
+   - player will have desktop, tablet, mobile resolutions. there will be default mode, full screen mode and theatre mode.
 - [x] sign-in
 - [x] sign-up
 - [ ] benefits

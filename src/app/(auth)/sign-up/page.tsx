@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import SignUpForm from '@/app/(auth)/sign-up/sign-up-form';
+import SignUpForm from '@/components/sign-up-form';
 import HorizontalSeparator from '@/components/ui/separator';
 import Header from '@/components/header/header';
 

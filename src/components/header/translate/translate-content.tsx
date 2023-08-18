@@ -1,4 +1,4 @@
-import { LANGUAGES, useLanguageStore } from '@/store/useLanguageStore';
+import { languageCode, LANGUAGES, useLanguageStore } from '@/store/useLanguageStore';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 import { DotIcon } from 'lucide-react';
 import { FC } from 'react';
@@ -13,8 +13,8 @@ const TranslateContent: FC = () => {
   ]);
   const [closeAvatarDropdown] = useAvatarDropdownStore(state => [state.closeAvatarDropdown]);
 
-  const selectLanguage = (language: string) => {
-    setCurrentLanguage(language);
+  const selectLanguage = (selectedLanguage: languageCode) => {
+    setCurrentLanguage(selectedLanguage);
     closeAvatarDropdown();
   };
 
@@ -22,13 +22,13 @@ const TranslateContent: FC = () => {
     <>
       <RadioGroup.Root className='flex flex-col' defaultValue={currentLanguage} aria-label='View density'>
         {LANGUAGES.map(language => (
-          <RadioGroup.Item asChild key={language.label} value={language.value}>
+          <RadioGroup.Item asChild key={language.languageName} value={language.languageCode}>
             <Button
               className={cn('relative pl-9')}
-              state={currentLanguage === language.value}
-              onClick={() => selectLanguage(language.value)}
+              state={currentLanguage === language.languageCode}
+              onClick={() => selectLanguage(language.languageCode)}
             >
-              <span>{language.label}</span>
+              <span>{language.languageName}</span>
               <RadioGroup.Indicator className='absolute left-[-2px]'>
                 <DotIcon className='h-10 w-10' />
               </RadioGroup.Indicator>

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { LanguagesIcon, X } from 'lucide-react';
+import { LanguagesIcon } from 'lucide-react';
 import TranslateContent from '@/components/header/translate/translate-content';
 import Button from '@/components/ui/button';
 import { useTranslatePopoverStore } from '@/store/useOverlayStore';
@@ -42,13 +42,6 @@ const TranslateDropdown: FC = () => {
               }}
             >
               <TranslateContent />
-
-              <Popover.Close
-                className='rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-violet11 absolute top-[5px] right-[5px] outline-none cursor-pointer'
-                aria-label='Close'
-              >
-                <X />
-              </Popover.Close>
             </Popover.Content>
           </Popover.Portal>
         </Popover.Root>

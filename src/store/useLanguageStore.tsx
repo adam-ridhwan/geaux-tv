@@ -1,29 +1,36 @@
 import { create } from 'zustand';
 
-export const LANGUAGES: { label: string; value: string }[] = [
-  { label: 'English', value: 'en' },
-  { label: 'العربية', value: 'ar' },
-  { label: '中文 (简体)', value: 'zh' },
-  { label: 'Français', value: 'fr' },
-  { label: 'Deutsch', value: 'de' },
-  { label: 'Ελληνικά', value: 'el' },
-  { label: 'Kreyòl Ayisyen', value: 'ht' },
-  { label: 'Bahasa Indonesia', value: 'id' },
-  { label: 'Italiano', value: 'it' },
-  { label: '日本語', value: 'ja' },
-  { label: '한국어', value: 'ko' },
-  { label: 'Português', value: 'pt' },
-  { label: 'Русский', value: 'ru' },
-  { label: 'Español', value: 'es' },
-  { label: 'اردو', value: 'ur' },
+interface Language {
+  languageName: string;
+  languageCode: string;
+}
+
+export const LANGUAGES: Language[] = [
+  { languageName: 'English', languageCode: 'en' },
+  { languageName: 'العربية', languageCode: 'ar' },
+  { languageName: '中文 (简体)', languageCode: 'zh' },
+  { languageName: 'Français', languageCode: 'fr' },
+  { languageName: 'Deutsch', languageCode: 'de' },
+  { languageName: 'Ελληνικά', languageCode: 'el' },
+  { languageName: 'Kreyòl Ayisyen', languageCode: 'ht' },
+  { languageName: 'Bahasa Indonesia', languageCode: 'id' },
+  { languageName: 'Italiano', languageCode: 'it' },
+  { languageName: '日本語', languageCode: 'ja' },
+  { languageName: '한국어', languageCode: 'ko' },
+  { languageName: 'Português', languageCode: 'pt' },
+  { languageName: 'Русский', languageCode: 'ru' },
+  { languageName: 'Español', languageCode: 'es' },
+  { languageName: 'اردو', languageCode: 'ur' },
 ];
 
+export type languageCode = (typeof LANGUAGES)[number]['languageCode'];
+
 type LanguageState = {
-  currentLanguage: string;
-  setCurrentLanguage: (currentLangugage: string) => void;
+  currentLanguage: languageCode;
+  setCurrentLanguage: (currentLanguage: string) => void;
 };
 
 export const useLanguageStore = create<LanguageState>()(set => ({
-  currentLanguage: LANGUAGES[0].value,
+  currentLanguage: localStorage.getItem('currentLanguage') || LANGUAGES[0].languageCode,
   setCurrentLanguage: (currentLanguage: string) => set({ currentLanguage }),
 }));

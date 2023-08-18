@@ -4,6 +4,39 @@ This is the new codebase for GeauxTV.
 
 <br>
 
+## Todos
+
+#### **Pages** (user interface):
+
+- [ ] Player (root)
+- [x] sign-in
+- [x] sign-up
+- [ ] benefits
+- [ ] change-password
+- [ ] forgot-password
+- [ ] profile
+- [ ] reset-password
+- [ ] update-email
+- [ ] update-phone-number
+
+#### **Database**:
+
+- [ ] Set Up Mongodb
+- [ ] Create channels collection
+- [ ] Create users collection
+
+#### **Authentication**:
+
+- [ ] Set up auth for credentials, google and phone number
+- [ ] Credentials sign up
+- [ ] Credentials sign in
+- [ ] Google Sign up
+- [ ] Google Sign in
+- [ ] Phone sign up
+- [ ] Phone sign in
+
+<br>
+
 ## Technologies
 
 1. Framework - **Next.js**
@@ -33,20 +66,16 @@ This is the new codebase for GeauxTV.
 
 <br/>
 
-1. Create a new branch with the format below.
+1. Create a new branch with this format: _**user-name/add-button**_
 
-&nbsp;&nbsp;&nbsp;&nbsp;  <img src="https://github.com/GagOrderNetwork/geaux-web-next/assets/76563028/db6d880d-036d-4e50-8f0a-938a857ad9f0" width="400"/>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **user-name**: Username or first & last name.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **/** : Separator.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- **add-button**: the feature you are working on.
+- **user-name**: Username or first & last name.
+- **/** : Separator.
+- **add-button**: the feature you are working on.
    
 2. Make the changes on your code
 3. Push the changes to the branch.
 4. Create and submit pull request.
-5. Let Adam know you submitted pull request.
+5. Let repo manager know you submitted pull request.
 6. Wait for the pull request to be reviewed and merged.
 
 #### **_ALSO IMPORTANT_: Please do not merge your pull request** 
@@ -96,28 +125,3 @@ empty separator line
 <br>
 
 
-## Todos
-
-#### **Pages** (user interface):
-
-- [ ] Player (root)
-- [ ] Profile
-- [x] Sign up
-- [x] Sign in
-- [ ] Forgot password
-- [ ] Benefits
-
-#### **Database**:
-
-- [ ] Set Up Mongodb
-- [ ] Create channels collection
-- [ ] Create users collection
-
-#### **Authentication**:
-
-- [ ] Credentials sign up
-- [ ] Credentials sign in
-- [ ] Google Sign up
-- [ ] Google Sign in
-- [ ] Phone sign up
-- [ ] Phone sign in

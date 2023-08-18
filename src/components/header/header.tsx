@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Bars3Icon } from '@heroicons/react/24/solid';
-import AvatarPicture from '@/components/header/avatar/avatar-picture';
 import Image from 'next/image';
+import AvatarPicture from '@/components/header/avatar/avatar-picture';
+import { Menu } from 'lucide-react';
 
 export default function Header() {
   return (
@@ -9,18 +9,19 @@ export default function Header() {
       <div className='flex justify-between'>
         <div className='flex items-center'>
           <button className='cursor-pointer'>
-            <Bars3Icon className='h-6 w-6 text-slate-200 mr-3' />
+            <Menu className='h-6 w-6 text-slate-200 mr-3' />
           </button>
 
-          <Link href='/'>
+          <Link href='/' className='flex flex-row items-center gap-1'>
             <Image
-              src='/images/geauxlogo.png'
+              src='/images/geaux-logo.png'
               alt='geaux logo'
               priority
               width={500}
               height={500}
-              style={{ width: '120px' }}
+              className='w-[44px] h-[44px] transform scale-[1.2]'
             />
+            <span className='font-medium text-xl'>GEAUX TV</span>
           </Link>
         </div>
 

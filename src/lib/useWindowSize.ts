@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | undefined;
+const MOBILE = 'mobile';
+const DESKTOP = 'desktop';
+const LARGE_DESKTOP = 'large-desktop';
+
+export type Breakpoint = typeof MOBILE | typeof DESKTOP | typeof LARGE_DESKTOP | undefined;
 
 const useWindowSize = (): Breakpoint => {
   const [breakpoint, setBreakpoint] = useState<Breakpoint>(undefined);
@@ -9,16 +13,12 @@ const useWindowSize = (): Breakpoint => {
     const handleResize = () => {
       const width = window.innerWidth;
 
-      if (width >= 1536) {
-        setBreakpoint('2xl');
-      } else if (width >= 1280) {
-        setBreakpoint('xl');
-      } else if (width >= 1024) {
-        setBreakpoint('lg');
-      } else if (width >= 768) {
-        setBreakpoint('md');
+      if (width >= 1700) {
+        setBreakpoint(LARGE_DESKTOP);
+      } else if (width >= 750) {
+        setBreakpoint(DESKTOP);
       } else {
-        setBreakpoint('sm');
+        setBreakpoint(MOBILE);
       }
     };
 

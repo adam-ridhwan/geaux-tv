@@ -1,15 +1,15 @@
-import { data } from '@/database';
-
-const CHANNEL_CATEGORIES = [...Object.keys(data).map(channel => channel), 'Favorites'];
-const TV_DATA = Object.entries(data);
+import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
 
 const Guide = () => {
   return (
     <>
-      <div className='outline outline-2 outline-red-500 h-full relative bg-mauve-2 pb-[30px] flex flex-col gap-[10px] overflow-hidden'>
-        {CHANNEL_CATEGORIES.map(category => {
-          return <div key={category}>{category}</div>;
-        })}
+      <div
+        className='relative w-full bg-mauve-2 pb-[30px] gap-[10px] px-3 flex flex-col
+        mobile:flex-1 mobile:min-h-[300px]
+        desktop:h-[300px] desktop:min-h-[300px]'
+      >
+        <ChannelCategoriesDropdown />
+        <div>Channels</div>
       </div>
     </>
   );

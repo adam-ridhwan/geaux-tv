@@ -4,11 +4,11 @@ import * as Form from '@radix-ui/react-form';
 import { FC, FormEvent, useState } from 'react';
 import { isValidName } from '@/lib/isValidName';
 
-interface UserDetails {
+type UserDetails = {
   name: string;
   email: string;
   password: string;
-}
+};
 
 const SignUpForm: FC = () => {
   const [userDetails, setUserDetails] = useState<UserDetails>({ name: '', email: '', password: '' });

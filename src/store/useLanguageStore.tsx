@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
-interface Language {
+type Language = {
   languageName: string;
   languageCode: string;
-}
+};
 
 export const LANGUAGES: Language[] = [
   { languageName: 'English', languageCode: 'en' },
@@ -31,6 +31,7 @@ type LanguageState = {
 };
 
 export const useLanguageStore = create<LanguageState>()(set => ({
-  currentLanguage: localStorage.getItem('currentLanguage') || LANGUAGES[0].languageCode,
+  currentLanguage:
+    (typeof window !== 'undefined' && localStorage.getItem('currentLanguage')) || LANGUAGES[0].languageCode,
   setCurrentLanguage: (currentLanguage: string) => set({ currentLanguage }),
 }));

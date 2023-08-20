@@ -4,10 +4,10 @@ import * as Form from '@radix-ui/react-form';
 import { FC, FormEvent, useState } from 'react';
 import Link from 'next/link';
 
-interface UserDetails {
+type UserDetails = {
   email: string;
   password: string;
-}
+};
 
 const SignInForm: FC = () => {
   const [userDetails, setUserDetails] = useState<UserDetails>({ email: '', password: '' });

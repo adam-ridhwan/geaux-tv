@@ -1,10 +1,10 @@
 import { cn } from '@/lib/cn';
 import { ButtonHTMLAttributes, forwardRef, ForwardRefRenderFunction, ReactNode } from 'react';
 
-interface ExtendedButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ExtendedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   state?: boolean;
   children?: ReactNode;
-}
+};
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonProps> = (
   { className, state, children, ...props },

@@ -7,7 +7,7 @@ type ExtendedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode;
 };
 
-const Button: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonProps> = (
+const ButtonPrimary: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonProps> = (
   { className, isActive, children, ...props },
   ref
 ) => {
@@ -15,10 +15,9 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonProps> =
     <button
       ref={ref}
       className={cn(
-        `w-full h-full px-3 py-2 flex items-center gap-2 
-        hover:bg-secondary-dark hover:text-secondary-lightest focus:bg-secondary-darker rounded-dropdown-radius`,
+        `w-full mt-3 h-[40px] bg-primary-darkest border-2 border-primary-darker rounded-strong`,
         className,
-        { 'bg-secondary-darker hover:bg-pink-4 text-secondary-lightest hover:secondary-lightest': isActive }
+        { '': isActive }
       )}
       {...props}
     >
@@ -27,4 +26,4 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonProps> =
   );
 };
 
-export default forwardRef(Button);
+export default forwardRef(ButtonPrimary);

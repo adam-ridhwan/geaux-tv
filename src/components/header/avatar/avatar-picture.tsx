@@ -18,10 +18,10 @@ export default function AvatarPicture() {
         <DropdownMenu.Trigger>
           <Avatar.Root
             className='group inline-flex items-center justify-center align-middle overflow-hidden select-none
-            w-11 h-11 rounded-round relative'
+            w-11 h-11 rounded-full relative'
           >
             <Avatar.Image
-              className='w-full h-full object-cover'
+              className='w-full h-full rounded-full object-cover'
               src='https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?&w=64&h=64&dpr=2&q=70&crop=focalpoint&fp-x=0.5&fp-y=0.3&fp-z=1&fit=crop'
               alt='Avatar Image'
             />

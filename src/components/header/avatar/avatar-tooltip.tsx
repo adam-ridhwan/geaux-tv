@@ -12,7 +12,7 @@ const AvatarTooltip = () => {
             <Tooltip.Content
               className='data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade
               shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
-              select-none bg-primary-darkest rounded-dropdown-radius px-[15px] py-[10px] text-fs-300 leading-none
+              select-none bg-primary-darkest rounded-weak px-[15px] py-[10px] text-fs-300 leading-none
               will-change-[transform,opacity]'
               sideOffset={5}
               align='end'

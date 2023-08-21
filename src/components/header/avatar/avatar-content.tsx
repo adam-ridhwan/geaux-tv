@@ -14,16 +14,16 @@ const AvatarContent: FC = () => {
       <DropdownMenu.Content
         align='end'
         sideOffset={5}
-        className='w-40 bg-primary-darkest border-2 border-primary-darker rounded-dropdown-radius flex flex-col p-2.5
+        className='w-40 bg-primary-darkest border-2 border-primary-darker rounded-weak flex flex-col p-2.5
         will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade z-40'
         onInteractOutside={closeAvatarDropdown}
       >
-        <DropdownMenu.Item className='w-full rounded-dropdown-radius'>
+        <DropdownMenu.Item className='w-full rounded-weak'>
           <Link
             href='/profile'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-secondary-dark hover:text-secondary-lightest
-            rounded-dropdown-radius flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-tertiary-dark hover:text-tertiary-lightest
+            rounded-weak flex items-center gap-2'
           >
             <span>
               <AvatarIcon size={20} color='#fff' />
@@ -32,12 +32,12 @@ const AvatarContent: FC = () => {
           </Link>
         </DropdownMenu.Item>
 
-        <DropdownMenu.Item className='w-full rounded-dropdown-radius'>
+        <DropdownMenu.Item className='w-full rounded-weak'>
           <Link
             href='/'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-secondary-dark hover:text-secondary-lightest
-            rounded-dropdown-radius flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-tertiary-dark hover:text-tertiary-lightest
+            rounded-weak flex items-center gap-2'
           >
             <span>
               <HeartHandshakeIcon size={20} color='#fff' />
@@ -51,10 +51,10 @@ const AvatarContent: FC = () => {
 
         <DropdownMenu.Separator className='h-[2px] bg-slate-3 my-2' />
 
-        <DropdownMenu.Item className='w-full rounded-dropdown-radius'>
+        <DropdownMenu.Item className='w-full rounded-weak'>
           <button
-            className='w-full h-full text-left px-3 py-2 hover:bg-secondary-dark hover:text-secondary-lightest
-            rounded-dropdown-radius flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-tertiary-dark hover:text-tertiary-lightest
+            rounded-weak flex items-center gap-2'
           >
             <span>
               <LoginIcon size={20} color='#fff' />

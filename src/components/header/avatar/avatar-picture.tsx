@@ -18,7 +18,7 @@ export default function AvatarPicture() {
         <DropdownMenu.Trigger>
           <Avatar.Root
             className='group inline-flex items-center justify-center align-middle overflow-hidden select-none
-            w-11 h-11 rounded-full relative'
+            w-11 h-11 rounded-round relative'
           >
             <Avatar.Image
               className='w-full h-full object-cover'
@@ -26,7 +26,7 @@ export default function AvatarPicture() {
               alt='Avatar Image'
             />
             <Avatar.Fallback
-              className='w-full h-full flex items-center justify-center bg-white text-[purple-3] text-base leading-none
+              className='w-full h-full flex items-center justify-center text-purple-11 text-base leading-none
               font-medium'
               delayMs={600}
             >

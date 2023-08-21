@@ -1,23 +1,24 @@
-import { cn } from '@/lib/cn';
 import { ButtonHTMLAttributes, forwardRef, ForwardRefRenderFunction, ReactNode } from 'react';
 
+import { cn } from '@/lib/cn';
+
 type ExtendedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  state?: boolean;
+  isActive?: boolean;
   children?: ReactNode;
 };
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonProps> = (
-  { className, state, children, ...props },
-  ref,
+  { className, isActive, children, ...props },
+  ref
 ) => {
   return (
     <button
       ref={ref}
       className={cn(
         `w-full h-full px-3 py-2 flex items-center gap-2 
-        hover:bg-pink-6 hover:text-pink-12 rounded-md focus:bg-pink-5`,
+        hover:bg-secondary-dark hover:text-secondary-lightest focus:bg-secondary-darker rounded-dropdown-radius`,
         className,
-        { 'bg-pink-4 hover:bg-pink-4 text-pink-12 hover:text-pink-12': state },
+        { 'bg-secondary-darker hover:bg-pink-4 text-secondary-lightest hover:secondary-lightest': isActive }
       )}
       {...props}
     >

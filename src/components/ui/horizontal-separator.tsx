@@ -7,8 +7,8 @@ export default function HorizontalSeparator() {
     <>
       <Separator.Root
         orientation='horizontal'
-        className='bg-slate-5 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full
-        data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px my-[15px]'
+        className='bg-primary-dark data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full
+        data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px my-4'
       />
     </>
   );

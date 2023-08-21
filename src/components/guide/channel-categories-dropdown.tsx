@@ -16,7 +16,7 @@ const ChannelCategoriesDropdown = () => {
     <>
       <DropdownMenu.Root open={isChannelCategoriesDropdownOpen} onOpenChange={setIsChannelCategoriesDropdownOpen}>
         <DropdownMenu.Trigger asChild>
-          <ButtonPrimary>
+          <ButtonPrimary isActive={isChannelCategoriesDropdownOpen}>
             <span>Channels</span>
           </ButtonPrimary>
         </DropdownMenu.Trigger>

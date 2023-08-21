@@ -14,11 +14,9 @@ const ButtonPrimary: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButtonP
   return (
     <button
       ref={ref}
-      className={cn(
-        `w-full mt-3 h-[40px] bg-primary-darkest border-2 border-primary-darker rounded-strong`,
-        className,
-        { '': isActive }
-      )}
+      className={cn(`w-full mt-3 h-[40px] bg-primary-darkest border-2 border-primary-dark rounded-strong`, className, {
+        'border-primary-light': isActive,
+      })}
       {...props}
     >
       {children}

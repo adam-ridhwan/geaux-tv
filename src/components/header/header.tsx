@@ -5,7 +5,7 @@ import { Menu } from 'lucide-react';
 
 export default function Header() {
   return (
-    <header className='py-3 px-4 z-10'>
+    <header className='py-3 px-4'>
       <div className='flex justify-between'>
         <div className='flex items-center'>
           <button className='cursor-pointer'>

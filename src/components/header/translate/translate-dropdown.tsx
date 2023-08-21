@@ -30,20 +30,18 @@ const TranslateDropdown: FC = () => {
             </Button>
           </Popover.Trigger>
 
-          <Popover.Portal>
-            <Popover.Content
-              className='w-52 bg-slate-1 border-2 border-slate-3 rounded-md p-2.5 will-change-[opacity,transform]
+          <Popover.Content
+            className='w-52 bg-slate-1 border-2 border-slate-3 rounded-md p-2.5 will-change-[opacity,transform]
               data-[side=left]:animate-slideUpAndFade'
-              side='left'
-              align='start'
-              alignOffset={-75}
-              onFocusOutside={e => {
-                e.preventDefault(); // prevents the dropdown from closing when mouse moves outside
-              }}
-            >
-              <TranslateContent />
-            </Popover.Content>
-          </Popover.Portal>
+            side='left'
+            align='start'
+            alignOffset={-75}
+            onFocusOutside={e => {
+              e.preventDefault(); // prevents the dropdown from closing when mouse moves outside
+            }}
+          >
+            <TranslateContent />
+          </Popover.Content>
         </Popover.Root>
       </DropdownMenu.Item>
     </>

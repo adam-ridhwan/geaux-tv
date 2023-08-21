@@ -20,7 +20,7 @@ const TranslateContent: FC = () => {
 
   return (
     <>
-      <RadioGroup.Root className='flex flex-col' defaultValue={currentLanguage} aria-label='View density'>
+      <RadioGroup.Root className='flex flex-col z-50' defaultValue={currentLanguage} aria-label='View density'>
         {LANGUAGES.map(language => (
           <RadioGroup.Item asChild key={language.languageName} value={language.languageCode}>
             <Button

@@ -13,14 +13,15 @@ const AvatarContent: FC = () => {
       <DropdownMenu.Content
         align='end'
         className='w-40 bg-slate-1 border-2 border-slate-3 rounded-md flex flex-col p-2.5
-          will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
+          will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade z-40'
         onInteractOutside={closeAvatarDropdown}
       >
         <DropdownMenu.Item className='w-full rounded-md'>
           <Link
             href='/profile'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md
+            flex items-center gap-2'
           >
             <span>
               <AvatarIcon size={20} color='#fff' />
@@ -33,7 +34,8 @@ const AvatarContent: FC = () => {
           <Link
             href='/'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md
+            flex items-center gap-2'
           >
             <span>
               <HeartHandshakeIcon size={20} color='#fff' />
@@ -47,7 +49,10 @@ const AvatarContent: FC = () => {
         <DropdownMenu.Separator className='h-[2px] bg-slate-3 my-1.5' />
 
         <DropdownMenu.Item className='w-full rounded-md'>
-          <button className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md flex items-center gap-2'>
+          <button
+            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md
+            flex items-center gap-2'
+          >
             <span>
               <LoginIcon size={20} color='#fff' />
             </span>

@@ -1,9 +1,10 @@
 'use client';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { data } from '@/database';
 import { useState } from 'react';
+import { data } from '@/database';
+
 import Button from '@/components/ui/button';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 const CHANNEL_CATEGORIES = [...Object.keys(data).map(channel => channel), 'Favorites'];
 const TV_DATA = Object.entries(data);

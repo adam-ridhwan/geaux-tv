@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
-import { HeartHandshakeIcon, LogIn as LoginIcon, UserCircle2 as AvatarIcon } from 'lucide-react';
-import TranslateDropdown from '@/components/header/translate/translate-dropdown';
+import { UserCircle2 as AvatarIcon, HeartHandshakeIcon, LogIn as LoginIcon } from 'lucide-react';
+
 import { useAvatarDropdownStore } from '@/store/useOverlayStore';
+import TranslateDropdown from '@/components/header/translate/translate-dropdown';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 const AvatarContent: FC = () => {
   const [closeAvatarDropdown] = useAvatarDropdownStore(state => [state.closeAvatarDropdown]);

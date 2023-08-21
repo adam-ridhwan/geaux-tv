@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import SignUpForm from '@/components/form/sign-up-form';
+
 import HorizontalSeparator from '@/components/ui/separator';
+import SignUpForm from '@/components/form/sign-up-form';
 import Header from '@/components/header/header';
 
 export default function SignUpPage() {

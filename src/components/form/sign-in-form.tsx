@@ -1,8 +1,9 @@
 'use client';
 
-import * as Form from '@radix-ui/react-form';
 import { FC, FormEvent, useState } from 'react';
 import Link from 'next/link';
+
+import * as Form from '@radix-ui/react-form';
 
 type UserDetails = {
   email: string;

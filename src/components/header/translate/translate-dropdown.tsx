@@ -16,14 +16,14 @@ const TranslateDropdown: FC = () => {
   return (
     <>
       <DropdownMenu.Item
-        className='w-full rounded-md'
+        className='w-full rounded-dropdown-radius'
         onSelect={e => {
           e.preventDefault(); // prevents the dropdown from closing when clicked
         }}
       >
         <Popover.Root open={isTranslatePopoverOpen} onOpenChange={setIsTranslatePopoverOpen}>
           <Popover.Trigger asChild>
-            <Button state={isTranslatePopoverOpen}>
+            <Button isActive={isTranslatePopoverOpen}>
               <span>
                 <LanguagesIcon size={20} color='#fff' />
               </span>
@@ -32,8 +32,8 @@ const TranslateDropdown: FC = () => {
           </Popover.Trigger>
 
           <Popover.Content
-            className='w-52 bg-slate-1 border-2 border-slate-3 rounded-md p-2.5 will-change-[opacity,transform]
-              data-[side=left]:animate-slideUpAndFade'
+            className='w-52 bg-primary-darkest border-2 border-primary-darker rounded-dropdown-radius p-2.5
+            will-change-[opacity,transform] data-[side=left]:animate-slideUpAndFade'
             side='left'
             align='start'
             alignOffset={-75}

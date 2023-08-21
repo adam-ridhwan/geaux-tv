@@ -25,8 +25,8 @@ const TranslateContent: FC = () => {
         {LANGUAGES.map(language => (
           <RadioGroup.Item asChild key={language.languageName} value={language.languageCode}>
             <Button
-              className={cn('relative pl-9')}
-              state={currentLanguage === language.languageCode}
+              className={'relative pl-9'}
+              isActive={currentLanguage === language.languageCode}
               onClick={() => selectLanguage(language.languageCode)}
             >
               <span>{language.languageName}</span>

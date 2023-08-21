@@ -13,16 +13,17 @@ const AvatarContent: FC = () => {
     <>
       <DropdownMenu.Content
         align='end'
-        className='w-40 bg-slate-1 border-2 border-slate-3 rounded-md flex flex-col p-2.5
-          will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade z-40'
+        sideOffset={5}
+        className='w-40 bg-primary-darkest border-2 border-primary-darker rounded-dropdown-radius flex flex-col p-2.5
+        will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade z-40'
         onInteractOutside={closeAvatarDropdown}
       >
-        <DropdownMenu.Item className='w-full rounded-md'>
+        <DropdownMenu.Item className='w-full rounded-dropdown-radius'>
           <Link
             href='/profile'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md
-            flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-secondary-dark hover:text-secondary-lightest
+            rounded-dropdown-radius flex items-center gap-2'
           >
             <span>
               <AvatarIcon size={20} color='#fff' />
@@ -31,12 +32,12 @@ const AvatarContent: FC = () => {
           </Link>
         </DropdownMenu.Item>
 
-        <DropdownMenu.Item className='w-full rounded-md'>
+        <DropdownMenu.Item className='w-full rounded-dropdown-radius'>
           <Link
             href='/'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md
-            flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-secondary-dark hover:text-secondary-lightest
+            rounded-dropdown-radius flex items-center gap-2'
           >
             <span>
               <HeartHandshakeIcon size={20} color='#fff' />
@@ -45,14 +46,15 @@ const AvatarContent: FC = () => {
           </Link>
         </DropdownMenu.Item>
 
+        {/* TRANSLATE DROPDOWN*/}
         <TranslateDropdown />
 
-        <DropdownMenu.Separator className='h-[2px] bg-slate-3 my-1.5' />
+        <DropdownMenu.Separator className='h-[2px] bg-slate-3 my-2' />
 
-        <DropdownMenu.Item className='w-full rounded-md'>
+        <DropdownMenu.Item className='w-full rounded-dropdown-radius'>
           <button
-            className='w-full h-full text-left px-3 py-2 hover:bg-pink-6 hover:text-pink-12 rounded-md
-            flex items-center gap-2'
+            className='w-full h-full text-left px-3 py-2 hover:bg-secondary-dark hover:text-secondary-lightest
+            rounded-dropdown-radius flex items-center gap-2'
           >
             <span>
               <LoginIcon size={20} color='#fff' />

@@ -1,10 +1,10 @@
 'use client';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import * as Avatar from '@radix-ui/react-avatar';
-import AvatarTooltip from '@/components/header/avatar/avatar-tooltip';
-import AvatarContent from '@/components/header/avatar/avatar-content';
 import { useAvatarDropdownStore } from '@/store/useOverlayStore';
+import AvatarContent from '@/components/header/avatar/avatar-content';
+import AvatarTooltip from '@/components/header/avatar/avatar-tooltip';
+import * as Avatar from '@radix-ui/react-avatar';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 export default function AvatarPicture() {
   const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useAvatarDropdownStore(state => [

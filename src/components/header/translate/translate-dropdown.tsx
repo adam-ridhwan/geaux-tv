@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import * as Popover from '@radix-ui/react-popover';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { LanguagesIcon } from 'lucide-react';
-import TranslateContent from '@/components/header/translate/translate-content';
-import Button from '@/components/ui/button';
+
 import { useTranslatePopoverStore } from '@/store/useOverlayStore';
+import Button from '@/components/ui/button';
+import TranslateContent from '@/components/header/translate/translate-content';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as Popover from '@radix-ui/react-popover';
 
 const TranslateDropdown: FC = () => {
   const [isTranslatePopoverOpen, setIsTranslatePopoverOpen] = useTranslatePopoverStore(state => [

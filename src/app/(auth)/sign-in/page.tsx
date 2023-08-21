@@ -1,7 +1,8 @@
 import Link from 'next/link';
+
 import HorizontalSeparator from '@/components/ui/separator';
-import Header from '@/components/header/header';
 import SignInForm from '@/components/form/sign-in-form';
+import Header from '@/components/header/header';
 
 export default function SignInPage() {
   return (

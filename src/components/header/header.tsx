@@ -1,7 +1,8 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import AvatarPicture from '@/components/header/avatar/avatar-picture';
+import Link from 'next/link';
 import { Menu } from 'lucide-react';
+
+import AvatarPicture from '@/components/header/avatar/avatar-picture';
 
 export default function Header() {
   return (

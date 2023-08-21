@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-import { crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, slate, slateDark } from '@radix-ui/colors';
+import { crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, slateDark } from '@radix-ui/colors';
 
 const config: Config = {
   content: [
@@ -12,6 +12,9 @@ const config: Config = {
   theme: {
     colors: {
       //* THEME COLORS ────────────────────
+      black: '#000000',
+      white: '#ffffff',
+
       'primary-light': slateDark.slate10,
       'primary-lighter': slateDark.slate11,
       'primary-lightest': slateDark.slate12,
@@ -19,13 +22,20 @@ const config: Config = {
       'primary-darker': slateDark.slate3,
       'primary-darkest': slateDark.slate1,
 
-      'secondary-light': pinkDark.pink10,
-      'secondary-lighter': pinkDark.pink11,
-      'secondary-lightest': pinkDark.pink12,
-      'secondary-dark': pinkDark.pink6,
-      'secondary-darker': pinkDark.pink5,
-      'secondary-darkest': pinkDark.pink4,
-      
+      'secondary-light': mauveDark.mauve10,
+      'secondary-lighter': mauveDark.mauve11,
+      'secondary-lightest': mauveDark.mauve12,
+      'secondary-dark': mauveDark.mauve5,
+      'secondary-darker': mauveDark.mauve3,
+      'secondary-darkest': mauveDark.mauve1,
+
+      'tertiary-light': pinkDark.pink10,
+      'tertiary-lighter': pinkDark.pink11,
+      'tertiary-lightest': pinkDark.pink12,
+      'tertiary-dark': pinkDark.pink6,
+      'tertiary-darker': pinkDark.pink5,
+      'tertiary-darkest': pinkDark.pink4,
+
       //* PINK ───────────────────────────
       'pink-1': pinkDark.pink1,
       'pink-2': pinkDark.pink2,
@@ -123,11 +133,6 @@ const config: Config = {
       'fw-semi-bold': '200',
       'fw-bold': '300',
     },
-    borderRadius: {
-      'dropdown-radius': '0.375rem',
-      'border-radius-button': '0.5rem',
-      'border-radius-300': '0.75rem',
-    },
     screens: {
       mobile: '750px',
       desktop: '1700px',
@@ -139,7 +144,8 @@ const config: Config = {
         'radial-top-right': 'radial-gradient(circle 300px at top right, hsl(318, 80%, 15%), #000000)',
       },
       borderRadius: {
-        round: '30px',
+        weak: '0.5rem',
+        strong: '30px',
       },
       keyframes: {
         slideDownAndFade: {

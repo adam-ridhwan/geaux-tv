@@ -1,7 +1,7 @@
-import Player from '@/components/player/player';
 import Guide from '@/components/guide/guide';
+import Player from '@/components/player/player';
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Player />

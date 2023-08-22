@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, FormEvent, useState } from 'react';
+import { isValidName } from '@/util/isValidName';
 
-import { isValidName } from '@/lib/isValidName';
 import * as Form from '@radix-ui/react-form';
 
 type UserDetails = {

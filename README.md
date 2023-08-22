@@ -22,9 +22,11 @@ This is the new codebase for GeauxTV.
 
 #### **Database**:
 
-- [ ] Set Up Mongodb
-- [ ] Create channels collection
+- [x] Set Up Mongodb
+- [x] Create channels collection
 - [ ] Create users collection
+- [ ] Create rate limiting
+- [ ] Create admin dashboard for adding and removing channels
 
 #### **Authentication**:
 

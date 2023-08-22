@@ -1,9 +1,9 @@
 import { FC } from 'react';
+import { cn } from '@/util/cn';
 import { DotIcon } from 'lucide-react';
 
 import { languageCode, LANGUAGES, useLanguageStore } from '@/store/useLanguageStore';
 import { useAvatarDropdownStore } from '@/store/useOverlayStore';
-import { cn } from '@/lib/cn';
 import Button from '@/components/ui/button-secondary';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 

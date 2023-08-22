@@ -25,7 +25,7 @@ const data = {
     {
       number: 465,
       channelName: 'The Dive',
-      // channelIcon: Dive,
+      channelIcon: '',
       channelDescription: 'Our Global music video channel featuring the Geaux Music Live countdown show',
       episodes: [
         {
@@ -38,7 +38,7 @@ const data = {
     {
       number: 501,
       channelName: 'Ecopreneur',
-      // channelIcon: eco,
+      channelIcon: '',
       channelLink: 'https://airtable.com/shrjBjsR9mEEoCPDV',
       channelDescription:
         'Welcome to the Ecopreneur Channel! Home of The EcoSpotlight Show and all things sustainability conceived Co-Founder Philip Toussaint. Click the info button to learn more',
@@ -53,7 +53,7 @@ const data = {
     {
       number: 101,
       channelName: 'Geaux Info',
-      // channelIcon: gx,
+      channelIcon: '',
       channelDescription: 'Watch here to learn the latest about the network and what we have in store!',
       episodes: [
         {
@@ -66,7 +66,7 @@ const data = {
     {
       number: 17,
       channelName: 'Studio',
-      // channelIcon: studio,
+      channelIcon: '',
       channelDescription:
         'Studio 17 TV is your window into the people, food and culture of Central Florida. Orlando is more than just theme parks, let us show you!',
       episodes: [
@@ -80,7 +80,7 @@ const data = {
     {
       number: 212,
       channelName: 'Control',
-      // channelIcon: ctrl,
+      channelIcon: '',
       channelDescription: 'Fresh Drops of Culture, and Nonstop Vibes',
       episodes: [
         {
@@ -96,7 +96,7 @@ const data = {
     {
       number: 300,
       channelName: 'Expressions',
-      // channelIcon: Expressions,
+      channelIcon: '',
       channelDescription: 'Art/Creativity',
       episodes: [
         {
@@ -109,7 +109,7 @@ const data = {
     {
       number: 301,
       channelName: 'Expand',
-      // channelIcon: Expand,
+      channelIcon: '',
       channelDescription: 'Knowledge/Education',
       episodes: [
         {
@@ -122,7 +122,7 @@ const data = {
     {
       number: 302,
       channelName: 'Short Films (16+)',
-      // channelIcon: ShortFilms,
+      channelIcon: '',
       channelDescription: 'If you have a film for submission, send it to content@geaux.tv',
       channelLink: 'https://geaux.tv/creators',
       episodes: [
@@ -137,7 +137,7 @@ const data = {
     {
       number: 303,
       channelName: 'Geaux Travel',
-      // channelIcon: Travel,
+      channelIcon: '',
       channelDescription: 'Watch what is it like to travel to every country in the world',
       episodes: [
         {
@@ -152,7 +152,7 @@ const data = {
     {
       number: 400,
       channelName: 'Audio Dramas Action',
-      // channelIcon: AudioAction,
+      channelIcon: '',
       channelDescription: 'Audio Dramas',
       episodes: [
         {
@@ -165,7 +165,7 @@ const data = {
     {
       number: 401,
       channelName: 'Audio Dramas Talk',
-      // channelIcon: AudioTalk,
+      channelIcon: '',
       channelDescription: 'Audio Dramas Talk',
       episodes: [
         {
@@ -178,7 +178,7 @@ const data = {
     {
       number: 411,
       channelName: 'Blind Knowledge (16+)',
-      // channelIcon: blind,
+      channelIcon: '',
       channelDescription:
         'A mashup of all content that is featured, distributed, and promoted via the Blind Knowledge Network',
       episodes: [
@@ -195,7 +195,7 @@ const data = {
       channelName: 'Beat Club (16+)',
       channelDescription:
         'The Stew is a culturally-curated umbrella housing developmental platform for producers and artists to connect and cook up fresh music through a variety of niche outlets',
-      // channelIcon: beatclub,
+      channelIcon: '',
       episodes: [
         {
           videoId:
@@ -208,7 +208,7 @@ const data = {
     {
       number: 464,
       channelName: 'GML',
-      // channelIcon: gx,
+      channelIcon: '',
       channelDescription: '',
       episodes: [
         {
@@ -221,7 +221,7 @@ const data = {
     {
       number: 465,
       channelName: 'The Dive',
-      // channelIcon: Dive,
+      channelIcon: '',
       channelDescription: 'Our Global music video channel featuring the Geaux Music Live countdown show',
       episodes: [
         {
@@ -236,7 +236,7 @@ const data = {
     {
       number: 500,
       channelName: 'Geaux Fantasy',
-      // channelIcon: Fantasy,
+      channelIcon: '',
       channelDescription: 'Fantasy/Fiction',
       episodes: [
         {
@@ -251,7 +251,7 @@ const data = {
       channelName: 'Ecopreneur',
       channelDescription:
         'Welcome to the Ecopreneur Channel! Home of The EcoSpotlight Show and all things sustainability conceived Co-Founder Philip Toussaint. Click the info button to learn more!',
-      // channelIcon: eco,
+      channelIcon: '',
       episodes: [
         {
           videoId:
@@ -265,7 +265,7 @@ const data = {
       channelName: 'NASA TV',
       channelDescription:
         "Direct from America's space program, watch NASA TV live streaming here to get the latest from our exploration of the universe and learn how we discover our home planet.",
-      // channelIcon: nasa1,
+      channelIcon: '',
       episodes: [
         {
           videoId: 'https://www.youtube.com/watch?v=21X5lGlDOfg',
@@ -277,7 +277,7 @@ const data = {
       number: 503,
       channelName: 'XSET (16+)',
       channelDescription: "Gaming Remix'd. The fastest growing & most diverse gaming lifestyle brand in the world",
-      // channelIcon: xset,
+      channelIcon: '',
       episodes: [
         {
           videoId:
@@ -292,7 +292,7 @@ const data = {
     {
       number: 103,
       channelName: 'Geaux Get It!',
-      // channelIcon: GeauxGetIt,
+      channelIcon: '',
       channelDescription: "Here's the channel giving you the insights you need for all things startup. ",
       episodes: [
         {
@@ -307,7 +307,7 @@ const data = {
     {
       number: 102,
       channelName: 'Geaux Kids',
-      // channelIcon: kids,
+      channelIcon: '',
       channelDescription: 'A selection of diverse stories for children of all ages.',
       episodes: [
         {

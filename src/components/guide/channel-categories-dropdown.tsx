@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { data } from '@/database';
+import useWindowSize, { MOBILE } from '@/util/useWindowSize';
 
-import useWindowSize, { MOBILE } from '@/lib/useWindowSize';
 import ButtonPrimary from '@/components/ui/button-primary';
 import Button from '@/components/ui/button-secondary';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
@@ -30,7 +30,7 @@ const ChannelCategoriesDropdown = () => {
         sideOffset={5}
         alignOffset={15}
         className='bg-primary-darkest border-2 border-primary-darker rounded-weak flex flex-col p-2.5
-          will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
+        will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
       >
         <DropdownMenu.Item className='w-full rounded-weak'>
           {CHANNEL_CATEGORIES.map(category => {

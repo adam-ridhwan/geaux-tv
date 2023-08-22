@@ -1,19 +1,24 @@
 'use client';
 
-import { useState } from 'react';
-import { data } from '@/database';
+import { FC, useState } from 'react';
 import useWindowSize, { MOBILE } from '@/util/useWindowSize';
 
+import { Channels, useTvStore } from '@/store/useTvStore';
 import ButtonPrimary from '@/components/ui/button-primary';
 import Button from '@/components/ui/button-secondary';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-const CHANNEL_CATEGORIES = [...Object.keys(data).map(channel => channel), 'Favorites'];
-const TV_DATA = Object.entries(data);
+type Props = {
+  data: Channels;
+  CHANNEL_CATEGORIES: string[];
+};
 
-const ChannelCategoriesDropdown = () => {
+const ChannelCategoriesDropdown: FC<Props> = ({ data, CHANNEL_CATEGORIES }) => {
+  const [channels, setChannels] = useTvStore(state => [state.channels, state.setChannels]);
   const [isChannelCategoriesDropdownOpen, setIsChannelCategoriesDropdownOpen] = useState<boolean>();
   const currentDevice = useWindowSize();
+
+  if (data && data !== channels) setChannels(data); // Set channels in global store
 
   if (currentDevice !== MOBILE) return;
 
@@ -29,7 +34,7 @@ const ChannelCategoriesDropdown = () => {
         align='end'
         sideOffset={5}
         alignOffset={15}
-        className='bg-primary-darkest border-2 border-primary-darker rounded-weak flex flex-col p-2.5
+        className='bg-primary-darkest border-2 border-primary-light rounded-weak flex flex-col p-2.5
         will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
       >
         <DropdownMenu.Item className='w-full rounded-weak'>

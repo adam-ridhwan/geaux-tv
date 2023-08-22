@@ -1,8 +1,10 @@
+import { cache } from 'react';
+
 import { connectToDatabase } from '@/database/mongodb';
 
-export async function getAllChannels() {
+export const getAllChannels = cache(async () => {
   const { db } = await connectToDatabase();
   const collectionName = 'channels';
   const collection = db.collection(collectionName);
-  return await collection.find({}).toArray();
-}
+  return await collection.findOne({}, { projection: { _id: 0 } });
+});

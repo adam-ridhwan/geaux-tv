@@ -1,30 +1,10 @@
-import { connectToDatabase } from '@/database/mongodb';
+import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/getAllChannels';
 import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
 
-type Episode = {
-  videoId: string;
-  title: string;
-};
-
-type Channel = {
-  channelNumber: string;
-  channelName: string;
-  channelDescription: string;
-  episodes: Episode[];
-};
-
-type ChannelsGroup = {
-  [key: string]: Channel[];
-};
-
-type ChannelData = {
-  _id: string;
-  channels: ChannelsGroup;
-};
-
 const Guide = async () => {
-  const data = await getAllChannels();
+  const data: Channels = await getAllChannels();
+  const CHANNEL_CATEGORIES = ['Previously watched', ...Object.keys(data).map(channel => channel), 'Favorites'];
 
   return (
     <div
@@ -32,12 +12,12 @@ const Guide = async () => {
       mobile:flex-1 mobile:min-h-[300px]
       desktop:h-[300px] desktop:min-h-[300px]'
     >
-      <ChannelCategoriesDropdown />
+      <ChannelCategoriesDropdown data={data} CHANNEL_CATEGORIES={CHANNEL_CATEGORIES} />
+
       <div className='flex-1'>
-        <h1>Channels</h1>
-        {Object.keys(data[0].channels).map(category => {
-          return <div key={category}>{category}</div>;
-        })}
+        {CHANNEL_CATEGORIES.map(category => (
+          <div key={category}>{category}</div>
+        ))}
       </div>
     </div>
   );

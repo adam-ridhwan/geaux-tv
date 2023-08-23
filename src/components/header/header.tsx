@@ -15,12 +15,12 @@ export default function Header() {
 
           <Link href='/' className='flex flex-row items-center gap-1'>
             <Image
-              src='https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/AudioAction.png'
+              src='/images/geaux-logo.png'
               alt='geaux logo'
               priority
               width={500}
               height={500}
-              className='w-[44px] h-[44px] transform scale-[1.2]'
+              className='w-[40px] h-[40px] transform scale-[1.2]'
             />
 
             <span className='font-semibold text-fs-300'>GEAUX TV</span>

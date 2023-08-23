@@ -6,6 +6,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
 }
 
 
@@ -21,6 +22,7 @@ body {
     min-height: 100dvh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 main {
@@ -34,4 +36,17 @@ main {
 /* removes accessibility outline */
 :focus {
     outline: none;
+}
+
+.hide-scrollbar {
+    /*overflow: hidden;*/
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

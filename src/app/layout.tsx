@@ -1,5 +1,6 @@
 import '../styles/index.css';
 
+import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Geaux Network TV streaming service',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className={`${inter.className}`}>

@@ -8,8 +8,6 @@ export default function SignUpPage() {
   return (
     <>
       <main className='bg-radial-top-right h-[100dvh] max-h-[100dvh] min-h-[100dvh] flex flex-col'>
-        <Header />
-
         <section className='relative flex flex-col items-center flex-1'>
           <div className='flex items-center flex-col mt-8 w-[90%] max-w-md'>
             <div className='flex flex-col w-full gap-2'>

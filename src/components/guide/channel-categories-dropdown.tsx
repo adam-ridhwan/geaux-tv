@@ -18,14 +18,15 @@ const ChannelCategoriesDropdown: FC<Props> = ({ data, CHANNEL_CATEGORIES }) => {
   const [isChannelCategoriesDropdownOpen, setIsChannelCategoriesDropdownOpen] = useState<boolean>();
   const currentDevice = useWindowSize();
 
-  if (data && data !== channels) setChannels(data); // Set channels in global store
+  // Set channels in global store
+  if (data && data !== channels) setChannels(data);
 
   if (currentDevice !== MOBILE) return;
 
   return (
     <DropdownMenu.Root open={isChannelCategoriesDropdownOpen} onOpenChange={setIsChannelCategoriesDropdownOpen}>
       <DropdownMenu.Trigger asChild>
-        <ButtonPrimary isActive={isChannelCategoriesDropdownOpen}>
+        <ButtonPrimary isActive={isChannelCategoriesDropdownOpen} className='w-[95%] min-h-[40px]'>
           <span>Channels</span>
         </ButtonPrimary>
       </DropdownMenu.Trigger>
@@ -34,7 +35,7 @@ const ChannelCategoriesDropdown: FC<Props> = ({ data, CHANNEL_CATEGORIES }) => {
         align='end'
         sideOffset={5}
         alignOffset={15}
-        className='bg-primary-darkest border-2 border-primary-light rounded-weak flex flex-col p-2.5
+        className='bg-primary-darkest border-2 border-primary-dark rounded-weak flex flex-col p-2.5
         will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
       >
         <DropdownMenu.Item className='w-full rounded-weak'>

@@ -128,11 +128,7 @@ const config: Config = {
       'fs-600': '1.75rem',
       'fs-700': '3.25rem',
     },
-    fontWeight: {
-      'fw-regular': '100',
-      'fw-semi-bold': '200',
-      'fw-bold': '300',
-    },
+
     screens: {
       mobile: '750px',
       desktop: '1700px',
@@ -170,6 +166,11 @@ const config: Config = {
         slideLeftAndFade: 'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         slideRightAndFade: 'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+      fontWeight: {
+        'fw-regular': '100',
+        'fw-semi-bold': '200',
+        'fw-bold': '300',
       },
     },
   },

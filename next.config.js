@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  images: {
+    domains: ['geaux-avatar-icons.nyc3.digitaloceanspaces.com'],
+  },
 };
 
 module.exports = nextConfig;

@@ -38,6 +38,10 @@ This is the new codebase for GeauxTV.
 - [ ] Phone sign up
 - [ ] Phone sign in
 
+#### **Cloud Storage**:
+- [x] Set up cloud storage
+- [x] Upload photos
+
 <br>
 
 ## Technologies

@@ -7,9 +7,7 @@ import Header from '@/components/header/header';
 export default function SignInPage() {
   return (
     <>
-      <main className='bg-radial-top-right h-[100dvh] max-h-[100dvh] min-h-[100dvh] flex flex-col'>
-        <Header />
-
+      <main className='h-[100dvh] max-h-[100dvh] min-h-[100dvh] flex flex-col'>
         <section className='relative flex flex-col items-center flex-1'>
           <div className='flex items-center flex-col mt-8 w-[90%] max-w-md'>
             <div className='flex flex-col w-full gap-2'>
@@ -31,8 +29,8 @@ export default function SignInPage() {
                 </div>
 
                 <div className='w-[80%] flex flex-col items-center justify-center gap-5'>
-                  <button className='w-full h-[40px] bg-red-800 rounded-round text-slate-12'>Google</button>
-                  <button className='w-full h-[40px] bg-neutral-800 rounded-round text-slate-12'>Phone</button>
+                  <button className='w-full h-[40px] bg-primary-light rounded-strong text-slate-12'>Google</button>
+                  <button className='w-full h-[40px] bg-primary-light rounded-strong text-slate-12'>Phone</button>
                 </div>
               </div>
 

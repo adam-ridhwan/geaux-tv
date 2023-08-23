@@ -26,3 +26,15 @@ export const useTranslatePopoverStore = create<TranslatePopoverState>(set => ({
   setIsTranslatePopoverOpen: (state: boolean) => set({ isTranslatePopoverOpen: state }),
   closeTranslatePopover: () => set({ isTranslatePopoverOpen: false }),
 }));
+
+type OptionsPopupState = {
+  isOptionsPopupOpen: boolean;
+  setIsOptionsPopupOpen: (state: boolean) => void;
+  closeOptionsPopup: () => void;
+};
+
+export const useOptionsPopupStore = create<OptionsPopupState>(set => ({
+  isOptionsPopupOpen: false,
+  setIsOptionsPopupOpen: (state: boolean) => set({ isOptionsPopupOpen: state }),
+  closeOptionsPopup: () => set({ isOptionsPopupOpen: false }),
+}));

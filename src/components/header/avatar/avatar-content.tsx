@@ -14,7 +14,7 @@ const AvatarContent: FC = () => {
       <DropdownMenu.Content
         align='end'
         sideOffset={5}
-        className='w-40 bg-primary-darkest border-2 border-primary-darker rounded-weak flex flex-col p-2.5
+        className='w-40 bg-primary-darkest border-2 border-primary-dark rounded-weak flex flex-col p-2.5
         will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade z-40'
         onInteractOutside={closeAvatarDropdown}
       >

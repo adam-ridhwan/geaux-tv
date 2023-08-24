@@ -26,7 +26,7 @@ const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA
   return (
     <DropdownMenu.Root open={isChannelCategoriesDropdownOpen} onOpenChange={setIsChannelCategoriesDropdownOpen}>
       <DropdownMenu.Trigger asChild>
-        <ButtonPrimary isActive={isChannelCategoriesDropdownOpen} className='w-[95%] min-h-[40px] bg-primary-darkest'>
+        <ButtonPrimary isActive={isChannelCategoriesDropdownOpen} className='min-h-[40px] w-[95%] bg-primary-darkest'>
           <span>Channels</span>
         </ButtonPrimary>
       </DropdownMenu.Trigger>
@@ -36,8 +36,8 @@ const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA
           align='end'
           sideOffset={5}
           alignOffset={15}
-          className='bg-primary-darkest border-2 border-primary-dark rounded-weak flex flex-col p-2.5
-          will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade z-50'
+          className='z-50 flex flex-col rounded-weak border-2 border-primary-dark bg-primary-darkest
+          p-2.5 will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
         >
           <DropdownMenu.Item className='w-full rounded-weak'>
             {CHANNEL_CATEGORIES.map(category => {

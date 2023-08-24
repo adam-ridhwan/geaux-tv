@@ -22,19 +22,12 @@ const config: Config = {
       'primary-darkest': slateDark.slate1,
       'primary-void': 'hsl(240,4%,5%)',
 
-      'secondary-light': purpleDark.purple10,
-      'secondary-lighter': purpleDark.purple11,
-      'secondary-lightest': purpleDark.purple2,
-      'secondary-dark': purpleDark.purple5,
-      'secondary-darker': purpleDark.purple3,
-      'secondary-darkest': purpleDark.purple1,
-
-      'tertiary-light': pinkDark.pink10,
-      'tertiary-lighter': pinkDark.pink11,
-      'tertiary-lightest': pinkDark.pink12,
-      'tertiary-dark': pinkDark.pink6,
-      'tertiary-darker': pinkDark.pink5,
-      'tertiary-darkest': pinkDark.pink4,
+      'accent-light': pinkDark.pink10,
+      'accent-lighter': pinkDark.pink11,
+      'accent-lightest': pinkDark.pink12,
+      'accent-dark': pinkDark.pink6,
+      'accent-darker': pinkDark.pink5,
+      'accent-darkest': pinkDark.pink4,
 
       ...mauveDark,
       ...crimsonDark,
@@ -55,50 +48,45 @@ const config: Config = {
       mobile: '750px',
       desktop: '1700px',
     },
+
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'radial-top-right': 'radial-gradient(circle 300px at top right, hsl(318, 80%, 15%), #000000)',
         'gradient-bottom-to-top': `linear-gradient(to top, hsl(318, 80%, 5%) 5%, #000000)`,
+        'cool-gradient': 'linear-gradient(120deg, hsl(227, 47.2%, 21.0%), hsl(298, 34.4%, 15.3%))',
       },
       borderRadius: {
         weak: '0.5rem',
         strong: '30px',
       },
       keyframes: {
-        slideDownAndFade: {
-          from: { opacity: '0', transform: 'translateY(-2px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideLeftAndFade: {
-          from: { opacity: '0', transform: 'translateX(2px)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
-        },
         slideUpAndFade: {
           from: { opacity: '0', transform: 'translateY(2px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
-        slideRightAndFade: {
-          from: { opacity: '0', transform: 'translateX(-2px)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
-        },
         overlayShow: {
           from: { opacity: '0' },
-          to: { opacity: '0.5' },
+          to: { opacity: '0.05' },
         },
         contentShow: {
           from: { opacity: '0', bottom: '0px' },
           to: { opacity: '1', bottom: '20px' },
         },
+        slideDown: {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        slideUp: {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
       },
       animation: {
-        slideDownAndFade: 'slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideLeftAndFade: 'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideRightAndFade: 'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideDown: 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+        slideUp: 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)',
       },
       fontWeight: {
         'fw-regular': '100',

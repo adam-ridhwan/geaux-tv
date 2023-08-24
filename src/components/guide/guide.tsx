@@ -9,7 +9,7 @@ import OptionsButton from '@/components/guide/options-button';
 
 import '@/styles/index.css';
 
-import Overlay from '@/components/ui/overlay';
+import Footer from '@/components/footer/footer';
 
 const Guide = async () => {
   const TV_DATA: Channels | null = await getAllChannels();
@@ -19,7 +19,7 @@ const Guide = async () => {
   const CHANNEL_CATEGORIES = ['Previously watched', ...Object.keys(TV_DATA).map(channel => channel), 'Favorites'];
 
   const colors: {
-    number: string[];
+    [key: string]: string[];
   } = {
     1: ['hsl(227 47.2% 21.0%)', 'hsl(298 34.4% 15.3%)'],
     2: ['hsl(298 34.4% 15.3%)', 'hsl(214 59.4% 15.3%)'],
@@ -42,20 +42,22 @@ const Guide = async () => {
 
   return (
     <div
-      className='relative w-full h-full bg-gradient-bottom-to-top gap-[8px] flex flex-col items-center overflow-auto
-      mobile:flex-1 mobile:min-h-[304px]
+      className='relative flex h-full w-full flex-col items-center overflow-auto bg-gradient-bottom-to-top
+      mobile:min-h-[304px] mobile:flex-1
       desktop:h-[304px] desktop:min-h-[304px]'
     >
-      <ChannelCategoriesDropdown TV_DATA={TV_DATA} CHANNEL_CATEGORIES={CHANNEL_CATEGORIES} />
+      <div className='flex w-full justify-center bg-black'>
+        <ChannelCategoriesDropdown TV_DATA={TV_DATA} CHANNEL_CATEGORIES={CHANNEL_CATEGORIES} />
+      </div>
 
-      <div className='w-full pb-[40px] overflow-auto hide-scrollbar'>
+      <div className='hide-scrollbar w-full overflow-auto'>
         {Object.keys(TV_DATA).map(category => (
-          <div key={category} className='flex flex-col pt-[8px] pb-[40px]'>
-            <div className='flex flex-row'>
-              <HorizontalSeparator className='relative bg-tertiary-light mb-[32px]'>
+          <div key={category} className='flex flex-col pb-[40px]'>
+            <div className='sticky top-0 z-10 flex flex-row bg-black pt-[20px]'>
+              <HorizontalSeparator className='relative mb-[32px] bg-accent-light'>
                 <span
-                  className='absolute left-[16px] top-1/2 transform -translate-y-1/2 text-primary-lightest text-fs-400
-                  font-bold whitespace-nowrap bg-tertiary-darkest border border-tertiary-light rounded-weak px-3 py-1'
+                  className='absolute left-[16px] top-1/2 -translate-y-1/2 transform whitespace-nowrap rounded-weak
+                  border border-accent-light bg-accent-darkest px-3 py-1 text-fs-400 font-bold text-primary-lightest'
                 >
                   {category}
                 </span>
@@ -72,10 +74,10 @@ const Guide = async () => {
                     <ChannelButton>
                       <Image src={channel.channelIcon} alt={channel.channelName} width={55} height={55} />
                       <div className='flex flex-col items-start leading-5'>
-                        <span className='text-primary-light text-fs-300 font-semibold tracking-wider'>
+                        <span className='text-fs-300 font-semibold tracking-wider text-primary-light'>
                           {channel.channelNumber}
                         </span>
-                        <span className='text-primary-lighter text-fs-400 font-bold whitespace-nowrap'>
+                        <span className='whitespace-nowrap text-fs-400 font-bold text-primary-lighter'>
                           {channel.channelName}
                         </span>
                       </div>
@@ -87,6 +89,8 @@ const Guide = async () => {
             </div>
           </div>
         ))}
+
+        <Footer />
       </div>
     </div>
   );

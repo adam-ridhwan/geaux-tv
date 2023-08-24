@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+import { Channel } from '@/store/useTvStore';
+
 type AvatarDropdownState = {
   isAvatarDropdownOpen: boolean;
   setIsAvatarDropdownOpen: (state: boolean) => void;
@@ -31,10 +33,14 @@ type OptionsPopupState = {
   isOptionsPopupOpen: boolean;
   setIsOptionsPopupOpen: (state: boolean) => void;
   closeOptionsPopup: () => void;
+  selectedChannel: Channel | null;
+  setSelectedChannel: (channel: Channel) => void;
 };
 
 export const useOptionsPopupStore = create<OptionsPopupState>(set => ({
   isOptionsPopupOpen: false,
   setIsOptionsPopupOpen: (state: boolean) => set({ isOptionsPopupOpen: state }),
   closeOptionsPopup: () => set({ isOptionsPopupOpen: false }),
+  selectedChannel: null,
+  setSelectedChannel: (channel: Channel) => set({ selectedChannel: channel }),
 }));

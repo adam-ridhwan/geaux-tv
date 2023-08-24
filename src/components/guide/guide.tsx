@@ -70,7 +70,7 @@ const Guide = async () => {
                 // const secondColor = colors[index][1];
                 return (
                   <div key={channel.channelNumber} className='relative'>
-                    <ChannelButton>
+                    <ChannelButton channel={channel}>
                       <Image src={channel.channelIcon} alt={channel.channelName} width={55} height={55} />
                       <div className='flex flex-col items-start leading-5'>
                         <span className='text-fs-300 font-semibold tracking-wider text-primary-light'>

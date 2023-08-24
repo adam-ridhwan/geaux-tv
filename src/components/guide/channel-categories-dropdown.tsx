@@ -14,12 +14,19 @@ type ChannelCategoriesDropdownProps = {
 };
 
 const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA, CHANNEL_CATEGORIES }) => {
-  const [channels, setChannels] = useTvStore(state => [state.channels, state.setChannels]);
+  const [channels, setChannels, setCurrentChannel] = useTvStore(state => [
+    state.channels,
+    state.setChannels,
+    state.setCurrentChannel,
+  ]);
   const [isChannelCategoriesDropdownOpen, setIsChannelCategoriesDropdownOpen] = useState<boolean>();
   const currentDevice = useWindowSize();
 
   // Set channels in global store
-  if (TV_DATA && TV_DATA !== channels) setChannels(TV_DATA);
+  if (TV_DATA && TV_DATA !== channels) {
+    setChannels(TV_DATA);
+    setCurrentChannel(TV_DATA[CHANNEL_CATEGORIES[1]][0]);
+  }
 
   if (currentDevice !== MOBILE) return;
 

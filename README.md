@@ -8,9 +8,11 @@ This is the new codebase for GeauxTV.
 
 #### **Pages** (user interface):
 
-- [ ] Player (root)
+- [ ] Player & guide (root)
    - (player will have desktop, tablet, mobile resolutions. there will be default mode, full screen mode and theatre mode.)
    - [x] style player and guide and make both response on mobile, tablet and desktops
+   - [x] added sticky headers for each category 
+   - [x] added footer
 - [x] sign-in
 - [x] sign-up
 - [ ] benefits
@@ -26,7 +28,7 @@ This is the new codebase for GeauxTV.
 - [x] Set Up Mongodb
 - [x] Create channels collection
 - [ ] Create users collection
-- [ ] Create rate limiting
+- [ ] Add rate limiting
 - [ ] Create admin dashboard for adding and removing channels
 
 #### **Authentication**:
@@ -49,14 +51,15 @@ This is the new codebase for GeauxTV.
 
 1. Framework - **Next.js**
 2. Language - **Typescript**
-3. Styling - **Tailwind CSS and Lucide Icons**
-4. Frontend library - **Radix UI**
-5. Global State Management - **Zustand**
-6. Database - **MongoDB**
-7. Authentication - **NextAuth.js**
-8. Hosting - **Vercel**
-9. Testing - **Jest & React Testing Library**
-10. Cloud Storage - **Google Cloud Storage**
+3. Styling - **Tailwind CSS**
+4. Icons - **Lucide Icons**
+5. Frontend library - **Radix UI**
+6. Global State Management - **Zustand**
+7. Database - **MongoDB**
+8. Authentication - **NextAuth.js**
+9. Hosting - **Vercel**
+10. Testing - **Jest & React Testing Library**
+11. Cloud Storage - **Digital Ocean**
 
 <br>
 

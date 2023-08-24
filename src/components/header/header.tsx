@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, UserCircle2 } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 import AvatarPicture from '@/components/header/avatar/avatar-picture';
 
 export default function Header() {
   return (
-    <header className='py-3 px-4'>
+    <header className='px-4 py-3'>
       <div className='flex justify-between'>
         <div className='flex items-center'>
           <button className='cursor-pointer'>
-            <Menu className='h-6 w-6 text-slate-200 mr-3' />
+            <Menu className='text-slate-200 mr-3 h-6 w-6' />
           </button>
 
           <Link href='/' className='flex flex-row items-center gap-1'>
@@ -20,10 +20,10 @@ export default function Header() {
               priority
               width={500}
               height={500}
-              className='w-[40px] h-[40px] transform scale-[1.2]'
+              className='h-[40px] w-[40px] scale-[1.2] transform'
             />
 
-            <span className='font-semibold text-fs-300'>GEAUX TV</span>
+            <span className='text-fs-300 font-semibold'>GEAUX TV</span>
           </Link>
         </div>
 

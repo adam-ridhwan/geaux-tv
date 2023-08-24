@@ -60,6 +60,25 @@ const config: Config = {
         strong: '30px',
       },
       keyframes: {
+        rotate: {
+          '100%': {
+            transform: 'rotate(360deg)',
+          },
+        },
+        dash: {
+          '0%': {
+            'stroke-dasharray': '1, 150',
+            'stroke-dashoffset': '0',
+          },
+          '50%': {
+            'stroke-dasharray': '90, 150',
+            'stroke-dashoffset': '-35',
+          },
+          '100%': {
+            'stroke-dasharray': '90, 150',
+            'stroke-dashoffset': '-124',
+          },
+        },
         slideUpAndFade: {
           from: { opacity: '0', transform: 'translateY(2px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
@@ -82,6 +101,8 @@ const config: Config = {
         },
       },
       animation: {
+        rotate: 'rotate 2s linear infinite',
+        dash: 'dash 1.5s ease-in-out infinite',
         slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',

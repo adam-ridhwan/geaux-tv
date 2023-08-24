@@ -8,8 +8,6 @@ import Footer from '@/components/footer/footer';
 import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
 import OptionsButton from '@/components/guide/options-button';
 
-import '@/styles/index.css';
-
 const Guide = async () => {
   const TV_DATA: Channels | null = await getAllChannels();
 

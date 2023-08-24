@@ -15,9 +15,9 @@ const ButtonSecondary: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButto
       ref={ref}
       className={cn(
         `w-full h-full px-3 py-2 flex items-center gap-2 
-        hover:bg-tertiary-dark hover:text-tertiary-lightest focus:bg-tertiary-darker rounded-weak`,
+        hover:bg-accent-dark hover:text-accent-lightest rounded-weak`,
         className,
-        { 'bg-tertiary-darker hover:bg-tertiary-darker text-tertiary-lightest hover:tertiary-lightest': isActive }
+        { 'bg-accent-darker hover:bg-accent-darker text-accent-lightest hover:accent-lightest': isActive }
       )}
       {...props}
     >

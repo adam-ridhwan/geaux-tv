@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { UserCircle2 as AvatarIcon, HeartHandshakeIcon, LogIn as LoginIcon } from 'lucide-react';
 
 import { useAvatarDropdownStore } from '@/store/useOverlayStore';
+import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import TranslateDropdown from '@/components/header/translate/translate-dropdown';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
@@ -22,7 +23,7 @@ const AvatarContent: FC = () => {
           <Link
             href='/profile'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-tertiary-dark hover:text-tertiary-lightest
+            className='w-full h-full text-left px-3 py-2 hover:bg-accent-dark hover:text-accent-lightest
             rounded-weak flex items-center gap-2'
           >
             <span>
@@ -36,7 +37,7 @@ const AvatarContent: FC = () => {
           <Link
             href='/'
             onClick={closeAvatarDropdown}
-            className='w-full h-full text-left px-3 py-2 hover:bg-tertiary-dark hover:text-tertiary-lightest
+            className='w-full h-full text-left px-3 py-2 hover:bg-accent-dark hover:text-accent-lightest
             rounded-weak flex items-center gap-2'
           >
             <span>
@@ -49,11 +50,11 @@ const AvatarContent: FC = () => {
         {/* TRANSLATE DROPDOWN*/}
         <TranslateDropdown />
 
-        <DropdownMenu.Separator className='h-[2px] bg-slate-3 my-2' />
+        <DropdownMenu.Separator className='h-[2px] bg-primary-dark my-2' />
 
         <DropdownMenu.Item className='w-full rounded-weak'>
           <button
-            className='w-full h-full text-left px-3 py-2 hover:bg-tertiary-dark hover:text-tertiary-lightest
+            className='w-full h-full text-left px-3 py-2 hover:bg-accent-dark hover:text-accent-lightest
             rounded-weak flex items-center gap-2'
           >
             <span>

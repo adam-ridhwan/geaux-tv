@@ -4,12 +4,11 @@ import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/getAllChannels';
 import ChannelButton from '@/components/ui/channel-button';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import Footer from '@/components/footer/footer';
 import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
 import OptionsButton from '@/components/guide/options-button';
 
 import '@/styles/index.css';
-
-import Footer from '@/components/footer/footer';
 
 const Guide = async () => {
   const TV_DATA: Channels | null = await getAllChannels();
@@ -42,7 +41,7 @@ const Guide = async () => {
 
   return (
     <div
-      className='relative flex h-full w-full flex-col items-center overflow-auto bg-gradient-bottom-to-top
+      className='relative flex h-full w-full flex-col items-center overflow-auto
       mobile:min-h-[304px] mobile:flex-1
       desktop:h-[304px] desktop:min-h-[304px]'
     >

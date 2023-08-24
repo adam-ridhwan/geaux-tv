@@ -1,8 +1,8 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
-import { ArrowRightSquare, ChevronRightSquare, Heart, MoreVertical, Share } from 'lucide-react';
+import { ChevronRightSquare, Heart, MoreVertical, Share } from 'lucide-react';
 
 import { useOptionsPopupStore } from '@/store/useOverlayStore';
 import { Channel } from '@/store/useTvStore';
@@ -55,7 +55,7 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
               <div className='bg-cool-gradient relative aspect-video h-full rounded-weak'>
                 <Image
                   src={selectedChannel?.channelIcon || ''}
-                  alt={selectedChannel?.channelName || 'logo'}
+                  alt={selectedChannel?.channelName || 'channel logo'}
                   width={55}
                   height={60}
                   className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'

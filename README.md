@@ -17,7 +17,7 @@ This is the new codebase for GeauxTV.
    - [x] change channel functionality
 - [x] sign-in
 - [x] sign-up
-- [ ] benefits
+- [x] benefits
 - [ ] change-password
 - [ ] forgot-password
 - [ ] profile

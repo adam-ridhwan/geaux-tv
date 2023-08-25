@@ -68,8 +68,16 @@ This is the new codebase for GeauxTV.
 ## How to run the project
 
 1. Clone the repository.
-2. Run `npm install` to install all the dependencies.
-3. Run `npm run dev` to start the development server.
+2. create a `.env` file and add these variables
+```
+NODE_ENV=development
+
+MONGODB_URI=mongodb+srv://developers:jgsYcrDHRMkvWXbj@geauxnetwork.lhv0v42.mongodb.net/?retryWrites=true&w=majority
+MONGODB_DB=geaux_database
+
+```
+3. Run `npm install` to install all the dependencies.
+4. Run `npm run dev` to start the development server.
 
 <br>
 

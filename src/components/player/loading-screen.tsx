@@ -1,17 +1,28 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/util/cn';
 
-type LoadingProps = {
-  isHydrated: boolean;
-};
+import { useHydrationStore } from '@/store/useHydrationStore';
 
-const LoadingScreen: FC<LoadingProps> = ({ isHydrated }) => {
+const LoadingScreen: FC = () => {
+  const [isHydrated] = useHydrationStore(state => [state.isHydrated]);
+  const [shouldRender, setShouldRender] = useState(true);
+
+  useEffect(() => {
+    if (!isHydrated) return;
+
+    setTimeout(() => setShouldRender(false), 500);
+  }, [isHydrated]);
+
+  if (!shouldRender) return null;
+
   return (
     <div
       className={cn(
-        `pointer-events-none fixed inset-0 z-50 flex cursor-default select-none flex-col items-center justify-center bg-black
-        bg-radial-top-right transition-opacity duration-500`,
+        `fixed inset-0 z-50 flex flex-col items-center justify-center
+        bg-black bg-radial-top-right transition-opacity duration-500`,
         { 'opacity-0': isHydrated }
       )}
     >

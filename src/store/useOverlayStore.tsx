@@ -44,3 +44,8 @@ export const useOptionsPopupStore = create<OptionsPopupState>(set => ({
   selectedChannel: null,
   setSelectedChannel: (channel: Channel) => set({ selectedChannel: channel }),
 }));
+
+type LoadingOverlayState = {
+  isLoadingOverlayOpen: boolean;
+  setIsLoadingOverlayOpen: (state: boolean) => void;
+};

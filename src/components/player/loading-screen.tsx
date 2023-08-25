@@ -3,16 +3,16 @@ import Image from 'next/image';
 import { cn } from '@/util/cn';
 
 type LoadingProps = {
-  isLoading: boolean;
+  isHydrated: boolean;
 };
 
-const LoadingScreen: FC<LoadingProps> = ({ isLoading }) => {
+const LoadingScreen: FC<LoadingProps> = ({ isHydrated }) => {
   return (
     <div
       className={cn(
         `pointer-events-none fixed inset-0 z-50 flex cursor-default select-none flex-col items-center justify-center bg-black
         bg-radial-top-right transition-opacity duration-500`,
-        { 'opacity-0': !isLoading }
+        { 'opacity-0': isHydrated }
       )}
     >
       <div className='flex flex-row items-center justify-center gap-2'>

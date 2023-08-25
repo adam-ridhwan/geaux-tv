@@ -31,6 +31,7 @@
     "copy-to-clipboard": "^3.3.3",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.13",
+    "immer": "^10.0.2",
     "lodash": "^4.17.21",
     "lucide-react": "^0.263.1",
     "mongodb": "^5.7.0",

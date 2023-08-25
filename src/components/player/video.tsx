@@ -7,8 +7,8 @@ import LoadingScreen from '@/components/player/loading-screen';
 
 const Video = () => {
   const [currentChannel] = useTvStore(state => [state.currentChannel]);
-  const [src, setSrc] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [isHydrated, setIsHydrated] = useState<boolean>(false);
+  const [src, setSrc] = useState<string>('' as string);
 
   /**
    * We need to have this because of the iframe.
@@ -17,16 +17,15 @@ const Video = () => {
   useEffect(() => {
     if (currentChannel) {
       setSrc(currentChannel.episodes[0]['videoId']);
-
       setTimeout(() => {
-        setLoading(false);
+        setIsHydrated(true);
       }, 500);
     }
   }, [currentChannel]);
 
   return (
     <>
-      <LoadingScreen isLoading={loading} />
+      <LoadingScreen {...{ isHydrated }} />
       {src && <iframe src={src} allow='autoplay' className='m-auto block aspect-video h-full w-full border-none' />}
     </>
   );

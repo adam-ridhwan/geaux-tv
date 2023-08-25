@@ -14,8 +14,9 @@ type ChannelCategoriesDropdownProps = {
 };
 
 const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA, CHANNEL_CATEGORIES }) => {
-  const [channels, setChannels, setCurrentChannel] = useTvStore(state => [
+  const [channels, currentChannel, setChannels, setCurrentChannel] = useTvStore(state => [
     state.channels,
+    state.currentChannel,
     state.setChannels,
     state.setCurrentChannel,
   ]);
@@ -31,29 +32,31 @@ const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA
   if (currentDevice !== MOBILE) return;
 
   return (
-    <DropdownMenu.Root open={isChannelCategoriesDropdownOpen} onOpenChange={setIsChannelCategoriesDropdownOpen}>
-      <DropdownMenu.Trigger asChild>
-        <ButtonPrimary isActive={isChannelCategoriesDropdownOpen} className='min-h-[40px] w-[95%] bg-primary-darkest'>
-          <span>Channels</span>
-        </ButtonPrimary>
-      </DropdownMenu.Trigger>
+    <>
+      <DropdownMenu.Root open={isChannelCategoriesDropdownOpen} onOpenChange={setIsChannelCategoriesDropdownOpen}>
+        <DropdownMenu.Trigger asChild>
+          <ButtonPrimary isActive={isChannelCategoriesDropdownOpen} className='min-h-[40px] w-[95%] bg-primary-darkest'>
+            <span>Channels</span>
+          </ButtonPrimary>
+        </DropdownMenu.Trigger>
 
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          align='end'
-          sideOffset={5}
-          alignOffset={15}
-          className='z-50 flex flex-col rounded-weak border-2 border-primary-dark bg-primary-darkest
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            align='end'
+            sideOffset={5}
+            alignOffset={15}
+            className='z-50 flex flex-col rounded-weak border-2 border-primary-dark bg-primary-darkest
           p-2.5 will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
-        >
-          <DropdownMenu.Item className='w-full rounded-weak'>
-            {CHANNEL_CATEGORIES.map(category => {
-              return <Button key={category}>{category}</Button>;
-            })}
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+          >
+            <DropdownMenu.Item className='w-full rounded-weak'>
+              {CHANNEL_CATEGORIES.map(category => {
+                return <Button key={category}>{category}</Button>;
+              })}
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+    </>
   );
 };
 

@@ -44,7 +44,7 @@ const Guide = async () => {
       desktop:h-[304px] desktop:min-h-[304px]'
     >
       <div className='flex w-full justify-center bg-black'>
-        <ChannelCategoriesDropdown TV_DATA={TV_DATA} CHANNEL_CATEGORIES={CHANNEL_CATEGORIES} />
+        <ChannelCategoriesDropdown {...{ TV_DATA, CHANNEL_CATEGORIES }} />
       </div>
 
       <div className='hide-scrollbar w-full overflow-auto'>
@@ -79,7 +79,7 @@ const Guide = async () => {
                         </span>
                       </div>
                     </ChannelButton>
-                    <OptionsButton channel={channel} />
+                    <OptionsButton {...{ channel }} />
                   </div>
                 );
               })}

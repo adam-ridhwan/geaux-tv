@@ -73,7 +73,9 @@ This is the new codebase for GeauxTV.
 NODE_ENV=development
 
 MONGODB_URI=mongodb+srv://developers:jgsYcrDHRMkvWXbj@geauxnetwork.lhv0v42.mongodb.net/?retryWrites=true&w=majority
-MONGODB_DB=geaux_database
+MONGODB_DATABASE=geaux_database
+MONGODB_CHANNELS_COLLECTION=channels
+
 
 ```
 3. Run `npm install` to install all the dependencies.

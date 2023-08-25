@@ -1,37 +1,36 @@
-import { Db, MongoClient, MongoClientOptions } from 'mongodb';
+import { MongoClient, MongoClientOptions } from 'mongodb';
 
-const { MONGODB_URI, MONGODB_DB } = process.env;
+const { MONGODB_URI, MONGODB_DATABASE } = process.env;
+const NODE_ENV = process.env.NODE_ENV;
 
-let cachedClient: MongoClient;
-let cachedDb: Db;
+const options: MongoClientOptions = {
+  // @ts-ignore
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
-export async function connectToDatabase() {
-  if (cachedClient && cachedDb) {
-    console.log('\x1b[97m\x1b[48;5;22m%s\x1b[0m', '=> using CACHED database instance');
+let client;
+let clientPromise: Promise<MongoClient>;
 
-    return {
-      client: cachedClient,
-      db: cachedDb,
-    };
+if (!MONGODB_URI) throw new Error('Define the MONGODB_URI environmental variable');
+if (!MONGODB_DATABASE) throw new Error('Define the MONGODB_DATABASE environmental variable');
+
+if (NODE_ENV === 'development') {
+  /**
+   * In development mode, use a global variable so that the value
+   * is preserved across module reloads caused by HMR (Hot Module Replacement).
+   */
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(MONGODB_URI, options);
+    global._mongoClientPromise = client.connect();
   }
-
-  const options: MongoClientOptions = {
-    // @ts-ignore
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  };
-
-  if (!MONGODB_URI) throw new Error('Define the MONGODB_URI environmental variable');
-  if (!MONGODB_DB) throw new Error('Define the MONGODB_DB environmental variable');
-
-  const client = await MongoClient.connect(MONGODB_URI, options);
-  const db = client.db(MONGODB_DB);
-  cachedClient = client;
-  cachedDb = db;
+  clientPromise = global._mongoClientPromise;
+  console.log('\x1b[97m\x1b[48;5;22m%s\x1b[0m', '=> using CACHED database instance');
+} else {
+  // In production mode, it's best to not use a global variable.
+  client = new MongoClient(MONGODB_URI, options);
+  clientPromise = client.connect();
   console.log('\x1b[97m\x1b[48;5;88m%s\x1b[0m', '=> using NEW database instance');
-
-  return {
-    client,
-    db,
-  };
 }
+
+export { clientPromise };

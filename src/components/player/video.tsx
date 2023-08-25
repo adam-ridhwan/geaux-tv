@@ -10,6 +10,10 @@ const Video = () => {
   const [src, setSrc] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
+  /**
+   * We need to have this because of the iframe.
+   * If we don't have this, next.js will complain because the server component is different from the client component.
+   */
   useEffect(() => {
     if (currentChannel) {
       setSrc(currentChannel.episodes[0]['videoId']);

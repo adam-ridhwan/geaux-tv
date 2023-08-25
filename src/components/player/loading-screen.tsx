@@ -28,7 +28,7 @@ const LoadingScreen: FC<LoadingProps> = ({ isLoading }) => {
         <span className='text-fs-600 font-semibold'>GEAUX TV</span>
       </div>
 
-      <svg className='animate-rotate h-12 w-12 text-accent-lightest' viewBox='0 0 50 50'>
+      <svg className='mt-5 h-12 w-12 animate-rotate text-accent-lightest' viewBox='0 0 50 50'>
         <circle
           className='animate-dash stroke-accent-lightest'
           cx='25'

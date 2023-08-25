@@ -67,6 +67,8 @@ This is the new codebase for GeauxTV.
 
 ## How to run the project
 
+**note**: be sure to have the late `node.js` version install in your machine: https://nodejs.org/en
+
 1. Clone the repository.
 2. create a `.env` file and add these variables
 ```

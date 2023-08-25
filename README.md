@@ -28,6 +28,7 @@ This is the new codebase for GeauxTV.
 #### **Database**:
 
 - [x] Set Up Mongodb
+   - [ ] Updated the mongodb connection to use cache
 - [x] Create channels collection
 - [ ] Create users collection
 - [ ] Add rate limiting

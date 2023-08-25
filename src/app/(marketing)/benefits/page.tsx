@@ -20,7 +20,7 @@ const BenefitsPage = () => {
     {
       title: 'Special Channels',
       description: 'Watch certain channels that are only available to users',
-      image: 'https://illustrations.popsy.co/amber/home-office.svg',
+      image: 'https://illustrations.popsy.co/white/home-office.svg',
     },
     {
       title: 'Buying Power',

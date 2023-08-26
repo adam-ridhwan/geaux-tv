@@ -11,8 +11,18 @@ const Video = () => {
   const [src, setSrc] = useState<string>('' as string);
 
   /**
-   * We need to have this because of the iframe.
-   * If we don't have this, next.js will complain because the server component is different from the client component.
+   * This is a hacky way to solve this problem.
+   *
+   * We need to have this because of the iframe component.
+   * If we don't have this, next.js will complain because
+   * the server component is different from the client component.
+   *
+   * How it works:
+   * 1. We set the src to the first episode of the current channel.
+   * 2. We set the hydration to true after 500ms.
+   * 3. We render the iframe component.
+   * 4. We set the src to the current episode.
+   * 5. We render the iframe component again.
    */
   useEffect(() => {
     if (!currentChannel) return;

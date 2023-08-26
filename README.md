@@ -13,11 +13,11 @@ This is the new codebase for GeauxTV.
    - [x] style player and guide and make both response on mobile, tablet and desktops
    - [x] added sticky headers for each category 
    - [x] added footer
-   - [x] add social media icons
+   - [ ] add social media icons
    - [x] change channel functionality
 - [x] sign-in
 - [x] sign-up
-- [ ] benefits
+- [x] benefits
 - [ ] change-password
 - [ ] forgot-password
 - [ ] profile

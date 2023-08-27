@@ -9,12 +9,13 @@ This is the new codebase for GeauxTV.
 #### **Pages** (user interface):
 
 - [ ] Player & guide (root)
-   - (player will have desktop, tablet, mobile resolutions. there will be default mode, full screen mode and theatre mode.)
-   - [x] style player and guide and make both response on mobile, tablet and desktops
-   - [x] added sticky headers for each category 
-   - [x] added footer
-   - [ ] add social media icons
-   - [x] change channel functionality
+    - (player will have desktop, tablet, mobile resolutions. there will be default mode, full screen mode and theatre
+      mode.)
+    - [x] style player and guide and make both response on mobile, tablet and desktops
+    - [x] added sticky headers for each category
+    - [x] added footer
+    - [ ] add social media icons
+    - [x] change channel functionality
 - [x] sign-in
 - [x] sign-up
 - [x] benefits
@@ -28,7 +29,7 @@ This is the new codebase for GeauxTV.
 #### **Database**:
 
 - [x] Set Up Mongodb
-   - [x] Updated the mongodb connection to use cache
+    - [x] Updated the mongodb connection to use cache
 - [x] Create channels collection
 - [ ] Create users collection
 - [ ] Add rate limiting
@@ -45,6 +46,7 @@ This is the new codebase for GeauxTV.
 - [ ] Phone sign in
 
 #### **Cloud Storage**:
+
 - [x] Set up cloud storage
 - [x] Upload photos
 
@@ -72,13 +74,15 @@ This is the new codebase for GeauxTV.
 
 1. Clone the repository.
 2. create a `.env` file and add these variables
+
 ```
-NODE_ENV=development
+NEXT_PUBLIC_NODE_ENV=development
 
 MONGODB_URI=mongodb+srv://developers:jgsYcrDHRMkvWXbj@geauxnetwork.lhv0v42.mongodb.net/?retryWrites=true&w=majority
 MONGODB_DATABASE=geaux_database
 MONGODB_CHANNELS_COLLECTION=channels
 ```
+
 3. Run `npm install` to install all the dependencies.
 4. Run `npm run dev` to start the development server.
 
@@ -86,7 +90,7 @@ MONGODB_CHANNELS_COLLECTION=channels
 
 ## How to contribute
 
-#### **_IMPORTANT_: Do not merge anything to master branch** 
+#### **_IMPORTANT_: Do not merge anything to master branch**
 
 <br/>
 
@@ -95,14 +99,14 @@ MONGODB_CHANNELS_COLLECTION=channels
 - **user-name**: Username or first & last name.
 - **/** : Separator.
 - **add-button**: the feature you are working on.
-   
+
 2. Make the changes on your code
 3. Push the changes to the branch.
 4. Create and submit pull request.
 5. Let repo manager know you submitted pull request.
 6. Wait for the pull request to be reviewed and merged.
 
-#### **_ALSO IMPORTANT_: Please do not merge your pull request** 
+#### **_ALSO IMPORTANT_: Please do not merge your pull request**
 
 <br>
 
@@ -130,8 +134,9 @@ empty separator line
 - `build` Commits, that affect build components like build tool, ci pipeline, dependencies, project version, ...
 - `ops` Commits, that affect operational components like infrastructure, deployment, backup, recovery, ...
 - `chore` Miscellaneous commits e.g. modifying .gitignore
-  
+
 ### **Examples**
+
 - ```
   refactor: refactor class components to functional components
   ```
@@ -147,5 +152,3 @@ empty separator line
   ```
 
 <br>
-
-

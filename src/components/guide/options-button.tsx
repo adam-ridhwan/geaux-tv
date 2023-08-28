@@ -35,8 +35,8 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
       <Dialog.Root open={isOptionsPopupOpen} onOpenChange={setIsOptionsPopupOpen}>
         <Dialog.Trigger asChild>
           <button
-            className='tablet:top-5 tablet:w-[30px] tablet:h-[30px] group
-            absolute right-0 top-1/2 flex h-[80%] w-[44px] -translate-y-1/2 items-center justify-center'
+            className='group absolute right-0 top-1/2
+            flex h-[80%] w-[44px] -translate-y-1/2 items-center justify-center tablet:top-5 tablet:h-[30px] tablet:w-[30px]'
             onClick={openOptionsContainer}
           >
             <MoreVertical className='text-primary-lighter group-hover:text-primary-light' />
@@ -56,7 +56,7 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
               <div className='relative aspect-video h-full rounded-weak bg-cool-gradient'>
                 <Image
                   src={selectedChannel?.channelIcon || ''}
-                  alt={selectedChannel?.channelName || 'channel logo'}
+                  alt={selectedChannel?.channelName || 'channel-button logo'}
                   width={55}
                   height={60}
                   className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'

@@ -6,9 +6,9 @@ import { getAllChannels } from '@/lib/getAllChannels';
 import ChannelButton from '@/components/ui/channel-button';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import Footer from '@/components/footer/footer';
-import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
-import ChannelCategoriesSidebar from '@/components/guide/channel-categories-sidebar';
-import ChannelContainer from '@/components/guide/channel-container';
+import ChannelContainer from '@/components/guide/channel-button/channel-container';
+import ChannelCategoriesDropdown from '@/components/guide/channel-categories/channel-categories-dropdown';
+import ChannelCategoriesSidebar from '@/components/guide/channel-categories/channel-categories-sidebar';
 import OptionsButton from '@/components/guide/options-button';
 import TvDataConsumer from '@/components/guide/tv-data-consumer';
 
@@ -31,10 +31,10 @@ const Guide = async () => {
       <TvDataConsumer {...{ CHANNELS, CHANNEL_CATEGORIES }} />
 
       <div
-        className='relative flex h-full w-full flex-col items-center overflow-hidden bg-primary-void
+        className='relative flex h-full max-h-full w-full flex-col items-center overflow-hidden bg-primary-void
         tablet:min-h-[304px] tablet:flex-1 tablet:flex-row tablet:items-start desktop:h-[304px] desktop:min-h-[304px]'
       >
-        {/* CHANNEL CATEGORIES */}
+        {/* CATEGORIES */}
         <div
           className='hide-scrollbar flex w-full justify-center bg-primary-void tablet:h-full
           tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start tablet:overflow-y-auto tablet:p-2'
@@ -43,8 +43,8 @@ const Guide = async () => {
           <ChannelCategoriesSidebar />
         </div>
 
-        <div className='hide-scrollbar flex h-full w-full flex-col overflow-y-auto desktop:flex-row'>
-          {/* TITLE */}
+        {/* CHANNELS */}
+        <div className='hide-scrollbar flex h-full w-full flex-col overflow-auto desktop:flex-row'>
           {Object.keys(CHANNELS).map(category => (
             <div key={category} className='flex flex-col pb-[40px] tablet:pb-0 '>
               <div className='flex flex-row bg-primary-void pt-[20px]'>
@@ -60,8 +60,8 @@ const Guide = async () => {
 
               {/* CHANNELS */}
               <div
-                className='hide-scrollbar flex h-full flex-col overflow-auto
-                border-b border-b-primary-dark tablet:flex-row tablet:gap-4 tablet:border-none tablet:p-4 '
+                className='hide-scrollbar flex h-full flex-col overflow-auto overflow-y-hidden
+                border-b border-b-primary-dark tablet:flex-row tablet:gap-4 tablet:border-none tablet:p-4'
               >
                 {CHANNELS[category].map(channel => {
                   const index = incrementGradientObject();
@@ -75,13 +75,16 @@ const Guide = async () => {
                           alt={channel.channelName}
                           width={500}
                           height={500}
-                          className='h-[55px] w-auto'
+                          className='h-auto w-[55px] max-w-[55px] tablet:w-[72px] tablet:max-w-[72px] '
                         />
-                        <div className='flex flex-col items-start leading-5'>
+                        <div className='flex flex-col items-start text-left leading-5 tablet:mt-24 tablet:h-full'>
                           <span className='text-fs-300 font-semibold tracking-wider text-primary-light'>
                             {channel.channelNumber}
                           </span>
-                          <span className='whitespace-nowrap text-fs-400 font-bold text-primary-lighter'>
+                          <span
+                            className='whitespace-nowrap text-fs-400 font-bold text-primary-lighter
+                            tablet:flex tablet:whitespace-normal'
+                          >
                             {channel.channelName}
                           </span>
                         </div>

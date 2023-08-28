@@ -20,7 +20,7 @@ const TvDataConsumer: FC<TvDataConsumerProps> = ({ CHANNELS, CHANNEL_CATEGORIES 
   // Set channels in global store
   if (CHANNELS && CHANNELS !== channels) {
     setChannels(CHANNELS);
-    setCurrentChannel(CHANNELS[CHANNEL_CATEGORIES[1]][0]); // change this to last watched channel in the future
+    setCurrentChannel(CHANNELS[CHANNEL_CATEGORIES[1]][0]); // change this to last watched channel-button in the future
     setCategories(CHANNEL_CATEGORIES);
   }
 

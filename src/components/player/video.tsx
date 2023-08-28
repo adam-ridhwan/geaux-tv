@@ -18,7 +18,7 @@ const Video = () => {
    * the server component is different from the client component.
    *
    * How it works:
-   * 1. We set the src to the first episode of the current channel.
+   * 1. We set the src to the first episode of the current channel-button.
    * 2. We set the hydration to true after 500ms.
    * 3. We render the iframe component.
    * 4. We set the src to the current episode.

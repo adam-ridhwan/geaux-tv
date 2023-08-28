@@ -28,7 +28,7 @@ const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonPr
       <button
         ref={ref}
         className={cn(
-          `flex h-[72px] w-full flex-row items-center gap-4 border-t border-t-primary-dark`,
+          `flex h-[72px] w-full flex-row items-center gap-4 border-t border-t-primary-dark px-3`,
           className,
           { 'ring-2 ring-inset ring-accent-lightest': isEqual(channel, currentChannel) },
           { 'aspect-video min-h-[150px] rounded-weak border-none': currentDevice === TABLET },

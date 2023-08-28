@@ -25,7 +25,7 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
       state.setSelectedChannel,
     ]);
 
-  const handleOpen = () => {
+  const openOptionsContainer = () => {
     setIsOptionsPopupOpen(true);
     setSelectedChannel(channel);
   };
@@ -35,10 +35,11 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
       <Dialog.Root open={isOptionsPopupOpen} onOpenChange={setIsOptionsPopupOpen}>
         <Dialog.Trigger asChild>
           <button
-            className='absolute right-0 top-1/2 flex h-[80%] w-[44px] -translate-y-1/2 items-center justify-center'
-            onClick={handleOpen}
+            className='tablet:top-5 tablet:w-[30px] tablet:h-[30px] group
+            absolute right-0 top-1/2 flex h-[80%] w-[44px] -translate-y-1/2 items-center justify-center'
+            onClick={openOptionsContainer}
           >
-            <MoreVertical className='text-primary-light' />
+            <MoreVertical className='text-primary-lighter group-hover:text-primary-light' />
             <VisuallyHidden.Root>Options</VisuallyHidden.Root>
           </button>
         </Dialog.Trigger>
@@ -48,11 +49,11 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
           <Dialog.Content
             onCloseAutoFocus={e => e.preventDefault()}
             className='fixed bottom-[20px] left-[50%] z-30 max-h-[85vh]
-            w-[90vw] max-w-[400px] translate-x-[-50%] rounded-weak border-2 border-primary-dark bg-primary-darkest
-            p-[10px] drop-shadow-2xl data-[state=open]:animate-contentShow'
+            w-[90vw] max-w-[400px] translate-x-[-50%] rounded-weak border-2 border-primary-dark bg-primary-darkest p-[10px]
+            opacity-50 drop-shadow-2xl data-[state=open]:animate-contentShow'
           >
             <div className='flex h-[64px] flex-row items-center gap-4'>
-              <div className='bg-cool-gradient relative aspect-video h-full rounded-weak'>
+              <div className='relative aspect-video h-full rounded-weak bg-cool-gradient'>
                 <Image
                   src={selectedChannel?.channelIcon || ''}
                   alt={selectedChannel?.channelName || 'channel logo'}

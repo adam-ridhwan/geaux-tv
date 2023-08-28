@@ -51,32 +51,30 @@ main {
     scrollbar-width: none;
 }
 
-.spinner {
-    animation: rotate 2s linear infinite;
 
-}
+@media (min-width: 750px) and (max-width: 1600px) {
 
-.path {
-    animation: dash 1.5s ease-in-out infinite;
-}
-
-@keyframes rotate {
-    100% {
-        transform: rotate(360deg);
+    .channel-button:first-child {
+        background: linear-gradient(120deg, hsl(227 47.2% 21.0%), hsl(298 34.4% 15.3%));
     }
-}
 
-@keyframes dash {
-    0% {
-        stroke-dasharray: 1, 150;
-        stroke-dashoffset: 0;
+    .channel-button:nth-child(2) {
+        background: linear-gradient(120deg, hsl(298 34.4% 15.3%), hsl(214 59.4% 15.3%));
     }
-    50% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -35;
+
+    .channel-button:nth-child(3) {
+        background: linear-gradient(120deg, hsl(214 59.4% 15.3%), hsl(55 3.7% 19.9%));
     }
-    100% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -124;
+
+    .channel-button:nth-child(4) {
+        background: linear-gradient(120deg, hsl(55 3.7% 19.9%), hsl(319 41.0% 16.0%));
+    }
+
+    .channel-button:nth-child(5) {
+        background: linear-gradient(120deg, hsl(319 41.0% 16.0%), hsl(41 16.4% 15.6%))
+    }
+
+    .channel-button:nth-child(6) {
+        background: linear-gradient(120deg, hsl(41 16.4% 15.6%), hsl(335 47.2% 19.3%))
     }
 }

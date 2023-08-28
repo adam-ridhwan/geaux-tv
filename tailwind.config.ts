@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-import { crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, slateDark } from '@radix-ui/colors';
+import { blueDark, crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, redDark, slateDark } from '@radix-ui/colors';
 
 const config: Config = {
   content: [
@@ -20,7 +20,8 @@ const config: Config = {
       'primary-dark': slateDark.slate5,
       'primary-darker': slateDark.slate3,
       'primary-darkest': slateDark.slate1,
-      'primary-void': 'hsl(240,4%,5%)',
+      'primary-void': 'hsl(240,54%,5%)',
+      'primary-footer': 'hsl(240,54%,7%)',
 
       'accent-light': pinkDark.pink10,
       'accent-lighter': pinkDark.pink11,
@@ -35,6 +36,9 @@ const config: Config = {
       ...purpleDark,
       ...slateDark,
       ...pinkDark,
+
+      ...blueDark,
+      ...redDark,
     },
     fontSize: {
       'fs-200': '0.875rem',
@@ -45,8 +49,8 @@ const config: Config = {
       'fs-700': '3.25rem',
     },
     screens: {
-      mobile: '750px',
-      desktop: '1700px',
+      tablet: '750px',
+      desktop: '1600px',
     },
 
     extend: {

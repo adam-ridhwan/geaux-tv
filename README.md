@@ -9,9 +9,9 @@ This is the new codebase for GeauxTV.
 #### **Pages** (user interface):
 
 - [ ] Player & guide (root)
-    - (player will have desktop, tablet, mobile resolutions. there will be default mode, full screen mode and theatre
+    - (player will have desktop, tablet, tablet resolutions. there will be default mode, full screen mode and theatre
       mode.)
-    - [x] style player and guide and make both response on mobile, tablet and desktops
+    - [x] style player and guide and make both response on tablet, tablet and desktops
     - [x] added sticky headers for each category
     - [x] added footer
     - [ ] add social media icons

@@ -20,16 +20,20 @@ export type Channels = {
 type State = {
   channels: Channels;
   currentChannel: Channel | undefined;
+  channelCategories: string[];
 };
 
 type Action = {
   setChannels: (channels: Channels) => void;
   setCurrentChannel: (channel: Channel) => void;
+  setCategories: (channelCategories: string[]) => void;
 };
 
 export const useTvStore = create<State & Action>(set => ({
   channels: {},
   currentChannel: undefined,
+  channelCategories: [],
   setChannels: (channels: Channels) => set({ channels }),
   setCurrentChannel: (currentChannel: Channel) => set({ currentChannel }),
+  setCategories: (channelCategories: string[]) => set({ channelCategories }),
 }));

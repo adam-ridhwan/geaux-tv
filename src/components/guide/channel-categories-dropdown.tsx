@@ -3,31 +3,15 @@
 import { FC, useState } from 'react';
 import useWindowSize, { MOBILE } from '@/util/useWindowSize';
 
-import { Channels, useTvStore } from '@/store/useTvStore';
+import { useTvStore } from '@/store/useTvStore';
 import ButtonPrimary from '@/components/ui/button-primary';
-import Button from '@/components/ui/button-secondary';
+import ButtonSecondary from '@/components/ui/button-secondary';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-type ChannelCategoriesDropdownProps = {
-  TV_DATA: Channels;
-  CHANNEL_CATEGORIES: string[];
-};
-
-const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA, CHANNEL_CATEGORIES }) => {
-  const [channels, currentChannel, setChannels, setCurrentChannel] = useTvStore(state => [
-    state.channels,
-    state.currentChannel,
-    state.setChannels,
-    state.setCurrentChannel,
-  ]);
+const ChannelCategoriesDropdown: FC = () => {
+  const [channelCategories] = useTvStore(state => [state.channelCategories]);
   const [isChannelCategoriesDropdownOpen, setIsChannelCategoriesDropdownOpen] = useState<boolean>();
   const currentDevice = useWindowSize();
-
-  // Set channels in global store
-  if (TV_DATA && TV_DATA !== channels) {
-    setChannels(TV_DATA);
-    setCurrentChannel(TV_DATA[CHANNEL_CATEGORIES[1]][0]);
-  }
 
   if (currentDevice !== MOBILE) return;
 
@@ -46,11 +30,11 @@ const ChannelCategoriesDropdown: FC<ChannelCategoriesDropdownProps> = ({ TV_DATA
             sideOffset={5}
             alignOffset={15}
             className='z-50 flex flex-col rounded-weak border-2 border-primary-dark bg-primary-darkest
-          p-2.5 will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
+            p-2.5 will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade'
           >
             <DropdownMenu.Item className='w-full rounded-weak'>
-              {CHANNEL_CATEGORIES.map(category => {
-                return <Button key={category}>{category}</Button>;
+              {channelCategories.map(category => {
+                return <ButtonSecondary key={category}>{category}</ButtonSecondary>;
               })}
             </DropdownMenu.Item>
           </DropdownMenu.Content>

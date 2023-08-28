@@ -2,6 +2,7 @@
 
 import { Fragment } from 'react';
 import Link from 'next/link';
+import useWindowSize, { DESKTOP } from '@/util/useWindowSize';
 import copy from 'copy-to-clipboard';
 import { ChevronDown, Clipboard } from 'lucide-react';
 
@@ -12,6 +13,8 @@ const GEAUX_PHONE_NUMBER = '+1 (857) 445-0424';
 const GEAUX_EMAIL = 'info@geauxnet.com';
 
 const Footer = () => {
+  const currentDevice = useWindowSize();
+
   const footerLinks = {
     ABOUT: {
       About: 'https://geaux.tv/about',
@@ -27,9 +30,11 @@ const Footer = () => {
     },
   };
 
+  if (currentDevice === DESKTOP) return;
+
   return (
     <>
-      <Accordion.Root type='multiple' className='w-full bg-primary-darkest px-7 py-5'>
+      <Accordion.Root type='multiple' className='bg-primary-footer w-full px-7 py-5'>
         {Object.entries(footerLinks).map(([category, links], index) => (
           <Fragment key={category}>
             <Accordion.Item key={`fragment-${index}`} value={`item-${index}`}>

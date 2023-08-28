@@ -26,10 +26,22 @@ const Video = () => {
    */
   useEffect(() => {
     if (!currentChannel) return;
+    if (currentChannel.episodes[0]['videoId'] === src) return;
 
     setSrc(currentChannel.episodes[0]['videoId']);
     setTimeout(() => setIsHydrated(true), 500);
   }, [currentChannel]);
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`Looks like you're on development mode. Here's a video for you to watch while you're developing.`);
+    return (
+      <iframe
+        src={'https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&si=4TsNcMV-2nlMOMFX'}
+        allow='autoplay; encrypted-media'
+        className='m-auto block aspect-video h-full w-full border-none'
+      />
+    );
+  }
 
   if (src) return <iframe src={src} allow='autoplay' className='m-auto block aspect-video h-full w-full border-none' />;
 };

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export const MOBILE = 'mobile';
-export const DESKTOP = 'desktop';
-export const LARGE_DESKTOP = 'large desktop';
+export const MOBILE = 'tablet';
+export const TABLET = 'desktop';
+export const DESKTOP = 'large desktop';
 
-export type Devices = typeof MOBILE | typeof DESKTOP | typeof LARGE_DESKTOP | undefined;
+export type Devices = typeof MOBILE | typeof TABLET | typeof DESKTOP | undefined;
 
 const useWindowSize = (): Devices => {
   const [currentDevice, setCurrentDevice] = useState<Devices>(undefined);
@@ -13,10 +13,10 @@ const useWindowSize = (): Devices => {
     const handleResize = () => {
       const width = window.innerWidth;
 
-      if (width >= 1700) {
-        setCurrentDevice(LARGE_DESKTOP);
-      } else if (width >= 750) {
+      if (width >= 1601) {
         setCurrentDevice(DESKTOP);
+      } else if (width >= 750) {
+        setCurrentDevice(TABLET);
       } else {
         setCurrentDevice(MOBILE);
       }

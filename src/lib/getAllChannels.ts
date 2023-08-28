@@ -2,6 +2,8 @@ import { cache } from 'react';
 
 import { connectToDatabase } from '@/lib/connectToDatabase';
 
+import 'server-only';
+
 export const getAllChannels = cache(async () => {
   try {
     const { channelsCollection } = await connectToDatabase();

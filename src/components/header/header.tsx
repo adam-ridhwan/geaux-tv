@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
+import { getServerSession } from 'next-auth';
 
 import AvatarPicture from '@/components/header/avatar/avatar-picture';
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession();
+
   return (
     <header className='px-4 py-3'>
       <div className='flex justify-between'>

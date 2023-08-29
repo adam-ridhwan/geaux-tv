@@ -26,13 +26,13 @@ if (NEXT_PUBLIC_NODE_ENV === 'development') {
   }
   clientPromise = global._mongoClientPromise;
 
-  console.log('\x1b[97m\x1b[48;5;22m%s\x1b[0m', '=> using CACHED database instance');
+  console.log('\x1b[97m\x1b[48;5;22m%s\x1b[0m', '✅  Using CACHED database instance');
 } else {
   // production
   client = new MongoClient(MONGODB_URI, options);
   clientPromise = client.connect();
 
-  console.log('\x1b[97m\x1b[48;5;88m%s\x1b[0m', '=> using NEW database instance');
+  console.log('\x1b[97m\x1b[48;5;88m%s\x1b[0m', '🚨  Using NEW database instance');
 }
 
 export { clientPromise };

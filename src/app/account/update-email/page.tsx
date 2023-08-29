@@ -1,7 +1,7 @@
 const UpdateEmailPage = () => {
   return (
     <>
-      <div className='w-full flex flex-col items-center justify-between p-24 text-5xl'>Update email Page</div>
+      <div className='flex w-full flex-col items-center justify-between p-24 text-fs-700'>Update email Page</div>
     </>
   );
 };

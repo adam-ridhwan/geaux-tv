@@ -1,7 +1,7 @@
 const ForgotPasswordPage = () => {
   return (
     <>
-      <div className='w-full flex flex-col items-center justify-between p-24 text-5xl'>Forgot Password Page</div>
+      <div className='flex w-full flex-col items-center justify-between p-24 text-fs-700'>Forgot Password Page</div>
     </>
   );
 };

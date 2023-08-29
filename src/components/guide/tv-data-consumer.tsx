@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import { Channels, useTvStore } from '@/store/useTvStore';
 
@@ -17,12 +17,14 @@ const TvDataConsumer: FC<TvDataConsumerProps> = ({ CHANNELS, CHANNEL_CATEGORIES 
     state.setCategories,
   ]);
 
-  // Set channels in global store
-  if (CHANNELS && CHANNELS !== channels) {
-    setChannels(CHANNELS);
-    setCurrentChannel(CHANNELS[CHANNEL_CATEGORIES[1]][0]); // change this to last watched channel-button in the future
-    setCategories(CHANNEL_CATEGORIES);
-  }
+  useEffect(() => {
+    // Set channels in global store
+    if (CHANNELS && CHANNELS !== channels) {
+      setChannels(CHANNELS);
+      setCurrentChannel(CHANNELS[CHANNEL_CATEGORIES[1]][0]); // change this to last watched channel-button in the future
+      setCategories(CHANNEL_CATEGORIES);
+    }
+  }, []);
 
   return null;
 };

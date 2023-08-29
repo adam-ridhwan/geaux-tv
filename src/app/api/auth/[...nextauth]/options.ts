@@ -1,7 +1,12 @@
 import env from '@/util/env';
+import bcrypt from 'bcrypt';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
+
+import { getUser } from '@/lib/user/getUser';
+
+const { GOOGLE_ID, GOOGLE_SECRET } = env;
 
 export const options: NextAuthOptions = {
   pages: {
@@ -9,8 +14,8 @@ export const options: NextAuthOptions = {
   },
   providers: [
     GoogleProvider({
-      clientId: env.GOOGLE_ID,
-      clientSecret: env.GOOGLE_SECRET,
+      clientId: GOOGLE_ID,
+      clientSecret: GOOGLE_SECRET,
     }),
     CredentialsProvider({
       name: 'Credentials',
@@ -18,16 +23,16 @@ export const options: NextAuthOptions = {
         email: { label: 'Email', type: 'email', placeholder: 'example@example.com' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
-        /* this is where you need to retrieve user data
-         * to verify with credentials */
-        const user = { id: 1, email: 'adamridhwan@hotmail.com', password: '123' };
+      async authorize(credentials: { email?: string; password?: string }) {
+        if (credentials.email) {
+          const user: User | null = await getUser(credentials.email);
 
-        if (credentials?.email === user.email && credentials?.password === user.password) {
-          return user;
-        } else {
-          return null;
+          if (user && (await bcrypt.compare(credentials.password || '', user.password))) {
+            const { password, ...userDetailsWithoutPassword } = user;
+            return userDetailsWithoutPassword;
+          }
         }
+        return null;
       },
     }),
   ],

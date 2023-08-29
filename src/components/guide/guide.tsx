@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { GRADIENTS } from '@/util/constants/gradients';
 
 import { Channels } from '@/store/useTvStore';
-import { getAllChannels } from '@/lib/getAllChannels';
+import { getAllChannels } from '@/lib/channels/getAllChannels';
+import { createNewUser } from '@/lib/user/createNewUser';
 import ChannelButton from '@/components/ui/channel-button';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import Footer from '@/components/footer/footer';
@@ -14,6 +15,23 @@ import TvDataConsumer from '@/components/guide/tv-data-consumer';
 
 const Guide = async () => {
   const CHANNELS: Channels | null = await getAllChannels();
+
+  // const newUser: User = {
+  //   age: 25,
+  //   createdAt: new Date(),
+  //   email: 'adamridhwan@hotmail.com',
+  //   emailVerified: false,
+  //   favoriteChannels: [],
+  //   gender: 'male',
+  //   lastLogin: new Date(),
+  //   name: 'Adam Ridhwan',
+  //   phone: '6178164892',
+  //   photoUrl: 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/011-man.png',
+  //   updatedAt: new Date(),
+  //   password: '123',
+  // };
+  //
+  // await createNewUser(newUser);
 
   if (!CHANNELS) return <div>Failed to get channels</div>;
 

@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import chalk from 'chalk';
 
 import { useHydrationStore } from '@/store/useHydrationStore';
 import { useTvStore } from '@/store/useTvStore';
 
 const Video = () => {
   const [currentChannel] = useTvStore(state => [state.currentChannel]);
-  const [setIsHydrated] = useHydrationStore(state => [state.setIsHydrated]);
+  const [isHydrated, setIsHydrated] = useHydrationStore(state => [state.isHydrated, state.setIsHydrated]);
   const [src, setSrc] = useState<string>('' as string);
 
   /**
@@ -29,11 +30,22 @@ const Video = () => {
     if (currentChannel.episodes[0]['videoId'] === src) return;
 
     setSrc(currentChannel.episodes[0]['videoId']);
+
+    if (isHydrated) return;
+
     setTimeout(() => setIsHydrated(true), 500);
   }, [currentChannel]);
 
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        chalk.bgCyan.black(`Looks like you're on development mode.\n`) +
+          chalk.bgBlue.black(`Here's a video for you to watch while you're developing.`)
+      );
+    }
+  }, []);
+
   if (process.env.NODE_ENV === 'development') {
-    console.log(`Looks like you're on development mode. Here's a video for you to watch while you're developing.`);
     return (
       <iframe
         src={'https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&si=4TsNcMV-2nlMOMFX'}

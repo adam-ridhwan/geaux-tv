@@ -1,7 +1,9 @@
 'use client';
 
-import { FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { AuthErrorCodes } from '@/util/constants/authError';
 import { signIn } from 'next-auth/react';
 
 import * as Form from '@radix-ui/react-form';
@@ -12,12 +14,16 @@ type UserDetails = {
 };
 
 const SignInForm: FC = () => {
+  const router = useRouter();
   const [userDetails, setUserDetails] = useState<UserDetails>({ email: '', password: '' });
   const [error, setError] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const email = userDetails.email;
     const password = userDetails.password;
@@ -25,18 +31,31 @@ const SignInForm: FC = () => {
     const result = await signIn('credentials', {
       email,
       password,
-      redirect: true,
+      redirect: false,
       callbackUrl: '/',
     });
 
-    if (result?.error === 'CredentialsSignin') {
-      return setError('invalid email or password');
-    }
+    console.log(result);
 
     if (result?.error) {
-      setError(result?.error || 'Something went wrong');
+      if (result?.error === AuthErrorCodes.NO_USER_FOUND) {
+        setIsLoading(false);
+        return setError('User does not exist.');
+      } else if (result?.error === AuthErrorCodes.INVALID_PASSWORD) {
+        setIsLoading(false);
+        return setError('Incorrect password.');
+      }
     }
+
+    setTimeout(() => setIsLoading(false), 1000);
+    router.push('/');
   };
+
+  useEffect(() => {
+    const handleDocumentClick = () => error && setError('');
+    document.addEventListener('click', handleDocumentClick);
+    return () => document.removeEventListener('click', handleDocumentClick);
+  }, [error]);
 
   return (
     <>
@@ -96,11 +115,25 @@ const SignInForm: FC = () => {
         <Form.Submit asChild>
           <button
             type='submit'
+            disabled={isLoading}
             className='text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center
             justify-center rounded-strong bg-accent-dark px-[15px] font-medium leading-none hover:bg-accent-darker
             focus:shadow-black focus:outline-none'
           >
-            Sign in
+            {isLoading ? (
+              <svg className='h-8 w-8 animate-rotate text-accent-lightest' viewBox='0 0 50 50'>
+                <circle
+                  className='animate-dash stroke-accent-lightest'
+                  cx='25'
+                  cy='25'
+                  r='20'
+                  fill='none'
+                  strokeWidth='4'
+                ></circle>
+              </svg>
+            ) : (
+              'Sign in'
+            )}
           </button>
         </Form.Submit>
       </Form.Root>

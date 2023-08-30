@@ -1,0 +1,4 @@
+export enum AuthErrorCodes {
+  NO_USER_FOUND = 'NO_USER_FOUND',
+  INVALID_PASSWORD = 'INVALID_PASSWORD',
+}

@@ -53,8 +53,8 @@ const Guide = async () => {
       >
         {/* CATEGORIES */}
         <div
-          className='hide-scrollbar flex w-full justify-center bg-primary-void tablet:h-full
-          tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start tablet:overflow-y-auto tablet:p-2'
+          className='hide-scrollbar my-3 flex w-full justify-center bg-primary-void
+          tablet:h-full tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start tablet:overflow-y-auto tablet:p-2'
         >
           <ChannelCategoriesDropdown />
           <ChannelCategoriesSidebar />

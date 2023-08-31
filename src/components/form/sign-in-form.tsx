@@ -4,21 +4,23 @@ import { FC, FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { AuthErrorCodes } from '@/util/constants/authError';
+import { AlertCircle } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
+import { useMountedStore } from '@/store/useMountedStore';
 import * as Form from '@radix-ui/react-form';
 
-type UserDetails = {
+type SignInUserDetails = {
   email: string;
   password: string;
 };
 
 const SignInForm: FC = () => {
   const router = useRouter();
-  const [userDetails, setUserDetails] = useState<UserDetails>({ email: '', password: '' });
+  const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
+  const [userDetails, setUserDetails] = useState<SignInUserDetails>({ email: '', password: '' });
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,20 +37,22 @@ const SignInForm: FC = () => {
       callbackUrl: '/',
     });
 
-    console.log(result);
-
-    if (result?.error) {
-      if (result?.error === AuthErrorCodes.NO_USER_FOUND) {
-        setIsLoading(false);
-        return setError('User does not exist.');
-      } else if (result?.error === AuthErrorCodes.INVALID_PASSWORD) {
-        setIsLoading(false);
-        return setError('Incorrect password.');
-      }
+    if (result?.error === AuthErrorCodes.NO_USER_FOUND) {
+      setIsLoading(false);
+      setError('Sorry we could not find an account with that email');
+      return;
     }
 
-    setTimeout(() => setIsLoading(false), 1000);
-    router.push('/');
+    if (result?.error === AuthErrorCodes.INVALID_PASSWORD) {
+      setIsLoading(false);
+      setError('Incorrect password');
+      return;
+    }
+
+    setTimeout(() => setIsLoading(false), 500);
+
+    router.replace('/');
+    setIsMounted(false); // This enables the loading screen to appear before displaying the player.
   };
 
   useEffect(() => {
@@ -59,6 +63,13 @@ const SignInForm: FC = () => {
 
   return (
     <>
+      {error && (
+        <div className='mb-[24px] flex w-full items-center gap-2 rounded-weak bg-red6 px-3 py-4'>
+          <AlertCircle className='text-fs-300 text-primary-lighter' />
+          <span className='text-fs-300 text-primary-lighter'>{error}</span>
+        </div>
+      )}
+
       <Form.Root className='flex w-full flex-col items-center' onSubmit={handleSubmit}>
         <Form.Field className='mb-[10px] grid w-full' name='email'>
           <Form.Control asChild>
@@ -109,8 +120,6 @@ const SignInForm: FC = () => {
             Forgot password?
           </Link>
         </div>
-
-        <span className='text-fs-300 text-red9 '>{error}</span>
 
         <Form.Submit asChild>
           <button

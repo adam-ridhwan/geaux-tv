@@ -57,7 +57,7 @@ const AvatarContent: FC = () => {
         <DropdownMenu.Item className='w-full rounded-weak'>
           {session ? (
             <button
-              onClick={() => signOut()}
+              onClick={() => signOut({ redirect: false })}
               className='flex h-full w-full items-center gap-2 rounded-weak px-3
               py-2 text-left hover:bg-red6 hover:text-accent-lightest'
             >

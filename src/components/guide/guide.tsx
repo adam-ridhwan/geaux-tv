@@ -3,7 +3,6 @@ import { GRADIENTS } from '@/util/constants/gradients';
 
 import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/channels/getAllChannels';
-import { createNewUser } from '@/lib/user/createNewUser';
 import ChannelButton from '@/components/ui/channel-button';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import Footer from '@/components/footer/footer';
@@ -93,7 +92,7 @@ const Guide = async () => {
                           alt={channel.channelName}
                           width={500}
                           height={500}
-                          className='h-auto w-[55px] max-w-[55px] tablet:w-[72px] tablet:max-w-[72px] '
+                          className='h-auto w-[55px] max-w-[55px] tablet:w-[72px] tablet:max-w-[72px]'
                         />
                         <div className='flex flex-col items-start text-left leading-5 tablet:mt-24 tablet:h-full'>
                           <span className='text-fs-300 font-semibold tracking-wider text-primary-light'>

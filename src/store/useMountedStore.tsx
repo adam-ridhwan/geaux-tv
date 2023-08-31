@@ -3,11 +3,11 @@ import { create } from 'zustand';
 import { middleware } from '@/store/middleware';
 
 type state = {
-  isHydrated: boolean;
+  isMounted: boolean;
 };
 
 type actions = {
-  setIsHydrated: (state: boolean) => void;
+  setIsMounted: (state: boolean) => void;
 };
 
 type SetFunction = (
@@ -16,9 +16,9 @@ type SetFunction = (
   actionName?: string
 ) => void;
 
-export const useHydrationStore = create<state & actions>()(
+export const useMountedStore = create<state & actions>()(
   middleware((set: SetFunction) => ({
-    isHydrated: false,
-    setIsHydrated: (state: boolean) => set({ isHydrated: state }, false, 'setIsHydrated'),
+    isMounted: false,
+    setIsMounted: (state: boolean) => set({ isMounted: state }, false, 'setIsMounted'),
   }))
 );

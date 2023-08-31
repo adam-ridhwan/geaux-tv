@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 import chalk from 'chalk';
 
-import { useHydrationStore } from '@/store/useHydrationStore';
+import { useMountedStore } from '@/store/useMountedStore';
 import { useTvStore } from '@/store/useTvStore';
 
 const Video = () => {
   const [currentChannel] = useTvStore(state => [state.currentChannel]);
-  const [isHydrated, setIsHydrated] = useHydrationStore(state => [state.isHydrated, state.setIsHydrated]);
+  const [isMounted, setIsMounted] = useMountedStore(state => [state.isMounted, state.setIsMounted]);
   const [src, setSrc] = useState<string>('' as string);
 
   /**
@@ -31,9 +31,9 @@ const Video = () => {
 
     setSrc(currentChannel.episodes[0]['videoId']);
 
-    if (isHydrated) return;
+    // if (isMounted) return;
 
-    setTimeout(() => setIsHydrated(true), 500);
+    setTimeout(() => setIsMounted(true), 500);
   }, [currentChannel]);
 
   useEffect(() => {

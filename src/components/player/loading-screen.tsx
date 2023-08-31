@@ -4,17 +4,17 @@ import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/util/cn';
 
-import { useHydrationStore } from '@/store/useHydrationStore';
+import { useMountedStore } from '@/store/useMountedStore';
 
 const LoadingScreen: FC = () => {
-  const [isHydrated] = useHydrationStore(state => [state.isHydrated]);
+  const [isMounted] = useMountedStore(state => [state.isMounted]);
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    if (!isHydrated) return;
+    if (!isMounted) return;
 
     setTimeout(() => setShouldRender(false), 500);
-  }, [isHydrated]);
+  }, [isMounted]);
 
   if (!shouldRender) return null;
 
@@ -23,7 +23,7 @@ const LoadingScreen: FC = () => {
       className={cn(
         `fixed inset-0 z-50 flex flex-col items-center justify-center
         bg-black bg-radial-top-right transition-opacity duration-500`,
-        { 'opacity-0': isHydrated }
+        { 'opacity-0': isMounted }
       )}
     >
       <div className='flex flex-row items-center justify-center gap-2'>

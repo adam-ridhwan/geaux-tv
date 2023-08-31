@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { signIn } from 'next-auth/react';
 
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import SignInForm from '@/components/form/sign-in-form';
@@ -16,7 +15,7 @@ export default function SignInPage() {
             </div>
 
             <div
-              className='relative mt-5 flex w-full flex-col items-center justify-between
+              className='relative  flex w-full flex-col items-center justify-between
                 gap-4 overflow-hidden rounded-md px-1 py-5'
             >
               <div className='flex w-full flex-col items-center'>

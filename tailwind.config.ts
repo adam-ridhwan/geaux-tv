@@ -1,6 +1,20 @@
 import type { Config } from 'tailwindcss';
 
-import { blueDark, crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, redDark, slateDark } from '@radix-ui/colors';
+import {
+  blackA,
+  blueDark,
+  crimsonDark,
+  green,
+  mauve,
+  mauveDark,
+  pinkDark,
+  plumDark,
+  purpleDark,
+  redDark,
+  slate,
+  slateDark,
+  violet,
+} from '@radix-ui/colors';
 
 const config: Config = {
   content: [
@@ -103,6 +117,18 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        hide: {
+          from: { opacity: '1' },
+          to: { opacity: '0' },
+        },
+        slideIn: {
+          from: { transform: 'translateX(calc(100% + var(--viewport-padding)))' },
+          to: { transform: 'translateX(0)' },
+        },
+        swipeOut: {
+          from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
+          to: { transform: 'translateX(calc(100% + var(--viewport-padding)))' },
+        },
       },
       animation: {
         rotate: 'rotate 2s linear infinite',
@@ -112,6 +138,9 @@ const config: Config = {
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         slideDown: 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)',
         slideUp: 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+        hide: 'hide 100ms ease-in',
+        slideIn: 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        swipeOut: 'swipeOut 100ms ease-out',
       },
       fontWeight: {
         'fw-regular': '100',

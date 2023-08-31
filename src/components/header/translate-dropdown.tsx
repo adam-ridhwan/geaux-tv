@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { LanguagesIcon } from 'lucide-react';
 
-import { useTranslatePopoverStore } from '@/store/useOverlayStore';
+import { useTranslatePopoverStore } from '@/store/useUserInterfaceStore';
 import Button from '@/components/ui/button-secondary';
-import TranslateContent from '@/components/header/translate/translate-content';
+import TranslateContent from '@/components/header/translate-content';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import * as Popover from '@radix-ui/react-popover';
 
@@ -32,7 +32,7 @@ const TranslateDropdown: FC = () => {
           </Popover.Trigger>
 
           <Popover.Content
-            className='w-52 bg-primary-darkest border-2 border-primary-darker rounded-weak p-2.5
+            className='w-52 rounded-weak border-2 border-primary-darker bg-primary-darkest p-2.5
             will-change-[opacity,transform] data-[side=left]:animate-slideUpAndFade'
             side='left'
             align='start'

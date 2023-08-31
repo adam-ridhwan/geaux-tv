@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 
-import AvatarPicture from '@/components/header/avatar/avatar-picture';
+import AvatarPicture from '@/components/header/avatar-picture';
 
 export default async function Header() {
   const session = await getServerSession();

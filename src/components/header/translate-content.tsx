@@ -3,7 +3,7 @@ import { cn } from '@/util/cn';
 import { DotIcon } from 'lucide-react';
 
 import { languageCode, LANGUAGES, useLanguageStore } from '@/store/useLanguageStore';
-import { useAvatarDropdownStore } from '@/store/useOverlayStore';
+import { useAvatarDropdownStore } from '@/store/useUserInterfaceStore';
 import Button from '@/components/ui/button-secondary';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 
@@ -21,7 +21,7 @@ const TranslateContent: FC = () => {
 
   return (
     <>
-      <RadioGroup.Root className='flex flex-col z-50' defaultValue={currentLanguage} aria-label='View density'>
+      <RadioGroup.Root className='z-50 flex flex-col' defaultValue={currentLanguage} aria-label='View density'>
         {LANGUAGES.map(language => (
           <RadioGroup.Item asChild key={language.languageName} value={language.languageCode}>
             <Button

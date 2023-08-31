@@ -4,8 +4,8 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { ChevronRightSquare, Heart, MoreVertical, Share } from 'lucide-react';
 
-import { useOptionsPopupStore } from '@/store/useOverlayStore';
 import { Channel } from '@/store/useTvStore';
+import { useOptionsPopupStore } from '@/store/useUserInterfaceStore';
 import ButtonSecondary from '@/components/ui/button-secondary';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import * as Dialog from '@radix-ui/react-dialog';

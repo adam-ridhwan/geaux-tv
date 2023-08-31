@@ -6,9 +6,9 @@ import { getAllChannels } from '@/lib/channels/getAllChannels';
 import ChannelButton from '@/components/ui/channel-button';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import Footer from '@/components/footer/footer';
-import ChannelContainer from '@/components/guide/channel-button/channel-container';
-import ChannelCategoriesDropdown from '@/components/guide/channel-categories/channel-categories-dropdown';
-import ChannelCategoriesSidebar from '@/components/guide/channel-categories/channel-categories-sidebar';
+import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
+import ChannelCategoriesSidebar from '@/components/guide/channel-categories-sidebar';
+import ChannelContainer from '@/components/guide/channel-container';
 import OptionsButton from '@/components/guide/options-button';
 import TvDataConsumer from '@/components/guide/tv-data-consumer';
 

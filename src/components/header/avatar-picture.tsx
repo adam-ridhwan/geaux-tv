@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { UserCircle2 } from 'lucide-react';
 import { SessionProvider } from 'next-auth/react';
 
-import { useAvatarDropdownStore } from '@/store/useOverlayStore';
-import AvatarContent from '@/components/header/avatar/avatar-content';
-import AvatarTooltip from '@/components/header/avatar/avatar-tooltip';
+import { useAvatarDropdownStore } from '@/store/useUserInterfaceStore';
+import AvatarContent from '@/components/header/avatar-content';
+import AvatarTooltip from '@/components/header/avatar-tooltip';
 import * as Avatar from '@radix-ui/react-avatar';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 

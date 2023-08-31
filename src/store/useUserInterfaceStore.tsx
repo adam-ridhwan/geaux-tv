@@ -44,3 +44,15 @@ export const useOptionsPopupStore = create<OptionsPopupState>(set => ({
   selectedChannel: null,
   setSelectedChannel: (channel: Channel) => set({ selectedChannel: channel }),
 }));
+
+type LogOutToastState = {
+  isLogOutToastOpen: boolean;
+  setIsLogOutToastOpen: (state: boolean) => void;
+  closeLogOutToast: () => void;
+};
+
+export const useLogOutToastStore = create<LogOutToastState>(set => ({
+  isLogOutToastOpen: false,
+  setIsLogOutToastOpen: (state: boolean) => set({ isLogOutToastOpen: state }),
+  closeLogOutToast: () => set({ isLogOutToastOpen: false }),
+}));

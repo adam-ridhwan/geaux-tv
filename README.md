@@ -37,13 +37,11 @@ This is the new codebase for GeauxTV.
 
 #### **Authentication**:
 
-- [ ] Set up auth for credentials, google and phone number
+- [x] Set up auth for credentials and google
 - [ ] Credentials sign up
-- [ ] Credentials sign in
+- [x] Credentials sign in
 - [ ] Google Sign up
 - [ ] Google Sign in
-- [ ] Phone sign up
-- [ ] Phone sign in
 
 #### **Cloud Storage**:
 

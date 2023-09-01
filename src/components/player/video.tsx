@@ -11,6 +11,8 @@ const Video = () => {
   const [isMounted, setIsMounted] = useMountedStore(state => [state.isMounted, state.setIsMounted]);
   const [src, setSrc] = useState<string>('' as string);
 
+  const { NEXT_PUBLIC_NODE_ENV } = process.env;
+
   /**
    * This is a hacky way to solve this problem.
    *
@@ -37,7 +39,8 @@ const Video = () => {
   }, [currentChannel]);
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
+    console.log(process.env.NEXT_PUBLIC_NODE_ENV);
+    if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
       console.log(
         chalk.bgCyan.black(`Looks like you're on development mode.\n`) +
           chalk.bgBlue.black(`Here's a video for you to watch while you're developing.`)
@@ -45,10 +48,10 @@ const Video = () => {
     }
   }, []);
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
     return (
       <iframe
-        src={'https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&si=4TsNcMV-2nlMOMFX'}
+        src='https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&si=4TsNcMV-2nlMOMFX'
         allow='autoplay; encrypted-media'
         className='m-auto block aspect-video h-full w-full border-none'
       />

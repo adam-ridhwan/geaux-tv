@@ -17,7 +17,7 @@ const ChannelContainer: FC<ChannelContainerProps> = ({ channel, firstColor, seco
   return (
     <>
       <div
-        className='channel-button relative transform  duration-300
+        className='channel-button relative transform duration-300
         tablet:rounded-weak tablet:transition-all tablet:hover:scale-[1.075] tablet:hover:outline tablet:hover:outline-offset-2'
         style={{
           background: currentDevice === DESKTOP ? `linear-gradient(120deg, ${firstColor}, ${secondColor})` : '',

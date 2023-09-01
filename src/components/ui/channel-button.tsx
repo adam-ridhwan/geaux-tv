@@ -32,7 +32,9 @@ const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonPr
           className,
           { 'ring-2 ring-inset ring-accent-lightest': isEqual(channel, currentChannel) },
           { 'aspect-video min-h-[150px] rounded-weak border-none': currentDevice === TABLET },
-          { 'h-full min-w-[180px] max-w-[180px] rounded-weak border-none': currentDevice === DESKTOP }
+          {
+            'h-full min-w-[180px] max-w-[180px] flex-col rounded-weak border-none py-5': currentDevice === DESKTOP,
+          }
         )}
         {...props}
         onClick={() => setCurrentChannel(channel)}

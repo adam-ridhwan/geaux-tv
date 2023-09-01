@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import PlayingIcon from '@/assets/playing-icon';
+import { cn } from '@/util/cn';
 import { GRADIENTS } from '@/util/constants/gradients';
 
 import { Channels } from '@/store/useTvStore';
@@ -48,27 +50,35 @@ const Guide = async () => {
       <TvDataConsumer {...{ CHANNELS, CHANNEL_CATEGORIES }} />
 
       <div
-        className='relative flex h-full max-h-full w-full flex-col items-center overflow-hidden bg-primary-void
-        tablet:min-h-[304px] tablet:flex-1 tablet:flex-row tablet:items-start desktop:h-[304px] desktop:min-h-[304px]'
+        className={cn(
+          `relative flex h-full max-h-full w-full flex-col items-center overflow-hidden bg-primary-void`,
+          `tablet:items-start, tablet:min-h-[304px] tablet:flex-1 tablet:flex-row`,
+          `desktop:h-[304px] desktop:min-h-[304px]`
+        )}
       >
         {/* CATEGORIES */}
         <div
-          className='hide-scrollbar my-3 flex w-full justify-center bg-primary-void
-          tablet:h-full tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start tablet:overflow-y-auto tablet:p-2'
+          className={cn(
+            `hide-scrollbar my-3 flex w-full justify-center bg-primary-void`,
+            `tablet:h-full tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start 
+            tablet:overflow-y-auto tablet:p-2 tablet:pb-10`
+          )}
         >
           <ChannelCategoriesDropdown />
           <ChannelCategoriesSidebar />
         </div>
 
         {/* CHANNELS */}
-        <div className='hide-scrollbar flex h-full w-full flex-col overflow-auto desktop:flex-row'>
+        <div className={cn(`hide-scrollbar flex h-full w-full flex-col overflow-auto`, `desktop:flex-row`)}>
           {Object.keys(CHANNELS).map(category => (
             <div key={category} className='flex flex-col pb-[40px] tablet:pb-0 '>
               <div className='flex flex-row bg-primary-void pt-[20px]'>
                 <HorizontalSeparator className='relative mb-[32px] bg-accent-light tablet:mb-[20px]'>
                   <span
-                    className='absolute left-[16px] top-1/2 -translate-y-1/2 transform whitespace-nowrap rounded-weak
-                    border border-accent-light bg-accent-darkest px-3 py-1 text-fs-400 font-bold text-primary-lightest'
+                    className={cn(
+                      `absolute left-[16px] top-1/2 -translate-y-1/2 transform whitespace-nowrap rounded-weak border
+                      border-accent-light bg-accent-darkest px-3 py-1 text-fs-400 font-bold text-primary-lightest`
+                    )}
                   >
                     {category}
                   </span>
@@ -77,8 +87,10 @@ const Guide = async () => {
 
               {/* CHANNELS */}
               <div
-                className='hide-scrollbar flex h-full flex-col overflow-auto overflow-y-hidden
-                border-b border-b-primary-dark tablet:flex-row tablet:gap-4 tablet:border-none tablet:p-4'
+                className={cn(
+                  `hide-scrollbar flex h-full flex-col overflow-auto overflow-y-hidden border-b border-b-primary-dark`,
+                  `tablet:flex-row tablet:gap-4 tablet:border-none tablet:p-4`
+                )}
               >
                 {CHANNELS[category].map(channel => {
                   const index = incrementGradientObject();
@@ -87,15 +99,33 @@ const Guide = async () => {
                   return (
                     <ChannelContainer key={channel.channelNumber} {...{ channel, firstColor, secondColor }}>
                       <ChannelButton channel={channel}>
-                        <Image
-                          src={channel.channelIcon}
-                          alt={channel.channelName}
-                          width={500}
-                          height={500}
-                          className='h-auto w-[55px] max-w-[55px] tablet:w-[72px] tablet:max-w-[72px]'
-                        />
-                        <div className='flex flex-col items-start text-left leading-5 tablet:mt-24 tablet:h-full'>
-                          <span className='text-fs-300 font-semibold tracking-wider text-primary-light'>
+                        <div className='flex desktop:min-h-[80px] desktop:items-center'>
+                          <Image
+                            src={channel.channelIcon}
+                            alt={channel.channelName}
+                            width={500}
+                            height={500}
+                            className={cn(
+                              `h-auto w-[55px] max-w-[55px]`,
+                              `tablet:w-[72px] tablet:max-w-[72px]`,
+                              `desktop:h-auto desktop:w-auto`
+                            )}
+                          />
+                        </div>
+
+                        <div
+                          className={cn(
+                            `flex flex-col items-start text-left leading-5`,
+                            `tablet:mt-24 tablet:h-full`,
+                            `desktop:ml-6 desktop:mt-0 desktop:w-full desktop:items-start desktop:justify-start 
+                            desktop:gap-2`
+                          )}
+                        >
+                          <span
+                            className='flex h-[25px] items-center gap-2 text-fs-300 font-semibold tracking-wider
+                            text-primary-light'
+                          >
+                            <PlayingIcon {...{ channel }} />
                             {channel.channelNumber}
                           </span>
                           <span

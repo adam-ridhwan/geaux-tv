@@ -8,9 +8,9 @@ export const logger = config => (set, get, api) =>
         set(args);
         return;
       }
-      console.log(chalk.black.bgYellow('  applying '), args);
+      // console.log(chalk.black.bgYellow('  applying '), args);
       set(args);
-      console.log(chalk.black.bgGreen('  new state'), get());
+      // console.log(chalk.black.bgGreen('  new state'), get());
     },
     get,
     api

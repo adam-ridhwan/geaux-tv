@@ -1,5 +1,6 @@
 import { AuthErrorCodes } from '@/util/constants/authError';
 import env from '@/util/env';
+import { wait } from '@/util/wait';
 import bcrypt from 'bcrypt';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -8,10 +9,6 @@ import GoogleProvider from 'next-auth/providers/google';
 import { getUser } from '@/lib/user/getUser';
 
 const { GOOGLE_ID, GOOGLE_SECRET } = env;
-
-function wait(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 export const options: NextAuthOptions = {
   pages: {

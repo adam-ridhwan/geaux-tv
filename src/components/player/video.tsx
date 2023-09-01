@@ -39,7 +39,6 @@ const Video = () => {
   }, [currentChannel]);
 
   useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_NODE_ENV);
     if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
       console.log(
         chalk.bgCyan.black(`Looks like you're on development mode.\n`) +

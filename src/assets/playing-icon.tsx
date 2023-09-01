@@ -7,9 +7,6 @@ import { Channel, useTvStore } from '@/store/useTvStore';
 
 const PlayingIcon = ({ channel }: { channel: Channel }) => {
   const [currentChannel] = useTvStore(state => [state.currentChannel]);
-  useEffect(() => {
-    console.log('currentChannel', currentChannel?.episodes[0].videoId);
-  }, [currentChannel]);
 
   return (
     <>

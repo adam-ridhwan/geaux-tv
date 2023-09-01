@@ -6,15 +6,20 @@ import { signOut } from 'next-auth/react';
 import { useAvatarDropdownStore, useLogOutToastStore } from '@/store/useUserInterfaceStore';
 
 const SignOutButton = () => {
-  const [setIsLogOutToastOpen] = useLogOutToastStore(state => [state.setIsLogOutToastOpen]);
+  const [setIsLogOutToastOpen, closeLogOutToast] = useLogOutToastStore(state => [
+    state.setIsLogOutToastOpen,
+    state.closeLogOutToast,
+  ]);
   const [closeAvatarDropdown] = useAvatarDropdownStore(state => [state.closeAvatarDropdown]);
 
   return (
     <button
       onClick={() => {
-        signOut({ redirect: false }).then(r => console.log(r));
-        setIsLogOutToastOpen(true);
-        closeAvatarDropdown();
+        signOut({ redirect: false }).then(r => {
+          setIsLogOutToastOpen(true);
+          setTimeout(() => closeLogOutToast(), 5000);
+          closeAvatarDropdown();
+        });
       }}
       className='flex w-full items-center gap-2 rounded-weak px-3 py-2 text-left hover:bg-red6
         hover:text-accent-lightest'

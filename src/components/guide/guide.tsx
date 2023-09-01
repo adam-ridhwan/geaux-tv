@@ -56,12 +56,12 @@ const Guide = async () => {
           `desktop:h-[304px] desktop:min-h-[304px]`
         )}
       >
-        {/* CATEGORIES */}
+        {/* CATEGORIES SIDEBAR AND DROPDOWN */}
         <div
           className={cn(
             `hide-scrollbar my-3 flex w-full justify-center bg-primary-void`,
             `tablet:h-full tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start 
-            tablet:overflow-y-auto tablet:p-2 tablet:pb-10`
+            tablet:overflow-y-auto tablet:p-2 tablet:pb-10 tablet:pt-9`
           )}
         >
           <ChannelCategoriesDropdown />

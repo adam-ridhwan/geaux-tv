@@ -14,7 +14,7 @@ const ButtonSecondary: ForwardRefRenderFunction<HTMLButtonElement, ExtendedButto
     <button
       ref={ref}
       className={cn(
-        `flex h-full w-full items-center gap-2 rounded-weak px-3 
+        `flex h-full w-full items-center gap-2 px-3 
         py-2 hover:bg-accent-dark hover:text-accent-lightest`,
         className,
         { 'hover:accent-lightest bg-accent-darker text-accent-lightest hover:bg-accent-darker': isActive }

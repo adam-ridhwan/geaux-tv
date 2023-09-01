@@ -10,8 +10,8 @@ export default async function Header() {
 
   return (
     <header className='px-4 py-3'>
-      <div className='flex justify-between'>
-        <div className='flex items-center'>
+      <div className='flex items-center justify-between'>
+        <div className='flex flex-row'>
           <button className='cursor-pointer'>
             <Menu className='text-slate-200 mr-3 h-6 w-6' />
           </button>

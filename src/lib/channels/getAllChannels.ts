@@ -1,8 +1,10 @@
+'use server';
+
+import 'server-only';
+
 import { cache } from 'react';
 
 import { connectToDatabase } from '@/lib/connectToDatabase';
-
-import 'server-only';
 
 export const getAllChannels = cache(async () => {
   try {

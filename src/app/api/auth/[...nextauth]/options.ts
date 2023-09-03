@@ -37,7 +37,7 @@ export const options: NextAuthOptions = {
         // return user details without password
         if (user && isPasswordCorrect) {
           const { password, ...userDetailsWithoutPassword } = user;
-          return user;
+          return userDetailsWithoutPassword;
         }
 
         return null;

@@ -43,8 +43,6 @@ const SignInForm: FC = () => {
       return;
     }
 
-    console.log(result);
-
     if (result?.error === AuthErrorCodes.INVALID_PASSWORD) {
       setIsLoading(false);
       setError('Incorrect password');

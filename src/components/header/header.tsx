@@ -3,14 +3,24 @@ import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 
+import { getUser } from '@/lib/user/getUser';
 import AvatarPicture from '@/components/header/avatar-picture';
-import AvatarTooltip from '@/components/header/avatar-tooltip';
 
 export default async function Header() {
   const session = await getServerSession();
 
+  if (!session || !session.user || !session.user.email) return <div>Failed to get session or user email</div>;
+
+  const user = await getUser(session.user.email);
+
+  if (!user) return <div>Failed to get user</div>;
+
+  let fetchedPhotoUrl;
+  const { photoUrl } = user;
+  fetchedPhotoUrl = photoUrl;
+
   return (
-    <header className='px-4 py-3'>
+    <header className='min-h-[70px] px-4 py-3'>
       <div className='flex items-center justify-between'>
         <div className='flex flex-row'>
           <button className='cursor-pointer'>
@@ -31,7 +41,7 @@ export default async function Header() {
           </Link>
         </div>
 
-        <AvatarPicture />
+        <AvatarPicture {...{ fetchedPhotoUrl }} />
       </div>
     </header>
   );

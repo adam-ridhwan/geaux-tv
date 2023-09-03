@@ -13,10 +13,10 @@ import * as Avatar from '@radix-ui/react-avatar';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 type AvatarPictureProps = {
-  children?: ReactNode;
+  fetchedPhotoUrl?: string;
 };
 
-const AvatarPicture: FC<AvatarPictureProps> = ({ children }) => {
+const AvatarPicture: FC<AvatarPictureProps> = ({ fetchedPhotoUrl }) => {
   const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useAvatarDropdownStore(state => [
     state.isAvatarDropdownOpen,
     state.setIsAvatarDropdownOpen,
@@ -32,18 +32,18 @@ const AvatarPicture: FC<AvatarPictureProps> = ({ children }) => {
    */
   if (status === 'loading') return null;
   if (session === null && ['/sign-in', '/sign-up'].includes(pathname)) return null;
-  if (['/sign-in', '/sign-up'].includes(pathname) && status === 'authenticated') return null;
+  if (['/sign-in', '/sign-up', '/account/profile'].includes(pathname) && status === 'authenticated') return null;
 
   return (
     <DropdownMenu.Root open={isAvatarDropdownOpen} onOpenChange={setIsAvatarDropdownOpen}>
       <DropdownMenu.Trigger>
         <Avatar.Root
           className='group relative inline-flex h-11 w-11 select-none items-center
-            justify-center overflow-hidden rounded-full align-middle'
+           justify-center overflow-hidden rounded-full align-middle'
         >
           {session ? (
             <Image
-              src='https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/001-man.png'
+              src={fetchedPhotoUrl || 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/001-man.png'}
               alt='geaux logo'
               priority
               width={500}

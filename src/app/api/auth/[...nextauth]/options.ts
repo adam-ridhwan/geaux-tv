@@ -1,4 +1,4 @@
-import { AuthErrorCodes } from '@/util/constants/authError';
+import { AuthErrorCodes } from '@/constants/authError';
 import env from '@/util/env';
 import { wait } from '@/util/wait';
 import bcrypt from 'bcrypt';

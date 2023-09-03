@@ -6,8 +6,9 @@ import { signOut } from 'next-auth/react';
 import { useAvatarDropdownStore, useLogOutToastStore } from '@/store/useUserInterfaceStore';
 
 const SignOutButton = () => {
-  const [setIsLogOutToastOpen, closeLogOutToast] = useLogOutToastStore(state => [
+  const [setIsLogOutToastOpen, openLogOutToast, closeLogOutToast] = useLogOutToastStore(state => [
     state.setIsLogOutToastOpen,
+    state.openLogOutToast,
     state.closeLogOutToast,
   ]);
   const [closeAvatarDropdown] = useAvatarDropdownStore(state => [state.closeAvatarDropdown]);
@@ -15,8 +16,8 @@ const SignOutButton = () => {
   return (
     <button
       onClick={() => {
-        signOut({ redirect: false }).then(r => {
-          setIsLogOutToastOpen(true);
+        signOut({ redirect: false }).then(() => {
+          openLogOutToast();
           setTimeout(() => closeLogOutToast(), 5000);
           closeAvatarDropdown();
         });

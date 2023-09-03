@@ -16,17 +16,24 @@ type OptionsButtonProps = {
 };
 
 const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
-  const [isOptionsPopupOpen, setIsOptionsPopupOpen, closeOptionsPopup, selectedChannel, setSelectedChannel] =
-    useOptionsPopupStore(state => [
-      state.isOptionsPopupOpen,
-      state.setIsOptionsPopupOpen,
-      state.closeOptionsPopup,
-      state.selectedChannel,
-      state.setSelectedChannel,
-    ]);
+  const [
+    isOptionsPopupOpen,
+    setIsOptionsPopupOpen,
+    openOptionsPopup,
+    closeOptionsPopup,
+    selectedChannel,
+    setSelectedChannel,
+  ] = useOptionsPopupStore(state => [
+    state.isOptionsPopupOpen,
+    state.setIsOptionsPopupOpen,
+    state.openOptionsPopup,
+    state.closeOptionsPopup,
+    state.selectedChannel,
+    state.setSelectedChannel,
+  ]);
 
   const openOptionsContainer = () => {
-    setIsOptionsPopupOpen(true);
+    openOptionsPopup();
     setSelectedChannel(channel);
   };
 

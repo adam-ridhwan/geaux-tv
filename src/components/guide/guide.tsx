@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import PlayingIcon from '@/assets/playing-icon';
+import { GRADIENTS } from '@/constants/gradients';
 import { cn } from '@/util/cn';
-import { GRADIENTS } from '@/util/constants/gradients';
 
 import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/channels/getAllChannels';

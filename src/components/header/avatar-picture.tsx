@@ -1,10 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { wait } from '@/util/wait';
-import chalk from 'chalk';
 import { UserCircle2 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 
@@ -23,14 +21,18 @@ export default function AvatarPicture() {
   const { data: session, status } = useSession();
   const pathname = usePathname();
 
+  useEffect(() => {
+    console.log(status);
+  }, [status]);
+
   /*
    * 1) if there is no user and page is in sign-in or sign-up page, don't show the avatar
    * 2) if the there is no user and page is in any other page, show the empty user avatar
    * 3) if there is a user and page is in sign-in or sign-up page, show the user's avatar
    */
-
   if (status === 'loading') return null;
   if (session === null && ['/sign-in', '/sign-up'].includes(pathname)) return null;
+  if (['/sign-in', '/sign-up'].includes(pathname) && status === 'authenticated') return null;
 
   return (
     <DropdownMenu.Root open={isAvatarDropdownOpen} onOpenChange={setIsAvatarDropdownOpen}>

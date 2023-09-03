@@ -3,7 +3,7 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { AuthErrorCodes } from '@/util/constants/authError';
+import { AuthErrorCodes } from '@/constants/authError';
 import { AlertCircle } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 

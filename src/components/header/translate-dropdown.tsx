@@ -23,7 +23,7 @@ const TranslateDropdown: FC = () => {
       >
         <Popover.Root open={isTranslatePopoverOpen} onOpenChange={setIsTranslatePopoverOpen}>
           <Popover.Trigger asChild>
-            <Button isActive={isTranslatePopoverOpen}>
+            <Button isActive={isTranslatePopoverOpen} className='rounded-weak'>
               <span>
                 <LanguagesIcon size={20} color='#fff' />
               </span>

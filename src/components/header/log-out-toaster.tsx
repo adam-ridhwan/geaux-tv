@@ -3,6 +3,7 @@
 import { X } from 'lucide-react';
 
 import { useLogOutToastStore } from '@/store/useUserInterfaceStore';
+import VerticalSeparator from '@/components/ui/vertical-separator';
 import * as Toast from '@radix-ui/react-toast';
 
 const LogOutToaster = () => {
@@ -14,8 +15,12 @@ const LogOutToaster = () => {
   return (
     <Toast.Provider swipeDirection='right' duration={5000}>
       <Toast.Root
+        type='background'
         className="grid grid-cols-[auto_max-content] items-center
-        gap-x-[15px] rounded-weak bg-white p-[15px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] [grid-template-areas:_'title_action'_'description_action'] data-[swipe=cancel]:translate-x-0
+        gap-x-[15px] rounded-weak bg-white p-[15px]
+        shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
+        [grid-template-areas:_'title_action'_'description_action']
+        data-[swipe=cancel]:translate-x-0
         data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]
         data-[state=closed]:animate-hide data-[state=open]:animate-slideIn
         data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]"
@@ -35,8 +40,8 @@ const LogOutToaster = () => {
         </Toast.Close>
       </Toast.Root>
       <Toast.Viewport
-        className='fixed bottom-0 right-0 z-[2147483647] m-0 flex w-[390px] max-w-[100vw] list-none
-        flex-col gap-[10px] p-[var(--viewport-padding)] outline-none [--viewport-padding:_25px]'
+        className='fixed right-3 top-16 z-[2147483647] m-0 flex w-[390px] max-w-[100vw]
+        list-none flex-col gap-[10px] p-[var(--viewport-padding)] outline-none [--viewport-padding:_0px]'
       />
     </Toast.Provider>
   );

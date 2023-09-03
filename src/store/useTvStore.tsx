@@ -5,12 +5,14 @@ type Episode = {
   title: string;
 };
 
+export type ChannelNumber = number;
+
 export type Channel = {
   channelName: string;
   channelIcon: string;
   channelDescription: string;
   episodes: Episode[];
-  channelNumber: number;
+  channelNumber: ChannelNumber;
 };
 
 export type Channels = {

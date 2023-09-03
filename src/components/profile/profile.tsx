@@ -2,24 +2,24 @@
 
 import { FC } from 'react';
 import Image from 'next/image';
-import { ChevronRight, Mail, Pencil, Smartphone, SquareAsterisk, User } from 'lucide-react';
+import { ChevronRight, Mail, Smartphone, SquareAsterisk, User } from 'lucide-react';
 
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import * as Avatar from '@radix-ui/react-avatar';
 
 type ProfileProps = {
-  userWithoutPassword: Omit<User, 'password'>;
+  userDetails: Pick<User, 'name' | 'email' | 'phone' | 'photoUrl'>;
 };
 
-const Profile: FC<ProfileProps> = ({ userWithoutPassword }) => {
-  const { name, email, phone } = userWithoutPassword;
+const Profile: FC<ProfileProps> = ({ userDetails }) => {
+  const { name, email, phone, photoUrl } = userDetails;
 
   return (
     <>
       <div className='mb-5 flex flex-row items-center gap-4 text-fs-400'>
         <Avatar.Root>
           <Image
-            src={'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/001-man.png'}
+            src={photoUrl || 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/001-man.png'}
             alt='geaux logo'
             priority
             width={500}

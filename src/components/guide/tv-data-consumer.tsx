@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useEffect } from 'react';
+import chalk from 'chalk';
 
 import { Channels, useTvStore } from '@/store/useTvStore';
 
@@ -10,10 +11,9 @@ type TvDataConsumerProps = {
 };
 
 const TvDataConsumer: FC<TvDataConsumerProps> = ({ CHANNELS, CHANNEL_CATEGORIES }) => {
-  const [channels, setChannels, setCurrentChannel, setCategories] = useTvStore(state => [
+  const [channels, setChannels, setCategories] = useTvStore(state => [
     state.channels,
     state.setChannels,
-    state.setCurrentChannel,
     state.setCategories,
   ]);
 
@@ -21,8 +21,16 @@ const TvDataConsumer: FC<TvDataConsumerProps> = ({ CHANNELS, CHANNEL_CATEGORIES 
     // Set channels in global store
     if (CHANNELS && CHANNELS !== channels) {
       setChannels(CHANNELS);
-      setCurrentChannel(CHANNELS[CHANNEL_CATEGORIES[1]][0]); // change this to last watched channel-button in the future
       setCategories(CHANNEL_CATEGORIES);
+    }
+  }, [CHANNELS, CHANNEL_CATEGORIES, channels, setCategories, setChannels]);
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
+      console.log(
+        chalk.bgCyan.black(`Looks like you're on development mode.\n`) +
+          chalk.bgBlue.black(`Here's a video for you to watch while you're developing.`)
+      );
     }
   }, []);
 

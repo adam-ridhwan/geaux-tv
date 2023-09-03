@@ -1,6 +1,7 @@
 'use client';
 
 import { ButtonHTMLAttributes, forwardRef, ForwardRefRenderFunction, ReactNode } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import { cn } from '@/util/cn';
 import useWindowSize, { DESKTOP, TABLET } from '@/util/useWindowSize';
 import isEqual from 'lodash/isEqual';
@@ -19,29 +20,25 @@ const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonPr
   { className, isActive, children, colorIndex, channel, ...props },
   ref
 ) => {
-  const [currentChannel, setCurrentChannel] = useTvStore(state => [state.currentChannel, state.setCurrentChannel]);
-
+  const router = useRouter();
+  const params = useParams();
   const currentDevice = useWindowSize();
 
   return (
-    <>
-      <button
-        ref={ref}
-        className={cn(
-          `flex h-[72px] w-full flex-row items-center gap-4 border-t border-t-primary-dark px-3`,
-          className,
-          { 'ring-2 ring-inset ring-accent-lightest': isEqual(channel, currentChannel) },
-          { 'aspect-video min-h-[150px] rounded-weak border-none': currentDevice === TABLET },
-          {
-            'h-full min-w-[180px] max-w-[180px] flex-col rounded-weak border-none py-5': currentDevice === DESKTOP,
-          }
-        )}
-        {...props}
-        onClick={() => setCurrentChannel(channel)}
-      >
-        {children}
-      </button>
-    </>
+    <button
+      ref={ref}
+      className={cn(
+        `flex h-[72px] w-full flex-row items-center gap-4 border-t border-t-primary-dark px-3`,
+        className,
+        { 'ring-2 ring-inset ring-accent-lightest': isEqual(channel.channelNumber, Number(params.channelNumber)) },
+        { 'aspect-video min-h-[150px] rounded-weak border-none': currentDevice === TABLET },
+        { 'h-full min-w-[180px] max-w-[180px] flex-col rounded-weak border-none py-5': currentDevice === DESKTOP }
+      )}
+      {...props}
+      onClick={() => router.replace(`/tv/${channel.channelNumber}`)}
+    >
+      {children}
+    </button>
   );
 };
 

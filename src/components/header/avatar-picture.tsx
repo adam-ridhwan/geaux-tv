@@ -39,7 +39,7 @@ const AvatarPicture: FC<AvatarPictureProps> = ({ fetchedPhotoUrl }) => {
       <DropdownMenu.Trigger>
         <Avatar.Root
           className='group relative inline-flex h-11 w-11 select-none items-center
-           justify-center overflow-hidden rounded-full align-middle'
+          justify-center overflow-hidden rounded-full align-middle'
         >
           {session ? (
             <Image

@@ -7,17 +7,13 @@ import { getUser } from '@/lib/user/getUser';
 import AvatarPicture from '@/components/header/avatar-picture';
 
 export default async function Header() {
+  let userEmail;
+  let fetchedPhotoUrl;
+
   const session = await getServerSession();
 
-  if (!session || !session.user || !session.user.email) return <div>Failed to get session or user email</div>;
-
-  const user = await getUser(session.user.email);
-
-  if (!user) return <div>Failed to get user</div>;
-
-  let fetchedPhotoUrl;
-  const { photoUrl } = user;
-  fetchedPhotoUrl = photoUrl;
+  if (session && session?.user?.email) userEmail = await getUser(session.user.email);
+  if (userEmail) fetchedPhotoUrl = userEmail?.photoUrl || fetchedPhotoUrl;
 
   return (
     <header className='min-h-[70px] px-4 py-3'>

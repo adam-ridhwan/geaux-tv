@@ -1,16 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
-import { cn } from '@/util/cn';
+import { useParams } from 'next/navigation';
 
-import { Channel, useTvStore } from '@/store/useTvStore';
+import { Channel } from '@/store/useTvStore';
 
 const PlayingIcon = ({ channel }: { channel: Channel }) => {
-  const [currentChannel] = useTvStore(state => [state.currentChannel]);
+  const params = useParams();
 
   return (
     <>
-      {currentChannel?.episodes[0].videoId === channel.episodes[0].videoId && (
+      {Number(params.channelNumber) === channel.channelNumber && (
         <svg
           xmlns='http://www.w3.org/2000/svg'
           style={{

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { UserCircle2 } from 'lucide-react';
@@ -12,7 +12,11 @@ import AvatarTooltip from '@/components/header/avatar-tooltip';
 import * as Avatar from '@radix-ui/react-avatar';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-export default function AvatarPicture() {
+type AvatarPictureProps = {
+  children?: ReactNode;
+};
+
+const AvatarPicture: FC<AvatarPictureProps> = ({ children }) => {
   const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useAvatarDropdownStore(state => [
     state.isAvatarDropdownOpen,
     state.setIsAvatarDropdownOpen,
@@ -20,10 +24,6 @@ export default function AvatarPicture() {
 
   const { data: session, status } = useSession();
   const pathname = usePathname();
-
-  useEffect(() => {
-    console.log(status);
-  }, [status]);
 
   /*
    * 1) if there is no user and page is in sign-in or sign-up page, don't show the avatar
@@ -61,4 +61,6 @@ export default function AvatarPicture() {
       <AvatarContent />
     </DropdownMenu.Root>
   );
-}
+};
+
+export default AvatarPicture;

@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 
 import AvatarPicture from '@/components/header/avatar-picture';
+import AvatarTooltip from '@/components/header/avatar-tooltip';
 
 export default async function Header() {
   const session = await getServerSession();

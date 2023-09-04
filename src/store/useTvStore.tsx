@@ -1,3 +1,4 @@
+import { ObjectId } from 'bson';
 import { create } from 'zustand';
 
 type Episode = {
@@ -8,6 +9,7 @@ type Episode = {
 export type ChannelNumber = number;
 
 export type Channel = {
+  _id?: ObjectId;
   channelName: string;
   channelIcon: string;
   channelDescription: string;

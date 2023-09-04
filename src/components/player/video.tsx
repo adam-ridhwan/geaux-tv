@@ -1,29 +1,24 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import chalk from 'chalk';
 
 import { useMountedStore } from '@/store/useMountedStore';
-import { useTvStore } from '@/store/useTvStore';
+import { Channel, useTvStore } from '@/store/useTvStore';
 
-const Video = () => {
-  const params = useParams();
-  const [channels] = useTvStore(state => [state.channels]);
-  const [isMounted, setIsMounted] = useMountedStore(state => [state.isMounted, state.setIsMounted]);
+type VideoProps = {
+  channel: Channel;
+};
+
+const Video: FC<VideoProps> = ({ channel }) => {
+  const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
   const [src, setSrc] = useState<string>('' as string);
 
   useEffect(() => {
     setTimeout(() => setIsMounted(true), 500);
-
-    for (const category in channels) {
-      for (const channel of channels[category]) {
-        if (channel.channelNumber === Number(params.channelNumber)) {
-          setSrc(channel.episodes[0]?.videoId);
-        }
-      }
-    }
-  }, [channels, params.channelNumber, setIsMounted]);
+    setSrc(channel.episodes[0].videoId);
+  }, [setIsMounted]);
 
   // if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
   //   return (

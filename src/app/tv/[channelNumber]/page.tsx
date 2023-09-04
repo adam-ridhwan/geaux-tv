@@ -1,41 +1,38 @@
 import { notFound } from 'next/navigation';
 
-import { ChannelNumber, Channels } from '@/store/useTvStore';
+import { Channel, Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/channels/getAllChannels';
+import { getChannel } from '@/lib/channels/getChannel';
 import Player from '@/components/player/player';
 
+type Params = {
+  params: {
+    channelNumber: string;
+  };
+};
+
 export async function generateStaticParams() {
-  const CHANNELS: Channels | null = await getAllChannels();
+  const channels: Channels | null = await getAllChannels();
 
   const channelNumbers: string[] = [];
 
-  Object.values(CHANNELS ?? {}).forEach(category => {
+  Object.values(channels ?? {}).forEach(category => {
     category.forEach(channel => {
       channelNumbers.push(String(channel.channelNumber));
     });
   });
 
-  const uniqueChannelNumbers = Array.from(new Set(channelNumbers));
-
-  return uniqueChannelNumbers.map(num => ({ channelNumber: num }));
+  return Array.from(new Set(channelNumbers)).map(num => ({ channelNumber: num }));
 }
 
-const ChannelPage = async () => {
-  const CHANNELS: Channels | null = await getAllChannels();
+// TODO: Create metadata function
 
-  const channelNumbers: ChannelNumber[] = [];
+const ChannelPage = async ({ params: { channelNumber } }: Params) => {
+  const channel: Channel | null = await getChannel(Number(channelNumber));
 
-  Object.values(CHANNELS ?? {}).forEach(category => {
-    category.forEach(channel => {
-      channelNumbers.push(channel.channelNumber);
-    });
-  });
+  if (!channel) notFound();
 
-  const uniqueChannelNumbers = Array.from(new Set(channelNumbers));
-
-  if (!uniqueChannelNumbers) notFound();
-
-  return <Player />;
+  return <Player {...{ channel }} />;
 };
 
 export default ChannelPage;

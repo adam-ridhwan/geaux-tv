@@ -8,7 +8,7 @@ import ButtonPrimary from '@/components/ui/button-primary';
 import ButtonSecondary from '@/components/ui/button-secondary';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-const ChannelCategoriesDropdown: FC = () => {
+const CategoriesDropdown: FC = () => {
   const [channelCategories] = useTvStore(state => [state.channelCategories]);
   const [isChannelCategoriesDropdownOpen, setIsChannelCategoriesDropdownOpen] = useState<boolean>();
   const currentDevice = useWindowSize();
@@ -44,4 +44,4 @@ const ChannelCategoriesDropdown: FC = () => {
   );
 };
 
-export default ChannelCategoriesDropdown;
+export default CategoriesDropdown;

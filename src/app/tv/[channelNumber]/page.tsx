@@ -39,6 +39,7 @@ export default async function PlayerPage({ params: { channelNumber } }: Params) 
         className='pointer-events-none m-auto block aspect-video h-full w-full max-w-[1700px] select-none border-none bg-black'
       />
 
+      {/* keep this for this in case we have errors in layout */}
       {/*<div className='pointer-events-none w-full max-w-[1700px] select-none bg-black'>*/}
       {/*  <iframe*/}
       {/*    src={channel.episodes[0].videoId}*/}

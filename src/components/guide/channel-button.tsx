@@ -30,7 +30,7 @@ const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonPr
       className={cn(
         `flex h-[72px] w-full flex-row items-center gap-4 border-t border-t-primary-dark px-3`,
         className,
-        { 'ring-2 ring-inset ring-accent-lightest': isEqual(channel.channelNumber, Number(params.channelNumber)) },
+        { 'ring-4 ring-inset ring-accent-lightest': isEqual(channel.channelNumber, Number(params.channelNumber)) },
         { 'aspect-video min-h-[150px] rounded-weak border-none': currentDevice === TABLET },
         { 'h-full min-w-[180px] max-w-[180px] flex-col rounded-weak border-none py-5': currentDevice === DESKTOP }
       )}

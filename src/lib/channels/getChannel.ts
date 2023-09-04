@@ -11,8 +11,10 @@ export const getChannel = cache(async (channelNumber: ChannelNumber): Promise<Ch
   try {
     const { channelsCollection } = await connectToDatabase();
 
-    // FIX: not sure why this is not working
-    // const channel = await channelsCollection.findOne({ number: channelNumber }, { projection: { _id: 0 } });
+    /**
+     * FUTURE: if we decide to put channel in their own collection (might be better) then we should do this:
+     * const channel = await channelsCollection.findOne({ number: channelNumber }, { projection: { _id: 0 } });
+     */
 
     const channels = await channelsCollection.findOne({}, { projection: { _id: 0 } });
 

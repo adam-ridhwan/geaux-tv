@@ -7,7 +7,7 @@ import { useTvStore } from '@/store/useTvStore';
 import ButtonSecondary from '@/components/ui/button-secondary';
 import SignOutButton from '@/components/header/sign-out-button';
 
-const ChannelCategoriesDropdown: FC = () => {
+const CategoriesDropdown: FC = () => {
   const [channelCategories] = useTvStore(state => [state.channelCategories]);
   const currentDevice = useWindowSize();
 
@@ -27,4 +27,4 @@ const ChannelCategoriesDropdown: FC = () => {
   );
 };
 
-export default ChannelCategoriesDropdown;
+export default CategoriesDropdown;

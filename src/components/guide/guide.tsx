@@ -1,16 +1,15 @@
 import Image from 'next/image';
-import PlayingIcon from '@/assets/playing-icon';
 import { GRADIENTS } from '@/constants/gradients';
 import { cn } from '@/util/cn';
 
 import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/channels/getAllChannels';
-import ChannelButton from '@/components/ui/channel-button';
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import Footer from '@/components/footer/footer';
-import ChannelCategoriesDropdown from '@/components/guide/channel-categories-dropdown';
-import ChannelCategoriesSidebar from '@/components/guide/channel-categories-sidebar';
-import ChannelContainer from '@/components/guide/channel-container';
+import CategoriesContainer from '@/components/guide/categories-container';
+import ChannelButton from '@/components/guide/channel-button';
+import ChannelButtonContainer from '@/components/guide/channel-button-container';
+import ChannelLabel from '@/components/guide/channel-label';
 import OptionsButton from '@/components/guide/options-button';
 import TvDataConsumer from '@/components/guide/tv-data-consumer';
 
@@ -40,18 +39,9 @@ const Guide = async () => {
         )}
       >
         {/* CATEGORIES SIDEBAR AND DROPDOWN */}
-        <div
-          className={cn(
-            `hide-scrollbar my-3 flex w-full justify-center bg-primary-void`,
-            `tablet:h-full tablet:w-[250px] tablet:min-w-[250px] tablet:flex-col tablet:justify-start 
-            tablet:overflow-y-auto tablet:p-2 tablet:pb-10 tablet:pt-9`
-          )}
-        >
-          <ChannelCategoriesDropdown />
-          <ChannelCategoriesSidebar />
-        </div>
+        <CategoriesContainer />
 
-        {/* CHANNELS */}
+        {/* CATEGORY TITLE */}
         <div className={cn(`hide-scrollbar flex h-full w-full flex-col overflow-auto`, `desktop:flex-row`)}>
           {Object.keys(CHANNELS).map(category => (
             <div key={category} className='flex flex-col pb-[40px] tablet:pb-0 '>
@@ -80,7 +70,7 @@ const Guide = async () => {
                   const firstColor = GRADIENTS[index][0];
                   const secondColor = GRADIENTS[index][1];
                   return (
-                    <ChannelContainer key={channel.channelNumber} {...{ channel, firstColor, secondColor }}>
+                    <ChannelButtonContainer key={channel.channelNumber} {...{ channel, firstColor, secondColor }}>
                       <ChannelButton channel={channel}>
                         <div className='flex desktop:min-h-[80px] desktop:items-center'>
                           <Image
@@ -95,32 +85,10 @@ const Guide = async () => {
                             )}
                           />
                         </div>
-
-                        <div
-                          className={cn(
-                            `flex flex-col items-start text-left leading-5`,
-                            `tablet:mt-24 tablet:h-full`,
-                            `desktop:ml-6 desktop:mt-0 desktop:w-full desktop:items-start desktop:justify-start 
-                            desktop:gap-2`
-                          )}
-                        >
-                          <span
-                            className='flex h-[25px] items-center gap-2 text-fs-300 font-semibold tracking-wider
-                            text-primary-light'
-                          >
-                            <PlayingIcon {...{ channel }} />
-                            {channel.channelNumber}
-                          </span>
-                          <span
-                            className='whitespace-nowrap text-fs-400 font-bold text-primary-lighter
-                            tablet:flex tablet:whitespace-normal'
-                          >
-                            {channel.channelName}
-                          </span>
-                        </div>
+                        <ChannelLabel {...{ channel }} />
                       </ChannelButton>
                       <OptionsButton {...{ channel }} />
-                    </ChannelContainer>
+                    </ChannelButtonContainer>
                   );
                 })}
               </div>

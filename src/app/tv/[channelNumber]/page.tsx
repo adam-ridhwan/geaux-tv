@@ -33,13 +33,11 @@ export default async function PlayerPage({ params: { channelNumber } }: Params) 
 
   return (
     <div className='relative flex justify-center bg-black tablet:min-h-[100px] desktop:flex-grow'>
-      <div className='pointer-events-none w-full max-w-[1700px] select-none bg-black'>
-        <iframe
-          src={channel.episodes[0].videoId}
-          allow='autoplay'
-          className='m-auto block aspect-video h-full w-full border-none'
-        />
-      </div>
+      <iframe
+        src={channel.episodes[0].videoId}
+        allow='autoplay'
+        className='pointer-events-none m-auto block aspect-video h-full w-full max-w-[1700px] select-none border-none bg-black'
+      />
     </div>
   );
 }

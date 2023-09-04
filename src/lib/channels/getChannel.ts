@@ -17,8 +17,8 @@ export const getChannel = cache(async (channelNumber: ChannelNumber): Promise<Ch
     const channels = await channelsCollection.findOne({}, { projection: { _id: 0 } });
 
     /*
-     * Set the first channel to the first channel in the list
-     * TODO: Set the first channel to the first channel in 'last watched' history
+     * Set the first channel to the first channel in the list on first load
+     * TODO: Set the first channel to the first channel object of 'last watched' history
      */
     for (let category in channels) {
       for (let channel of channels[category]) {

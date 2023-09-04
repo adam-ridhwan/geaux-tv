@@ -18,7 +18,7 @@ const Video: FC<VideoProps> = ({ channel }) => {
   useEffect(() => {
     setTimeout(() => setIsMounted(true), 500);
     setSrc(channel.episodes[0].videoId);
-  }, [setIsMounted]);
+  }, [channel.episodes, setIsMounted]);
 
   // if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
   //   return (

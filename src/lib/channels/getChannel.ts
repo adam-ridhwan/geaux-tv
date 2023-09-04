@@ -22,7 +22,7 @@ export const getChannel = cache(async (channelNumber: ChannelNumber): Promise<Ch
      */
     for (let category in channels) {
       for (let channel of channels[category]) {
-        if (channel.channelNumber === 465) {
+        if (channel.channelNumber === channelNumber) {
           return channel;
         }
       }

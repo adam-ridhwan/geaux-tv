@@ -3,6 +3,7 @@
 import { FC, useEffect } from 'react';
 import chalk from 'chalk';
 
+import { useMountedStore } from '@/store/useMountedStore';
 import { Channels, useTvStore } from '@/store/useTvStore';
 
 type TvDataConsumerProps = {
@@ -11,6 +12,7 @@ type TvDataConsumerProps = {
 };
 
 const TvDataConsumer: FC<TvDataConsumerProps> = ({ CHANNELS, CHANNEL_CATEGORIES }) => {
+  const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
   const [channels, setChannels, setCategories] = useTvStore(state => [
     state.channels,
     state.setChannels,
@@ -23,7 +25,9 @@ const TvDataConsumer: FC<TvDataConsumerProps> = ({ CHANNELS, CHANNEL_CATEGORIES 
       setChannels(CHANNELS);
       setCategories(CHANNEL_CATEGORIES);
     }
-  }, [CHANNELS, CHANNEL_CATEGORIES, channels, setCategories, setChannels]);
+
+    setTimeout(() => setIsMounted(true), 500); // disable loading screen after mount
+  }, [CHANNELS, CHANNEL_CATEGORIES, channels, setCategories, setChannels, setIsMounted]);
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {

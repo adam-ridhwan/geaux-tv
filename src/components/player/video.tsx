@@ -11,6 +11,8 @@ type VideoProps = {
   channel: Channel;
 };
 
+// TODO: decide whether or not to include video client component
+
 const Video: FC<VideoProps> = ({ channel }) => {
   const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
   const [src, setSrc] = useState<string>('' as string);

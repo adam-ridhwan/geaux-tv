@@ -28,9 +28,7 @@ export async function generateStaticParams() {
 // TODO: Create metadata function
 
 const ChannelPage = async ({ params: { channelNumber } }: Params) => {
-  console.log(channelNumber);
   const channel: Channel | null = await getChannel(Number(channelNumber));
-  console.log(channel?.channelNumber);
 
   if (!channel) notFound();
 

@@ -14,15 +14,16 @@ export const getChannel = cache(async (channelNumber: ChannelNumber): Promise<Ch
     // FIX: not sure why this is not working
     // const channel = await channelsCollection.findOne({ number: channelNumber }, { projection: { _id: 0 } });
 
-    const channels = await channelsCollection.findOne();
+    const channels = await channelsCollection.findOne({}, { projection: { _id: 0 } });
 
+    /*
+     * Set the first channel to the first channel in the list
+     * TODO: Set the first channel to the first channel in 'last watched' history
+     */
     for (let category in channels) {
-      const categoryChannels = channels[category];
-      if (Array.isArray(categoryChannels)) {
-        for (let channel of categoryChannels) {
-          if (channel.channelNumber === channelNumber) {
-            return channel;
-          }
+      for (let channel of channels[category]) {
+        if (channel.channelNumber === 465) {
+          return channel;
         }
       }
     }

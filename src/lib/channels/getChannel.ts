@@ -20,7 +20,9 @@ export const getChannel = cache(async (channelNumber: ChannelNumber): Promise<Ch
       const categoryChannels = channels[category];
       if (Array.isArray(categoryChannels)) {
         for (let channel of categoryChannels) {
-          if (channel.channelNumber === channelNumber) return channel;
+          if (channel.channelNumber === channelNumber) {
+            return channel;
+          }
         }
       }
     }

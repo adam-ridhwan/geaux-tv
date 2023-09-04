@@ -10,8 +10,8 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/tv/501',
-        permanent: true,
+        destination: '/tv/465',
+        permanent: false,
       },
     ];
   },

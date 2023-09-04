@@ -38,6 +38,14 @@ export default async function PlayerPage({ params: { channelNumber } }: Params) 
         allow='autoplay'
         className='pointer-events-none m-auto block aspect-video h-full w-full max-w-[1700px] select-none border-none bg-black'
       />
+
+      {/*<div className='pointer-events-none w-full max-w-[1700px] select-none bg-black'>*/}
+      {/*  <iframe*/}
+      {/*    src={channel.episodes[0].videoId}*/}
+      {/*    allow='autoplay'*/}
+      {/*    className='m-auto block aspect-video h-full w-full border-none '*/}
+      {/*  />*/}
+      {/*</div>*/}
     </div>
   );
 }

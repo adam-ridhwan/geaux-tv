@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
@@ -7,14 +8,19 @@ import { getUser } from '@/lib/user/getUser';
 import AvatarPicture from '@/components/header/avatar-picture';
 
 export default async function Header() {
-  let userEmail;
+  const session = await getServerSession();
   let fetchedPhotoUrl;
 
-  const session = await getServerSession();
-
-  if (session && session?.user?.email) userEmail = await getUser(session.user.email);
-  if (userEmail) fetchedPhotoUrl = userEmail?.photoUrl || fetchedPhotoUrl;
-  if (!userEmail) fetchedPhotoUrl = session?.user?.image || fetchedPhotoUrl;
+  /*
+   * 1) Check if there is an image in session (this is the case when user signs in with Google)
+   * 2) If there is no image in session, fetch the user's photo from database (credentials sign in)
+   * 3) If there is user has not set an image, show fallback default image
+   */
+  if (session && session?.user?.email) {
+    fetchedPhotoUrl = session.user.image
+      ? session.user.image
+      : await getUser(session.user.email).then(result => result?.photoUrl);
+  }
 
   return (
     <header className='min-h-[70px] px-4 py-3'>

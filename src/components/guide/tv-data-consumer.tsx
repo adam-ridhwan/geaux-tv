@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import chalk from 'chalk';
 
 import { useMountedStore } from '@/store/useMountedStore';

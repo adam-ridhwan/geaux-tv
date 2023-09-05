@@ -3,6 +3,7 @@
 import 'server-only';
 
 import { cache } from 'react';
+import { revalidatePath } from 'next/cache';
 
 import { connectToDatabase } from '@/lib/connectToDatabase';
 

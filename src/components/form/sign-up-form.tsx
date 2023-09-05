@@ -13,7 +13,7 @@ type UserDetails = {
 
 const SignUpForm: FC = () => {
   const [userDetails, setUserDetails] = useState<UserDetails>({ name: '', email: '', password: '' });
-  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

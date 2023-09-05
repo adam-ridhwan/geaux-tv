@@ -4,6 +4,7 @@ import { FC, FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { AuthErrorCodes } from '@/constants/authError';
+import { cn } from '@/util/cn';
 import { AlertCircle } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
@@ -19,7 +20,7 @@ const SignInForm: FC = () => {
   const router = useRouter();
   const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
   const [userDetails, setUserDetails] = useState<SignInUserDetails>({ email: '', password: '' });
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -33,7 +34,7 @@ const SignInForm: FC = () => {
     const result = await signIn('credentials', {
       email,
       password,
-      redirect: false,
+      redirect: true, // refreshes the page so that profile picture on header updates
       callbackUrl: '/',
     });
 
@@ -125,9 +126,14 @@ const SignInForm: FC = () => {
           <button
             type='submit'
             disabled={isLoading}
-            className='text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center
-            justify-center rounded-strong bg-accent-dark px-[15px] font-medium leading-none hover:bg-accent-darker
-            focus:shadow-black focus:outline-none'
+            className={cn(
+              `text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center justify-center 
+              rounded-strong bg-accent-dark px-[15px] font-medium leading-none focus:shadow-black focus:outline-none`,
+              { 'hover:bg-accent-darker': !isLoading },
+              {
+                'bg-accent-darker': isLoading,
+              }
+            )}
           >
             {isLoading ? (
               <svg className='h-8 w-8 animate-rotate text-accent-lightest' viewBox='0 0 50 50'>

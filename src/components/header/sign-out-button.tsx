@@ -1,13 +1,13 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { LogIn as LoginIcon } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
 import { useAvatarDropdownStore, useLogOutToastStore } from '@/store/useUserInterfaceStore';
 
 const SignOutButton = () => {
-  const [setIsLogOutToastOpen, openLogOutToast, closeLogOutToast] = useLogOutToastStore(state => [
-    state.setIsLogOutToastOpen,
+  const [openLogOutToast, closeLogOutToast] = useLogOutToastStore(state => [
     state.openLogOutToast,
     state.closeLogOutToast,
   ]);

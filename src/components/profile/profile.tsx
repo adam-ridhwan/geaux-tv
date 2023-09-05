@@ -19,12 +19,12 @@ const Profile: FC<ProfileProps> = ({ userDetails }) => {
       <div className='mb-5 flex flex-row items-center gap-4 text-fs-400'>
         <Avatar.Root>
           <Image
-            src={photoUrl || 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/001-man.png'}
+            src={photoUrl || 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/avatark1.png'}
             alt='geaux logo'
             priority
             width={500}
             height={500}
-            className='h-[72px] w-[72px]'
+            className='h-[72px] w-[72px] rounded-full'
           />
         </Avatar.Root>
         <button className='h-10 rounded-strong border border-primary-dark px-5 font-medium'>

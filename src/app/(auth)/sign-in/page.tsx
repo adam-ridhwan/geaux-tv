@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
-import GoogleButton from '@/components/form/google-button';
+import GoogleSignInButton from '@/components/form/google-sign-in-button';
 import SignInForm from '@/components/form/sign-in-form';
 
 export default async function SignInPage() {
@@ -28,7 +28,7 @@ export default async function SignInPage() {
                   <HorizontalSeparator />
                 </div>
 
-                <GoogleButton />
+                <GoogleSignInButton />
               </div>
 
               <div className='flex w-full justify-center gap-1 py-5'>

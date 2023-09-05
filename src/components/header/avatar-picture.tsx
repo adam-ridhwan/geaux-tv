@@ -1,12 +1,13 @@
 'use client';
 
-import { FC, ReactNode, useEffect } from 'react';
+import { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { UserCircle2 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 
 import { useAvatarDropdownStore } from '@/store/useUserInterfaceStore';
+import { getUser } from '@/lib/user/getUser';
 import AvatarContent from '@/components/header/avatar-content';
 import AvatarTooltip from '@/components/header/avatar-tooltip';
 import * as Avatar from '@radix-ui/react-avatar';
@@ -43,7 +44,7 @@ const AvatarPicture: FC<AvatarPictureProps> = ({ fetchedPhotoUrl }) => {
         >
           {session ? (
             <Image
-              src={fetchedPhotoUrl || 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/001-man.png'}
+              src={fetchedPhotoUrl || 'https://geaux-avatar-icons.nyc3.digitaloceanspaces.com/avatark1.png'}
               alt='geaux logo'
               priority
               width={500}

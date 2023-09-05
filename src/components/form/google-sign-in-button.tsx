@@ -1,20 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { revalidatePath } from 'next/cache';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/util/cn';
 import { signIn, useSession } from 'next-auth/react';
 
-const GoogleButton = () => {
+import { getUser } from '@/lib/user/getUser';
+
+const GoogleSignInButton = () => {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (session && session.user) {
-      router.replace('/');
-      setIsLoading(false);
-    }
-  }, [router, session]);
+    if (status === 'authenticated') router.replace('/');
+  }, [status, router]);
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
@@ -25,11 +26,15 @@ const GoogleButton = () => {
     <>
       <div className='flex w-[80%] flex-col items-center justify-center gap-5'>
         <button
-          className='text-slate-12 flex h-[40px] w-full items-center justify-center rounded-strong bg-red7'
+          disabled={isLoading}
           onClick={handleGoogleSignIn}
+          className={cn(`text-slate-12 flex h-[40px] w-full items-center justify-center rounded-strong bg-red7`, {
+            'hover:bg-red6': !isLoading,
+            'bg-red6': isLoading,
+          })}
         >
           {isLoading ? (
-            <svg className='h-8 w-8 animate-rotate text-center ' viewBox='0 0 50 50'>
+            <svg className='h-8 w-8 animate-rotate text-center' viewBox='0 0 50 50'>
               <circle
                 className='animate-dash stroke-accent-lightest'
                 cx='25'
@@ -48,4 +53,4 @@ const GoogleButton = () => {
   );
 };
 
-export default GoogleButton;
+export default GoogleSignInButton;

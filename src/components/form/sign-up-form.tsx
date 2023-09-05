@@ -1,8 +1,16 @@
 'use client';
 
-import { FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { cn } from '@/util/cn';
 import { isValidName } from '@/util/isValidName';
+import { wait } from '@/util/wait';
+import { AlertCircle } from 'lucide-react';
+import { signIn } from 'next-auth/react';
 
+import { useMountedStore } from '@/store/useMountedStore';
+import { createNewUser } from '@/lib/user/createNewUser';
+import { getUser } from '@/lib/user/getUser';
 import * as Form from '@radix-ui/react-form';
 
 type UserDetails = {
@@ -12,16 +20,69 @@ type UserDetails = {
 };
 
 const SignUpForm: FC = () => {
+  const router = useRouter();
+  const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
   const [userDetails, setUserDetails] = useState<UserDetails>({ name: '', email: '', password: '' });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    e.currentTarget.reset();
+
+    setIsLoading(true);
+
+    const name = userDetails.name;
+    const email = userDetails.email;
+    const password = userDetails.password;
+
+    const [, user] = (await Promise.all([wait(1000), getUser(userDetails.email)])) as [void, User | null];
+
+    if (!user) {
+      const newUser: User = {
+        email,
+        name,
+        password,
+        provider: 'credentials',
+        emailVerified: false,
+        createdAt: new Date(),
+        lastLogin: new Date(),
+        updatedAt: new Date(),
+      };
+
+      await createNewUser(newUser);
+
+      await signIn('credentials', {
+        email,
+        password,
+        redirect: true, // refreshes the page so that profile picture on header updates
+        callbackUrl: '/',
+      });
+
+      router.replace('/');
+      setIsMounted(false); // This enables the loading screen to appear before displaying the player.
+    } else {
+      setError('An account with that email already exists');
+      setTimeout(() => setIsLoading(false), 0);
+    }
+
+    setTimeout(() => setIsLoading(false), 500);
   };
+
+  useEffect(() => {
+    const handleDocumentClick = () => error && setError('');
+    document.addEventListener('click', handleDocumentClick);
+    return () => document.removeEventListener('click', handleDocumentClick);
+  }, [error]);
 
   return (
     <>
+      {error && (
+        <div className='mb-[24px] flex w-full items-center gap-2 rounded-weak bg-red6 px-3 py-4'>
+          <AlertCircle className='text-fs-300 text-primary-lighter' />
+          <span className='text-fs-300 text-primary-lighter'>{error}</span>
+        </div>
+      )}
+
       <Form.Root className='flex w-full flex-col items-center' onSubmit={handleSubmit}>
         <Form.Field className='mb-[10px] grid  w-full' name='name'>
           <Form.Control asChild>
@@ -32,7 +93,6 @@ const SignUpForm: FC = () => {
               type='name'
               placeholder='Name'
               required
-              autoComplete='off'
               onChange={e => setUserDetails({ ...userDetails, name: e.target.value })}
             />
           </Form.Control>
@@ -56,7 +116,6 @@ const SignUpForm: FC = () => {
               type='email'
               placeholder='Email address'
               required
-              autoComplete='off'
               onChange={e => setUserDetails({ ...userDetails, email: e.target.value })}
             />
           </Form.Control>
@@ -104,11 +163,27 @@ const SignUpForm: FC = () => {
         <Form.Submit asChild>
           <button
             type='submit'
-            className='text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center
-            justify-center rounded-strong bg-accent-dark px-[15px] font-medium leading-none hover:bg-accent-darker
-            focus:shadow-black focus:outline-none'
+            className={cn(
+              `text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center justify-center 
+              rounded-strong bg-accent-dark px-[15px] font-medium leading-none focus:shadow-black focus:outline-none`,
+              { 'hover:bg-accent-darker': !isLoading },
+              { 'bg-accent-darker': isLoading }
+            )}
           >
-            Sign up
+            {isLoading ? (
+              <svg className='h-8 w-8 animate-rotate text-accent-lightest' viewBox='0 0 50 50'>
+                <circle
+                  className='animate-dash stroke-accent-lightest'
+                  cx='25'
+                  cy='25'
+                  r='20'
+                  fill='none'
+                  strokeWidth='4'
+                ></circle>
+              </svg>
+            ) : (
+              'Sign up'
+            )}
           </button>
         </Form.Submit>
       </Form.Root>

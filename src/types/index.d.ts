@@ -5,6 +5,7 @@ type WithId<T> = T & { _id: any };
 type Provider = 'credentials' | 'google';
 
 type User = {
+  _id?: string;
   provider: Provider;
   age?: number;
   createdAt: Date;

@@ -45,7 +45,7 @@ const GoogleSignInButton = () => {
               ></circle>
             </svg>
           ) : (
-            'Sign in with Google'
+            'Google'
           )}
         </button>
       </div>

@@ -130,9 +130,7 @@ const SignInForm: FC = () => {
               `text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center justify-center 
               rounded-strong bg-accent-dark px-[15px] font-medium leading-none focus:shadow-black focus:outline-none`,
               { 'hover:bg-accent-darker': !isLoading },
-              {
-                'bg-accent-darker': isLoading,
-              }
+              { 'bg-accent-darker': isLoading }
             )}
           >
             {isLoading ? (

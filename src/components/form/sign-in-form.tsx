@@ -50,8 +50,6 @@ const SignInForm: FC = () => {
       return;
     }
 
-    setTimeout(() => setIsLoading(false), 500);
-
     // These are needed so that the header updates with the user's profile picture
     router.refresh();
     router.replace('/');

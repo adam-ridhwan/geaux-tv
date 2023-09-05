@@ -63,8 +63,6 @@ const SignUpForm: FC = () => {
 
     router.replace('/');
     setIsMounted(false); // This enables the loading screen to appear before displaying the player.
-
-    setTimeout(() => setIsLoading(false), 500);
   };
 
   useEffect(() => {

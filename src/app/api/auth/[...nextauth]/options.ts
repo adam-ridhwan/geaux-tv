@@ -52,10 +52,9 @@ export const options: NextAuthOptions = {
       name: 'Credentials',
       // @ts-ignore huh! this is weird. cant figure out the type for authorize()
       async authorize(credentials: any): Promise<Omit<User, 'password'> | null> {
-        // check if credentials exists
         if (!credentials?.email || !credentials?.password) return null;
 
-        // check if user exists
+        // check if user exists. (has artificial delay of 1s)
         const [, user] = (await Promise.all([wait(1000), getUser(credentials.email)])) as [void, User | null];
         if (!user) throw new Error(AuthErrorCodes.NO_USER_FOUND);
 
@@ -65,7 +64,6 @@ export const options: NextAuthOptions = {
          * - If the user is created using oauth provider, this will return error no user found
          */
         if (user.provider !== 'credentials') throw new Error(AuthErrorCodes.NO_USER_FOUND);
-
         if (!user.password) throw new Error(AuthErrorCodes.NO_PASSWORD_FOUND);
 
         const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
@@ -80,7 +78,7 @@ export const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    // @ts-ignore huh! this is weird. cant figure out the type for authorize()
+    // @ts-ignore huh! this is weird. cant figure out the type for signIn()
     async signIn({ account, profile }: { account: GoogleAccount; profile: GoogleProfile }) {
       if (account?.provider === 'google') {
         /*

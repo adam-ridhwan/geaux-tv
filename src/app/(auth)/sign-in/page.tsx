@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import GoogleButton from '@/components/form/google-button';
 import SignInForm from '@/components/form/sign-in-form';
-import Header from '@/components/header/header';
 
-export default function SignInPage() {
+export default async function SignInPage() {
   return (
     <>
       <main className='flex h-[100dvh] max-h-[100dvh] min-h-[100dvh] flex-col'>
@@ -28,9 +28,7 @@ export default function SignInPage() {
                   <HorizontalSeparator />
                 </div>
 
-                <div className='flex w-[80%] flex-col items-center justify-center gap-5'>
-                  <button className='text-slate-12 h-[40px] w-full rounded-strong bg-red7'>Google</button>
-                </div>
+                <GoogleButton />
               </div>
 
               <div className='flex w-full justify-center gap-1 py-5'>

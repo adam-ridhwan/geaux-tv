@@ -14,6 +14,7 @@ export default async function Header() {
 
   if (session && session?.user?.email) userEmail = await getUser(session.user.email);
   if (userEmail) fetchedPhotoUrl = userEmail?.photoUrl || fetchedPhotoUrl;
+  if (!userEmail) fetchedPhotoUrl = session?.user?.image || fetchedPhotoUrl;
 
   return (
     <header className='min-h-[70px] px-4 py-3'>

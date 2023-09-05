@@ -39,7 +39,7 @@ const AvatarPicture: FC<AvatarPictureProps> = ({ fetchedPhotoUrl }) => {
       <DropdownMenu.Trigger>
         <Avatar.Root
           className='group relative inline-flex h-11 w-11 select-none items-center
-          justify-center overflow-hidden rounded-full align-middle'
+          justify-center overflow-hidden align-middle'
         >
           {session ? (
             <Image
@@ -48,7 +48,7 @@ const AvatarPicture: FC<AvatarPictureProps> = ({ fetchedPhotoUrl }) => {
               priority
               width={500}
               height={500}
-              className='h-[40px] w-[40px]'
+              className='h-[40px] w-[40px] rounded-full'
             />
           ) : (
             <UserCircle2 className='h-[32px] w-[32px] text-primary-light hover:text-primary-lighter' />

@@ -4,7 +4,11 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ['geaux-avatar-icons.nyc3.digitaloceanspaces.com', 'geaux-channel-icons.nyc3.digitaloceanspaces.com'],
+    domains: [
+      'geaux-avatar-icons.nyc3.digitaloceanspaces.com',
+      'geaux-channel-icons.nyc3.digitaloceanspaces.com',
+      'lh3.googleusercontent.com',
+    ],
   },
   async redirects() {
     return [

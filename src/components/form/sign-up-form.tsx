@@ -31,39 +31,38 @@ const SignUpForm: FC = () => {
 
     setIsLoading(true);
 
-    const name = userDetails.name;
-    const email = userDetails.email;
-    const password = userDetails.password;
+    const { name, email, password } = userDetails;
 
     const [, user] = (await Promise.all([wait(1000), getUser(userDetails.email)])) as [void, User | null];
 
-    if (!user) {
-      const newUser: User = {
-        email,
-        name,
-        password,
-        provider: 'credentials',
-        emailVerified: false,
-        createdAt: new Date(),
-        lastLogin: new Date(),
-        updatedAt: new Date(),
-      };
-
-      await createNewUser(newUser);
-
-      await signIn('credentials', {
-        email,
-        password,
-        redirect: true, // refreshes the page so that profile picture on header updates
-        callbackUrl: '/',
-      });
-
-      router.replace('/');
-      setIsMounted(false); // This enables the loading screen to appear before displaying the player.
-    } else {
+    if (user) {
       setError('An account with that email already exists');
-      setTimeout(() => setIsLoading(false), 0);
+      setIsLoading(false);
+      return;
     }
+
+    const newUser: User = {
+      email,
+      name,
+      password,
+      provider: 'credentials',
+      emailVerified: false,
+      createdAt: new Date(),
+      lastLogin: new Date(),
+      updatedAt: new Date(),
+    };
+
+    await createNewUser(newUser);
+
+    await signIn('credentials', {
+      email,
+      password,
+      redirect: true, // refreshes the page so that profile picture on header updates
+      callbackUrl: '/',
+    });
+
+    router.replace('/');
+    setIsMounted(false); // This enables the loading screen to appear before displaying the player.
 
     setTimeout(() => setIsLoading(false), 500);
   };

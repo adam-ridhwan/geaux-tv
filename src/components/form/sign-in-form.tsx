@@ -2,7 +2,7 @@
 
 import { FC, FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { AuthErrorCodes } from '@/constants/authError';
 import { cn } from '@/util/cn';
 import { AlertCircle } from 'lucide-react';
@@ -34,7 +34,7 @@ const SignInForm: FC = () => {
     const result = await signIn('credentials', {
       email,
       password,
-      redirect: true, // refreshes the page so that profile picture on header updates
+      redirect: false,
       callbackUrl: '/',
     });
 
@@ -52,6 +52,8 @@ const SignInForm: FC = () => {
 
     setTimeout(() => setIsLoading(false), 500);
 
+    // These are needed so that the header updates with the user's profile picture
+    router.refresh();
     router.replace('/');
     setIsMounted(false); // This enables the loading screen to appear before displaying the player.
   };

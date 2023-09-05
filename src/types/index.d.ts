@@ -1,6 +1,8 @@
+import { ObjectId } from 'bson';
+
 declare module 'server-only';
 
-type WithId<T> = T & { _id: any };
+type WithId<T> = T & { _id: ObjectId };
 
 type Provider = 'credentials' | 'google';
 

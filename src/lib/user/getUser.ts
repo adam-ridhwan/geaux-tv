@@ -4,6 +4,8 @@ import 'server-only';
 
 import { cache } from 'react';
 import { revalidatePath } from 'next/cache';
+import { User, WithId } from '@/types';
+import { ObjectId } from 'bson';
 
 import { connectToDatabase } from '@/lib/connectToDatabase';
 
@@ -17,12 +19,11 @@ export const getUser = cache(async (email: String): Promise<User | null> => {
     if (!user) return null;
 
     // Sanitize the user object
-    const sanitizedUser: User = {
+    const sanitizedUser: User & WithId<any> = {
       ...user,
-      _id: user._id.toString(), // Convert ObjectId to string
-      createdAt: user.createdAt.toISOString(), // Convert Date to string
-      updatedAt: user.updatedAt.toISOString(), // Convert Date to string
-      lastLogin: user.lastLogin.toISOString(), // Convert Date to string
+      createdAt: user.createdAt.toISOString(),
+      updatedAt: user.updatedAt.toISOString(),
+      lastLogin: user.lastLogin.toISOString(),
     };
 
     return sanitizedUser as User;

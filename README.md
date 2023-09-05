@@ -31,7 +31,7 @@ This is the new codebase for GeauxTV.
 - [x] Set Up Mongodb
     - [x] Updated the mongodb connection to use cache
 - [x] Create channels collection
-- [ ] Create users collection
+- [x] Create users collection
 - [ ] Add rate limiting
 - [ ] Create admin dashboard for adding and removing channels
 
@@ -41,7 +41,8 @@ This is the new codebase for GeauxTV.
 - [ ] Credentials sign up
 - [x] Credentials sign in
 - [ ] Google Sign up
-- [ ] Google Sign in
+- [x] Google Sign in
+    - [ ] Create user if it does not exist in database
 
 #### **Cloud Storage**:
 

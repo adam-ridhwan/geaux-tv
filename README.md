@@ -42,7 +42,8 @@ This is the new codebase for GeauxTV.
 - [x] Credentials sign in
 - [ ] Google Sign up
 - [x] Google Sign in
-    - [ ] Create user if it does not exist in database
+    - [x] Create user if it does not exist in database
+    - [ ] Update login time 
 
 #### **Cloud Storage**:
 

@@ -38,9 +38,9 @@ This is the new codebase for GeauxTV.
 #### **Authentication**:
 
 - [x] Set up auth for credentials and google
-- [ ] Credentials sign up
+- [x] Credentials sign up
 - [x] Credentials sign in
-- [ ] Google Sign up
+- [x] Google Sign up
 - [x] Google Sign in
     - [x] Create user if it does not exist in database
     - [ ] Update login time 

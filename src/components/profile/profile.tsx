@@ -2,7 +2,8 @@
 
 import { FC } from 'react';
 import Image from 'next/image';
-import { ChevronRight, Mail, Smartphone, SquareAsterisk, User } from 'lucide-react';
+import { User } from '@/types';
+import { ChevronRight, Mail, Smartphone, SquareAsterisk, User as UserIcon } from 'lucide-react';
 
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
 import * as Avatar from '@radix-ui/react-avatar';
@@ -34,7 +35,7 @@ const Profile: FC<ProfileProps> = ({ userDetails }) => {
 
       <div className='flex flex-col text-fs-400'>
         <button className='flex h-[88px] flex-row items-center gap-4 text-left'>
-          <User className='text-primary-lighter' />
+          <UserIcon className='text-primary-lighter' />
           <div className='flex flex-col'>
             <span className='text-primary-light'>Name</span>
             <span className='text-primary-lightest'>{name}</span>

@@ -1,28 +1,25 @@
 'use client';
 
-import { FC, FormEvent, useEffect, useState } from 'react';
+import { FC, FormEvent, ReactNode, useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { AuthErrorCodes } from '@/constants/authError';
 import { cn } from '@/util/cn';
-import { isValidName } from '@/util/isValidName';
-import { wait } from '@/util/wait';
 import { AlertCircle } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
 import { useMountedStore } from '@/store/useMountedStore';
-import { createNewUser } from '@/lib/user/createNewUser';
-import { getUser } from '@/lib/user/getUser';
 import * as Form from '@radix-ui/react-form';
 
-type UserDetails = {
-  name: string;
+type SignInUserDetails = {
   email: string;
   password: string;
 };
 
-const SignUpForm: FC = () => {
+const SignInForm: FC = () => {
   const router = useRouter();
   const [setIsMounted] = useMountedStore(state => [state.setIsMounted]);
-  const [userDetails, setUserDetails] = useState<UserDetails>({ name: '', email: '', password: '' });
+  const [userDetails, setUserDetails] = useState<SignInUserDetails>({ email: '', password: '' });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,36 +28,30 @@ const SignUpForm: FC = () => {
 
     setIsLoading(true);
 
-    const { name, email, password } = userDetails;
+    const email = userDetails.email;
+    const password = userDetails.password;
 
-    const [, user] = (await Promise.all([wait(1000), getUser(userDetails.email)])) as [void, User | null];
-
-    if (user) {
-      setError('An account with that email already exists');
-      setIsLoading(false);
-      return;
-    }
-
-    const newUser: User = {
-      email,
-      name,
-      password,
-      provider: 'credentials',
-      emailVerified: false,
-      createdAt: new Date(),
-      lastLogin: new Date(),
-      updatedAt: new Date(),
-    };
-
-    await createNewUser(newUser);
-
-    await signIn('credentials', {
+    const result = await signIn('credentials', {
       email,
       password,
-      redirect: true, // refreshes the page so that profile picture on header updates
+      redirect: false,
       callbackUrl: '/',
     });
 
+    if (result?.error === AuthErrorCodes.NO_USER_FOUND) {
+      setIsLoading(false);
+      setError('Sorry we could not find an account with that email');
+      return;
+    }
+
+    if (result?.error === AuthErrorCodes.INVALID_PASSWORD) {
+      setIsLoading(false);
+      setError('Incorrect password');
+      return;
+    }
+
+    // These are needed so that the header updates with the user's profile picture
+    router.refresh();
     router.replace('/');
     setIsMounted(false); // This enables the loading screen to appear before displaying the player.
   };
@@ -81,29 +72,6 @@ const SignUpForm: FC = () => {
       )}
 
       <Form.Root className='flex w-full flex-col items-center' onSubmit={handleSubmit}>
-        <Form.Field className='mb-[10px] grid  w-full' name='name'>
-          <Form.Control asChild>
-            <input
-              className='selection:color-slate10 box-border inline-flex h-[35px] w-full appearance-none items-center
-              justify-center rounded-md bg-slate1 px-[10px] text-[16px] leading-none text-slate11 shadow-[0_0_0_1px]
-              shadow-slate5 outline-none hover:shadow-[0_0_0_1px_gray] focus:shadow-[0_0_0_2px_lightgray]'
-              type='name'
-              placeholder='Name'
-              required
-              onChange={e => setUserDetails({ ...userDetails, name: e.target.value })}
-            />
-          </Form.Control>
-          <div className='flex items-baseline justify-between'>
-            <Form.Message className='text-[14px] text-red9 opacity-[1]' match='valueMissing'>
-              Please enter your name
-            </Form.Message>
-            <Form.Message className='text-[14px] text-red9 opacity-[1]' match={data => !isValidName(data)}>
-              Invalid characters
-            </Form.Message>
-            <Form.Label className='invisible select-none text-[14px] leading-[35px]'>!</Form.Label>
-          </div>
-        </Form.Field>
-
         <Form.Field className='mb-[10px] grid w-full' name='email'>
           <Form.Control asChild>
             <input
@@ -117,13 +85,13 @@ const SignUpForm: FC = () => {
             />
           </Form.Control>
           <div className='flex items-baseline justify-between'>
-            <Form.Message className='text-[14px] text-red9 opacity-[1]' match='valueMissing'>
+            <Form.Message className='text-fs-300 text-red9' match='valueMissing'>
               Please enter your email
             </Form.Message>
-            <Form.Message className='text-[14px] text-red9 opacity-[1]' match='typeMismatch'>
+            <Form.Message className='text-fs-300 text-red9' match='typeMismatch'>
               Please provide a valid email
             </Form.Message>
-            <Form.Label className='invisible select-none text-[14px] leading-[35px]'>!</Form.Label>
+            <Form.Label className='text-slate-12 invisible select-none text-[14px] leading-[35px]'>Email</Form.Label>
           </div>
         </Form.Field>
 
@@ -136,30 +104,28 @@ const SignUpForm: FC = () => {
               type='password'
               placeholder='Password'
               required
-              autoComplete='new-password'
+              autoComplete='off'
               onChange={e => setUserDetails({ ...userDetails, password: e.target.value })}
             />
           </Form.Control>
-          <div className='flex max-w-[200px] items-baseline justify-between'>
-            <Form.Message className='text-[14px] text-red9 opacity-[1]' match='valueMissing'>
+          <div className='flex items-baseline justify-between'>
+            <Form.Message className='text-fs-300 text-red9' match='valueMissing'>
               Please enter your password
             </Form.Message>
-            <Form.Message className='text-[14px] text-red9 opacity-[1]' match='typeMismatch'>
-              Please provide a valid password
-            </Form.Message>
-            <Form.Message
-              className='whitespace-nowrap text-[14px] text-red9 opacity-[1]'
-              match={value => value.length < 6 || value.length > 20}
-            >
-              <span>Please enter between 6 and 20 characters</span>
-            </Form.Message>
-            <Form.Label className='invisible select-none text-[14px] leading-[35px]'>!</Form.Label>
+            <Form.Label className='text-slate-12 invisible select-none text-[14px] leading-[35px]'>Password</Form.Label>
           </div>
         </Form.Field>
+
+        <div className='mb-[10px] flex w-full justify-end'>
+          <Link href='account/forgot-password' className='text-pink-12 text-[14px]'>
+            Forgot password?
+          </Link>
+        </div>
 
         <Form.Submit asChild>
           <button
             type='submit'
+            disabled={isLoading}
             className={cn(
               `text-slate-12 shadow-slate-3 box-border inline-flex h-[40px] w-full items-center justify-center 
               rounded-strong bg-accent-dark px-[15px] font-medium leading-none focus:shadow-black focus:outline-none`,
@@ -179,7 +145,7 @@ const SignUpForm: FC = () => {
                 ></circle>
               </svg>
             ) : (
-              'Sign up'
+              'Sign in'
             )}
           </button>
         </Form.Submit>
@@ -188,4 +154,4 @@ const SignUpForm: FC = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

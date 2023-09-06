@@ -9,6 +9,10 @@ const env = cleanEnv(process.env, {
   NEXTAUTH_SECRET: str(),
   GOOGLE_SECRET: str(),
   GOOGLE_ID: str(),
+  NEXT_PUBLIC_EMAIL_HOST: str(),
+  NEXT_PUBLIC_EMAIL_PORT: str(),
+  NEXT_PUBLIC_EMAIL_USERNAME: str(),
+  NEXT_PUBLIC_EMAIL_PASSWORD: str(),
 });
 
 export default env;

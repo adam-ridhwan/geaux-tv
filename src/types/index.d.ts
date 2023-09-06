@@ -7,7 +7,7 @@ type WithId<T> = T & { _id: ObjectId };
 type Provider = 'credentials' | 'google';
 
 type User = {
-  _id?: string;
+  _id?: ObjectId;
   provider: Provider;
   age?: number;
   createdAt: Date;

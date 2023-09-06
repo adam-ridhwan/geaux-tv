@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 import HorizontalSeparator from '@/components/ui/horizontal-separator';
-import GoogleSignInButton from '@/components/form/google-sign-in-button';
-import SignInForm from '@/components/form/sign-in-form';
+import GoogleSignInButton from '@/components/auth/google-sign-in-button';
+import SignInForm from '@/components/auth/sign-in-form';
 
 export default async function SignInPage() {
   return (

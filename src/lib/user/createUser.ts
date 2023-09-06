@@ -3,11 +3,12 @@
 import 'server-only';
 
 import { cache } from 'react';
+import { User } from '@/types';
 import bcrypt from 'bcrypt';
 
 import { connectToDatabase } from '@/lib/connectToDatabase';
 
-export const createNewUser = cache(async (user: User) => {
+export const createUser = cache(async (user: User) => {
   try {
     const { usersCollection } = await connectToDatabase();
 

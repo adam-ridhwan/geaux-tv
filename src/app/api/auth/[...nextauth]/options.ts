@@ -1,4 +1,5 @@
 import { AuthErrorCodes } from '@/constants/authError';
+import { User } from '@/types';
 import env from '@/util/env';
 import { wait } from '@/util/wait';
 import bcrypt from 'bcrypt';
@@ -6,7 +7,7 @@ import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 
-import { createNewUser } from '@/lib/user/createNewUser';
+import { createUser } from '@/lib/user/createUser';
 import { getUser } from '@/lib/user/getUser';
 
 const { GOOGLE_ID, GOOGLE_SECRET } = env;
@@ -105,7 +106,7 @@ export const options: NextAuthOptions = {
             updatedAt: new Date(),
           };
 
-          await createNewUser(newUser);
+          await createUser(newUser);
         }
 
         if (user) {

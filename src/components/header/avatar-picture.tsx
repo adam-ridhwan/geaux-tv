@@ -32,7 +32,7 @@ const AvatarPicture: FC<AvatarPictureProps> = ({ fetchedPhotoUrl }) => {
    * 3) if there is a user and page is in sign-in or sign-up page, show the user's avatar
    */
   if (status === 'loading') return null;
-  if (session === null && ['/sign-in', '/sign-up'].includes(pathname)) return null;
+  if (session === null && ['/sign-in', '/sign-up', '/account/forgot-password'].includes(pathname)) return null;
   if (['/sign-in', '/sign-up', '/account/profile'].includes(pathname) && status === 'authenticated') return null;
 
   return (

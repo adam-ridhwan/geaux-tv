@@ -1,19 +1,18 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import Link from 'next/link';
 import { cn } from '@/util/cn';
 import { wait } from '@/util/wait';
 
 import * as Form from '@radix-ui/react-form';
 
 function ForgotPassword() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('adamridhwan.1@gmail.com');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setIsLoading(true);
 
     const response = await fetch('/api/forgot-password', {
       method: 'POST',
@@ -23,10 +22,7 @@ function ForgotPassword() {
 
     const [, data] = (await Promise.all([wait(1000), await response.json()])) as [void, Record<string, string> | null];
 
-    // todo: create a toast component to display submitted message
-    // console.log('forgot password page', data?.message);
-
-    setIsLoading(false);
+    console.log('forgot password page', data?.message);
   };
 
   return (

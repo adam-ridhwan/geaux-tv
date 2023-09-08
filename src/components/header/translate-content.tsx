@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 import { DotIcon } from 'lucide-react';
 
 import { languageCode, LANGUAGES, useLanguageStore } from '@/store/useLanguageStore';

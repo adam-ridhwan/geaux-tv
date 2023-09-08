@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 
 import { useMountedStore } from '@/store/useMountedStore';
 

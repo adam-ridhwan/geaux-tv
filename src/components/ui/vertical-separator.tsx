@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 
 import * as Separator from '@radix-ui/react-separator';
 

@@ -1,4 +1,4 @@
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 
 import CategoriesDropdown from '@/components/guide/categories-dropdown';
 import ChannelCategoriesSidebar from '@/components/guide/categories-sidebar';

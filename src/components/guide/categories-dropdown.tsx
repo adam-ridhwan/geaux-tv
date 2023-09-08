@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
-import useWindowSize, { MOBILE } from '@/util/useWindowSize';
+import useWindowSize, { MOBILE } from '@/utils/useWindowSize';
 
 import { useTvStore } from '@/store/useTvStore';
 import ButtonPrimary from '@/components/ui/button-primary';

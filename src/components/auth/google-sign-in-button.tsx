@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { revalidatePath } from 'next/cache';
 import { useRouter } from 'next/navigation';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 import { signIn, useSession } from 'next-auth/react';
 
 import { getUser } from '@/lib/user/getUser';

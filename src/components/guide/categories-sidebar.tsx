@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import useWindowSize, { DESKTOP, MOBILE, TABLET } from '@/util/useWindowSize';
+import useWindowSize, { DESKTOP, MOBILE, TABLET } from '@/utils/useWindowSize';
 
 import { useTvStore } from '@/store/useTvStore';
 import ButtonSecondary from '@/components/ui/button-secondary';

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 
 import { type Channel } from '@/store/useTvStore';
 import PlayingIcon from '@/components/guide/playing-icon';

@@ -1,4 +1,4 @@
-import env from '@/util/env';
+import env from '@/utils/env';
 import chalk from 'chalk';
 import { MongoClient, MongoClientOptions } from 'mongodb';
 

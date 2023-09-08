@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
-import { cn } from '@/util/cn';
-import useWindowSize, { DESKTOP } from '@/util/useWindowSize';
+import { cn } from '@/utils/cn';
+import useWindowSize, { DESKTOP } from '@/utils/useWindowSize';
 
 import { Channel } from '@/store/useTvStore';
 

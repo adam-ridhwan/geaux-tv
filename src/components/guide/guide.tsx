@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { GRADIENTS } from '@/constants/gradients';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 
 import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/channels/getAllChannels';

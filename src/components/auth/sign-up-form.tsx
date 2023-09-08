@@ -3,9 +3,9 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User } from '@/types';
-import { cn } from '@/util/cn';
-import { isValidName } from '@/util/isValidName';
-import { wait } from '@/util/wait';
+import { cn } from '@/utils/cn';
+import { isValidName } from '@/utils/isValidName';
+import { wait } from '@/utils/wait';
 import { AlertCircle } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 

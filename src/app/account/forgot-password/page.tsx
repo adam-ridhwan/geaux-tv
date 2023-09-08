@@ -2,8 +2,8 @@
 
 import { FormEvent, useState } from 'react';
 import Link from 'next/link';
-import { cn } from '@/util/cn';
-import { wait } from '@/util/wait';
+import { cn } from '@/utils/cn';
+import { wait } from '@/utils/wait';
 
 import * as Form from '@radix-ui/react-form';
 

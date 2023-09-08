@@ -1,7 +1,7 @@
 import { AuthErrorCodes } from '@/constants/authError';
 import { User } from '@/types';
-import env from '@/util/env';
-import { wait } from '@/util/wait';
+import env from '@/utils/env';
+import { wait } from '@/utils/wait';
 import bcrypt from 'bcrypt';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';

@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 import Link from 'next/link';
-import useWindowSize, { DESKTOP } from '@/util/useWindowSize';
+import useWindowSize, { DESKTOP } from '@/utils/useWindowSize';
 import copy from 'copy-to-clipboard';
 import { ChevronDown, Clipboard } from 'lucide-react';
 
@@ -34,7 +34,7 @@ const Footer = () => {
 
   return (
     <>
-      <Accordion.Root type='multiple' className='bg-primary-footer w-full px-7 py-5'>
+      <Accordion.Root type='multiple' className='w-full bg-primary-footer px-7 py-5'>
         {Object.entries(footerLinks).map(([category, links], index) => (
           <Fragment key={category}>
             <Accordion.Item key={`fragment-${index}`} value={`item-${index}`}>

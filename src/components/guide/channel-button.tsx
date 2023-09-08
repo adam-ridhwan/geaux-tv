@@ -2,8 +2,8 @@
 
 import { ButtonHTMLAttributes, forwardRef, ForwardRefRenderFunction, ReactNode } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { cn } from '@/util/cn';
-import useWindowSize, { DESKTOP, TABLET } from '@/util/useWindowSize';
+import { cn } from '@/utils/cn';
+import useWindowSize, { DESKTOP, TABLET } from '@/utils/useWindowSize';
 import isEqual from 'lodash/isEqual';
 
 import { Channel, useTvStore } from '@/store/useTvStore';

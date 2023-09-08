@@ -1,8 +1,6 @@
-import env from '@/util/env';
+import env from '@/utils/env';
 
 import { clientPromise } from '@/database/mongodb';
-
-import 'server-only';
 
 const { MONGODB_DATABASE, MONGODB_CHANNELS_COLLECTION, MONGODB_USERS_COLLECTION } = env;
 

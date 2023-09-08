@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, forwardRef, ForwardRefRenderFunction, ReactNode } from 'react';
-import { cn } from '@/util/cn';
+import { cn } from '@/utils/cn';
 
 type ExtendedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   isActive?: boolean;

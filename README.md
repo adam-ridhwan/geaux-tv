@@ -73,16 +73,7 @@ This is the new codebase for GeauxTV.
 **note**: be sure to have the late `node.js` version install in your machine: https://nodejs.org/en
 
 1. Clone the repository.
-2. create a `.env` file and add these variables
-
-```
-NEXT_PUBLIC_NODE_ENV=development
-
-MONGODB_URI=mongodb+srv://developers:jgsYcrDHRMkvWXbj@geauxnetwork.lhv0v42.mongodb.net/?retryWrites=true&w=majority
-MONGODB_DATABASE=geaux_database
-MONGODB_CHANNELS_COLLECTION=channels
-```
-
+2. create a `.env` file and add the secret variables.
 3. Run `npm install` to install all the dependencies.
 4. Run `npm run dev` to start the development server.
 

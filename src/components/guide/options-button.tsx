@@ -7,7 +7,7 @@ import { ChevronRightSquare, Heart, MoreVertical, Share } from 'lucide-react';
 import { Channel } from '@/store/useTvStore';
 import { useOptionsPopupStore } from '@/store/useUserInterfaceStore';
 import ButtonSecondary from '@/components/ui/button-secondary';
-import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import SeparatorHorizontal from '@/components/ui/separator-horizontal';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 
@@ -74,7 +74,7 @@ const OptionsButton: FC<OptionsButtonProps> = ({ channel }) => {
               </span>
             </div>
 
-            <HorizontalSeparator className='my-2' />
+            <SeparatorHorizontal className='my-2' />
 
             <div className='flex flex-col items-start'>
               <ButtonSecondary onClick={closeOptionsPopup}>

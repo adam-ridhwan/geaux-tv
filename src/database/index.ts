@@ -1,5 +1,4 @@
 import env from '@/utils/env';
-import chalk from 'chalk';
 import { MongoClient, MongoClientOptions } from 'mongodb';
 
 const { MONGODB_URI, MONGODB_DATABASE, NEXT_PUBLIC_NODE_ENV } = env;

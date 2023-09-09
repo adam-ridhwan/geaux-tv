@@ -3,7 +3,7 @@
 import { X } from 'lucide-react';
 
 import { useLogOutToastStore } from '@/store/useUserInterfaceStore';
-import VerticalSeparator from '@/components/ui/vertical-separator';
+import SeparatorVertical from '@/components/ui/separator-vertical';
 import * as Toast from '@radix-ui/react-toast';
 
 const LogOutToaster = () => {

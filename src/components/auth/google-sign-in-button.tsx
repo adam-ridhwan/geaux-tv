@@ -1,12 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { revalidatePath } from 'next/cache';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/utils/cn';
 import { signIn, useSession } from 'next-auth/react';
-
-import { getUser } from '@/lib/user/getUser';
 
 const GoogleSignInButton = () => {
   const router = useRouter();

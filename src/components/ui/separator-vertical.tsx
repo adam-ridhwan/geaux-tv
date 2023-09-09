@@ -5,15 +5,15 @@ import { cn } from '@/utils/cn';
 
 import * as Separator from '@radix-ui/react-separator';
 
-type HorizontalSeparatorProps = {
+type VerticalSeparatorProps = {
   className?: string;
   children?: ReactNode;
 };
 
-const HorizontalSeparator: FC<HorizontalSeparatorProps> = ({ className, children }) => (
+const SeparatorVertical: FC<VerticalSeparatorProps> = ({ className, children }) => (
   <>
     <Separator.Root
-      orientation='horizontal'
+      orientation='vertical'
       className={cn(
         `my-4 bg-primary-dark data-[orientation=horizontal]:h-px
         data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px`,
@@ -25,4 +25,4 @@ const HorizontalSeparator: FC<HorizontalSeparatorProps> = ({ className, children
   </>
 );
 
-export default HorizontalSeparator;
+export default SeparatorVertical;

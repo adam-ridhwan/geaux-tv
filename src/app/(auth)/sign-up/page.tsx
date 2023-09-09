@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import SeparatorHorizontal from '@/components/ui/separator-horizontal';
 import GoogleSignInButton from '@/components/auth/google-sign-in-button';
 import SignUpForm from '@/components/auth/sign-up-form';
 
@@ -25,9 +25,9 @@ export default function SignUpPage() {
                 <SignUpForm />
 
                 <div className='my-4 flex w-[80%] flex-row items-center gap-5'>
-                  <HorizontalSeparator />
+                  <SeparatorHorizontal />
                   <span className='text-slate-11 whitespace-nowrap'>Or sign in with</span>
-                  <HorizontalSeparator />
+                  <SeparatorHorizontal />
                 </div>
 
                 <GoogleSignInButton />

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { User } from '@/types';
 import { ChevronRight, Mail, Smartphone, SquareAsterisk, User as UserIcon } from 'lucide-react';
 
-import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import SeparatorHorizontal from '@/components/ui/separator-horizontal';
 import * as Avatar from '@radix-ui/react-avatar';
 
 type ProfileProps = {
@@ -43,7 +43,7 @@ const Profile: FC<ProfileProps> = ({ userDetails }) => {
           <ChevronRight className='ml-auto text-primary-lighter' />
         </button>
 
-        <HorizontalSeparator className='my-0' />
+        <SeparatorHorizontal className='my-0' />
 
         <button className='flex h-[88px] flex-row items-center gap-4 text-left'>
           <Mail className='text-primary-lighter' />
@@ -54,7 +54,7 @@ const Profile: FC<ProfileProps> = ({ userDetails }) => {
           <ChevronRight className='ml-auto text-primary-lighter' />
         </button>
 
-        <HorizontalSeparator className='my-0' />
+        <SeparatorHorizontal className='my-0' />
 
         <button className='flex h-[88px] flex-row items-center gap-4 text-left'>
           <Smartphone className='text-primary-lighter' />
@@ -65,7 +65,7 @@ const Profile: FC<ProfileProps> = ({ userDetails }) => {
           <ChevronRight className='ml-auto text-primary-lighter' />
         </button>
 
-        <HorizontalSeparator className='my-0' />
+        <SeparatorHorizontal className='my-0' />
 
         <button className='flex h-[88px] flex-row items-center gap-4 text-left'>
           <SquareAsterisk className='text-primary-lighter' />

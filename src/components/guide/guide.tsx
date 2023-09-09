@@ -4,7 +4,7 @@ import { cn } from '@/utils/cn';
 
 import { Channels } from '@/store/useTvStore';
 import { getAllChannels } from '@/lib/channels/getAllChannels';
-import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import SeparatorHorizontal from '@/components/ui/separator-horizontal';
 import Footer from '@/components/footer/footer';
 import CategoriesContainer from '@/components/guide/categories-container';
 import ChannelButton from '@/components/guide/channel-button';
@@ -46,7 +46,7 @@ const Guide = async () => {
           {Object.keys(CHANNELS).map(category => (
             <div key={category} className='flex flex-col pb-[40px] tablet:pb-0 '>
               <div className='flex flex-row bg-primary-void pt-[20px]'>
-                <HorizontalSeparator className='relative mb-[32px] bg-accent-light tablet:mb-[20px]'>
+                <SeparatorHorizontal className='relative mb-[32px] bg-accent-light tablet:mb-[20px]'>
                   <span
                     className={cn(
                       `absolute left-[16px] top-1/2 -translate-y-1/2 transform whitespace-nowrap rounded-weak border
@@ -55,7 +55,7 @@ const Guide = async () => {
                   >
                     {category}
                   </span>
-                </HorizontalSeparator>
+                </SeparatorHorizontal>
               </div>
 
               {/* CHANNELS */}

@@ -6,7 +6,7 @@ import useWindowSize, { DESKTOP } from '@/utils/useWindowSize';
 import copy from 'copy-to-clipboard';
 import { ChevronDown, Clipboard } from 'lucide-react';
 
-import HorizontalSeparator from '@/components/ui/horizontal-separator';
+import SeparatorHorizontal from '@/components/ui/separator-horizontal';
 import * as Accordion from '@radix-ui/react-accordion';
 
 const GEAUX_PHONE_NUMBER = '+1 (857) 445-0424';
@@ -79,7 +79,7 @@ const Footer = () => {
               </Accordion.Content>
             </Accordion.Item>
 
-            <HorizontalSeparator />
+            <SeparatorHorizontal />
           </Fragment>
         ))}
       </Accordion.Root>

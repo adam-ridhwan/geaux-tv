@@ -1,20 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-import {
-  blackA,
-  blueDark,
-  crimsonDark,
-  green,
-  mauve,
-  mauveDark,
-  pinkDark,
-  plumDark,
-  purpleDark,
-  redDark,
-  slate,
-  slateDark,
-  violet,
-} from '@radix-ui/colors';
+import { blueDark, crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, redDark, slateDark } from '@radix-ui/colors';
 
 const config: Config = {
   content: [
@@ -22,7 +8,9 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-
+  experimental: {
+    classRegex: ['cva\\(([^)]*)\\)', '["\'`]([^"\'`]*).*?["\'`]'],
+  },
   theme: {
     colors: {
       black: '#000000',

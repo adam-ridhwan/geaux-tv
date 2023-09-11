@@ -67,3 +67,26 @@ export const useLogOutToastStore = create<LogOutToastState>(set => ({
   openLogOutToast: () => set({ isLogOutToastOpen: true }),
   closeLogOutToast: () => set({ isLogOutToastOpen: false }),
 }));
+
+type ageRatingState = {
+  channel: Channel | null;
+  setChannel: (channel: Channel) => void;
+  resetChannel: () => void;
+  isAgePopupOpen: boolean;
+  setIsAgePopupOpen: (state: boolean) => void;
+  openAgePopup: () => void;
+  closeAgePopup: () => void;
+};
+
+export const useAgePopupStore = create<ageRatingState>(set => ({
+  channel: null,
+  setChannel: (channel: Channel) => set({ channel }),
+  resetChannel: () => set({ channel: null }),
+  isAgePopupOpen: false,
+  setIsAgePopupOpen: (state: boolean) => set({ isAgePopupOpen: state }),
+  openAgePopup: () => set({ isAgePopupOpen: true }),
+  closeAgePopup: () => {
+    set({ isAgePopupOpen: false });
+    useAgePopupStore.getState().resetChannel();
+  },
+}));

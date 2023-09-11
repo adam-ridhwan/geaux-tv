@@ -7,6 +7,7 @@ import useWindowSize, { DESKTOP, TABLET } from '@/utils/useWindowSize';
 import isEqual from 'lodash/isEqual';
 
 import { Channel, useTvStore } from '@/store/useTvStore';
+import { useAgePopupStore } from '@/store/useUserInterfaceStore';
 
 type ChannelButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
@@ -23,6 +24,17 @@ const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonPr
   const router = useRouter();
   const params = useParams();
   const currentDevice = useWindowSize();
+  const [openAgePopup, setChannel] = useAgePopupStore(state => [state.openAgePopup, state.setChannel]);
+
+  const handleChannelChange = () => {
+    if (channel.ageRating) {
+      openAgePopup();
+      setChannel(channel);
+      return;
+    }
+
+    router.replace(`/tv/${channel.channelNumber}`);
+  };
 
   return (
     <button
@@ -35,7 +47,7 @@ const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonPr
         { 'h-full min-w-[180px] max-w-[180px] flex-col rounded-weak border-none py-5': currentDevice === DESKTOP }
       )}
       {...props}
-      onClick={() => router.replace(`/tv/${channel.channelNumber}`)}
+      onClick={handleChannelChange}
     >
       {children}
     </button>

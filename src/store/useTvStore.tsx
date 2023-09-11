@@ -10,6 +10,7 @@ export type ChannelNumber = number;
 
 export type Channel = {
   _id?: ObjectId;
+  ageRating?: string;
   channelName: string;
   channelIcon: string;
   channelDescription: string;

@@ -1,6 +1,16 @@
 import type { Config } from 'tailwindcss';
 
-import { blueDark, crimsonDark, mauveDark, pinkDark, plumDark, purpleDark, redDark, slateDark } from '@radix-ui/colors';
+import {
+  blueDark,
+  crimsonDark,
+  greenDark,
+  mauveDark,
+  pinkDark,
+  plumDark,
+  purpleDark,
+  redDark,
+  slateDark,
+} from '@radix-ui/colors';
 
 const config: Config = {
   content: [
@@ -38,6 +48,7 @@ const config: Config = {
 
       ...blueDark,
       ...redDark,
+      ...greenDark,
     },
     fontSize: {
       'fs-200': '0.875rem',

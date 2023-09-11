@@ -8,9 +8,6 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  experimental: {
-    classRegex: ['cva\\(([^)]*)\\)', '["\'`]([^"\'`]*).*?["\'`]'],
-  },
   theme: {
     colors: {
       black: '#000000',

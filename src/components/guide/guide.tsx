@@ -39,23 +39,20 @@ const Guide = async () => {
         )}
       >
         {/* CATEGORIES SIDEBAR AND DROPDOWN */}
-        <CategoriesContainer />
+        {/*<CategoriesContainer />*/}
 
         {/* CATEGORY TITLE */}
         <div className={cn(`hide-scrollbar flex h-full w-full flex-col overflow-auto`, `desktop:flex-row`)}>
           {Object.keys(CHANNELS).map(category => (
             <div key={category} className='flex flex-col pb-[40px] tablet:pb-0 '>
               <div className='flex flex-row bg-primary-void pt-[20px]'>
-                <SeparatorHorizontal className='relative mb-[32px] bg-accent-light tablet:mb-[20px]'>
-                  <span
-                    className={cn(
-                      `absolute left-[16px] top-1/2 -translate-y-1/2 transform whitespace-nowrap rounded-weak border
-                      border-accent-light bg-accent-darkest px-3 py-1 text-fs-400 font-bold text-primary-lightest`
-                    )}
-                  >
-                    {category}
-                  </span>
-                </SeparatorHorizontal>
+                <span
+                  className={cn(
+                    `translate-y-[10px] whitespace-nowrap px-3 py-1 text-fs-400 font-bold text-primary-lightest`
+                  )}
+                >
+                  {category}
+                </span>
               </div>
 
               {/* CHANNELS */}

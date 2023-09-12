@@ -13,7 +13,7 @@ type ChannelContainerProps = {
   children: ReactNode;
 };
 
-const ChannelButtonContainer: FC<ChannelContainerProps> = ({ firstColor, secondColor, children }) => {
+const ChannelContainer: FC<ChannelContainerProps> = ({ firstColor, secondColor, children }) => {
   const currentDevice = useWindowSize();
   return (
     <div
@@ -31,4 +31,4 @@ const ChannelButtonContainer: FC<ChannelContainerProps> = ({ firstColor, secondC
   );
 };
 
-export default ChannelButtonContainer;
+export default ChannelContainer;

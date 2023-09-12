@@ -7,7 +7,11 @@ import { useTvStore } from '@/store/useTvStore';
 import ButtonSecondary from '@/components/ui/button-secondary';
 import SignOutButton from '@/components/header/sign-out-button';
 
-const CategoriesDropdown: FC = () => {
+type categoriesSidebarProps = {
+  scrollToCategory: (channelIndex: string) => void;
+};
+
+const CategoriesSidebar: FC<categoriesSidebarProps> = ({ scrollToCategory }) => {
   const [channelCategories] = useTvStore(state => [state.channelCategories]);
   const currentDevice = useWindowSize();
 
@@ -17,6 +21,7 @@ const CategoriesDropdown: FC = () => {
         channelCategories.map(category => (
           <ButtonSecondary
             key={category}
+            onClick={() => scrollToCategory(category)}
             className='flex h-[45px] min-h-[45px] whitespace-nowrap rounded-[40px] font-bold
             hover:bg-accent-darker hover:text-white'
           >
@@ -27,4 +32,4 @@ const CategoriesDropdown: FC = () => {
   );
 };
 
-export default CategoriesDropdown;
+export default CategoriesSidebar;

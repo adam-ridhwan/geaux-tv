@@ -8,7 +8,11 @@ import ButtonPrimary from '@/components/ui/button-primary';
 import ButtonSecondary from '@/components/ui/button-secondary';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-const CategoriesDropdown: FC = () => {
+type categoriesDropdownProps = {
+  scrollToCategory: (channelIndex: string) => void;
+};
+
+const CategoriesDropdown: FC<categoriesDropdownProps> = ({ scrollToCategory }) => {
   const [channelCategories] = useTvStore(state => [state.channelCategories]);
   const [isChannelCategoriesDropdownOpen, setIsChannelCategoriesDropdownOpen] = useState<boolean>();
   const currentDevice = useWindowSize();
@@ -20,7 +24,7 @@ const CategoriesDropdown: FC = () => {
       <DropdownMenu.Root open={isChannelCategoriesDropdownOpen} onOpenChange={setIsChannelCategoriesDropdownOpen}>
         <DropdownMenu.Trigger asChild>
           <ButtonPrimary isActive={isChannelCategoriesDropdownOpen} className='min-h-[40px] w-[95%] bg-primary-darkest'>
-            <span>Channels</span>
+            <span>Categories</span>
           </ButtonPrimary>
         </DropdownMenu.Trigger>
 
@@ -34,7 +38,11 @@ const CategoriesDropdown: FC = () => {
           >
             <DropdownMenu.Item className='w-full rounded-weak'>
               {channelCategories.map(category => {
-                return <ButtonSecondary key={category}>{category}</ButtonSecondary>;
+                return (
+                  <ButtonSecondary key={category} onClick={() => scrollToCategory(category)}>
+                    {category}
+                  </ButtonSecondary>
+                );
               })}
             </DropdownMenu.Item>
           </DropdownMenu.Content>

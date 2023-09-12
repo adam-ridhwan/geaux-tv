@@ -18,7 +18,7 @@ type ChannelButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const ChannelButton: ForwardRefRenderFunction<HTMLButtonElement, ChannelButtonProps> = (
-  { className, isActive, children, colorIndex, channel, firstColor, secondColor, ...props },
+  { className, isActive, children, colorIndex, channel, ...props },
   ref
 ) => {
   const router = useRouter();

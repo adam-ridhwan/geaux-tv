@@ -1,6 +1,6 @@
 'use client';
 
-import { createRef, RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { GRADIENTS } from '@/constants/gradients';
 import { cn } from '@/utils/cn';

@@ -24,13 +24,19 @@ export default async function ProfilePage() {
 
   return (
     <>
-      <div className='mx-5 my-3 flex flex-col'>
-        <Link href='/' className='flex w-fit flex-row items-center gap-1 text-primary-lighter'>
-          <ArrowLeft className='h-5 w-5' />
-          <span>back to player</span>
-        </Link>
-        <span className='my-10 text-fs-600'>Manage your profile</span>
-        <Profile {...{ userDetails }} />
+      <Link
+        href='/'
+        className='ml-5 mt-5 flex w-fit flex-row items-center gap-1 text-primary-lighter hover:text-primary-lightest'
+      >
+        <ArrowLeft className='h-5 w-5' />
+        <span>back to player</span>
+      </Link>
+
+      <div className='mx-5 my-3 flex flex-col items-center'>
+        <div className='container flex flex-col'>
+          <span className='my-10 text-fs-600'>Manage your profile</span>
+          <Profile {...{ userDetails }} />
+        </div>
       </div>
     </>
   );

@@ -26,9 +26,9 @@ export default async function Header() {
     <header className='min-h-[70px] px-4 py-3'>
       <div className='flex items-center justify-between'>
         <div className='flex flex-row'>
-          <button className='cursor-pointer'>
-            <Menu className='text-slate-200 mr-3 h-6 w-6' />
-          </button>
+          {/*<button className='cursor-pointer'>*/}
+          {/*  <Menu className='text-slate-200 mr-3 h-6 w-6' />*/}
+          {/*</button>*/}
 
           <Link href='/' className='flex flex-row items-center gap-1'>
             <Image
@@ -44,7 +44,7 @@ export default async function Header() {
           </Link>
         </div>
 
-        <AvatarPicture {...{ fetchedPhotoUrl }} />
+        {/*<AvatarPicture {...{ fetchedPhotoUrl }} />*/}
       </div>
     </header>
   );

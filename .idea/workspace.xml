@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1928619c-697b-40c8-80fd-89e6f3992961" name="Changes" comment="fix: removed unused parameters">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/guide/channel-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/guide/channel-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/avatar-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/avatar-content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="mySelectedFileTypes">
+      <set>
+        <option value="ActionScript" />
+        <option value="CSS" />
+        <option value="Cucumber" />
+        <option value="DTD" />
+        <option value="ECMAScript 6" />
+        <option value="EJS" />
+        <option value="EditorConfig" />
+        <option value="Flow" />
+        <option value="HTML" />
+        <option value="HTTP Request" />
+        <option value="Handlebars/Mustache" />
+        <option value="JSHint" />
+        <option value="JSON" />
+        <option value="JSON-lines" />
+        <option value="JSON5" />
+        <option value="JSX Harmony" />
+        <option value="Jade" />
+        <option value="JavaScript" />
+        <option value="Less" />
+        <option value="Markdown" />
+        <option value="PostCSS" />
+        <option value="RNG Compact" />
+        <option value="SARIF" />
+        <option value="SCSS" />
+        <option value="SVG" />
+        <option value="Sass" />
+        <option value="Shell Script" />
+        <option value="SourceMap" />
+        <option value="TypeScript" />
+        <option value="TypeScript JSX" />
+        <option value="Vue.js" />
+        <option value="XHTML" />
+        <option value="XML" />
+        <option value="YAML" />
+        <option value="tsconfig" />
+      </set>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="add-benefits" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2Tz2Sqhb3tzB5flNtkWWhp7EDK3" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/adam/Desktop/Workspace/Geaux/nextjs/geaux-web-next/public/images/channel-icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/adam/Desktop/Workspace/Geaux/nextjs/geaux-web-next/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/adam/Desktop/Workspace/Geaux/nextjs/geaux-web-next/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.rcb.reactComponents" value="false" />
+        <entry key="com.haulmont.rcb.reactInspector" value="false" />
+        <entry key="com.haulmont.rcb.storybook" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images/channel-icons" />
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/lib" />
+      <recent name="$PROJECT_DIR$/src/app/api/forgot-password" />
+      <recent name="$PROJECT_DIR$/src/components/guide" />
+      <recent name="$PROJECT_DIR$/src/components/ui" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1928619c-697b-40c8-80fd-89e6f3992961" name="Changes" comment="" />
+      <created>1692031591255</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692031591255</updated>
+      <workItem from="1692031592337" duration="23508000" />
+      <workItem from="1692110373662" duration="32000" />
+      <workItem from="1692110413502" duration="161000" />
+      <workItem from="1692110581538" duration="37172000" />
+      <workItem from="1692216079837" duration="3937000" />
+      <workItem from="1692281622875" duration="17394000" />
+      <workItem from="1692311189329" duration="4488000" />
+      <workItem from="1692318992583" duration="115000" />
+      <workItem from="1692322043045" duration="264000" />
+      <workItem from="1692325129922" duration="169000" />
+      <workItem from="1692365405317" duration="15694000" />
+      <workItem from="1692572684631" duration="1611000" />
+      <workItem from="1692625346278" duration="5744000" />
+      <workItem from="1692631344469" duration="26557000" />
+      <workItem from="1692666493922" duration="2297000" />
+      <workItem from="1692668798477" duration="2528000" />
+      <workItem from="1692707807810" duration="8767000" />
+      <workItem from="1692716600225" duration="15190000" />
+      <workItem from="1692750661913" duration="2078000" />
+      <workItem from="1692796801014" duration="30062000" />
+      <workItem from="1692891450624" duration="27000" />
+      <workItem from="1692891485195" duration="14375000" />
+      <workItem from="1692910814213" duration="5490000" />
+      <workItem from="1692916324068" duration="159000" />
+      <workItem from="1692916485400" duration="374000" />
+      <workItem from="1692916871790" duration="15000" />
+      <workItem from="1692917047036" duration="16135000" />
+      <workItem from="1692990093241" duration="294000" />
+      <workItem from="1692990875847" duration="211000" />
+      <workItem from="1692996882487" duration="165000" />
+      <workItem from="1693086040590" duration="1780000" />
+      <workItem from="1693089750381" duration="359000" />
+      <workItem from="1693174537421" duration="4446000" />
+      <workItem from="1693228877519" duration="17108000" />
+      <workItem from="1693251116430" duration="754000" />
+      <workItem from="1693255262802" duration="3327000" />
+      <workItem from="1693275702135" duration="5406000" />
+      <workItem from="1693315738668" duration="7501000" />
+      <workItem from="1693327783662" duration="10738000" />
+      <workItem from="1693498355469" duration="3135000" />
+      <workItem from="1693503447077" duration="12306000" />
+      <workItem from="1693531909628" duration="5636000" />
+      <workItem from="1693704947478" duration="3600000" />
+      <workItem from="1693751609965" duration="25481000" />
+      <workItem from="1693867610495" duration="4746000" />
+      <workItem from="1693923923593" duration="22341000" />
+      <workItem from="1693954534508" duration="13393000" />
+      <workItem from="1694012602386" duration="2701000" />
+      <workItem from="1694117777204" duration="593000" />
+      <workItem from="1694118378419" duration="1342000" />
+      <workItem from="1694187248180" duration="1609000" />
+      <workItem from="1694189763494" duration="6676000" />
+      <workItem from="1694222652381" duration="130000" />
+      <workItem from="1694302812669" duration="562000" />
+      <workItem from="1694397608568" duration="626000" />
+      <workItem from="1694439804934" duration="3359000" />
+      <workItem from="1694525706987" duration="6896000" />
+      <workItem from="1694558770363" duration="593000" />
+      <workItem from="1694560458549" duration="40000" />
+      <workItem from="1694561601478" duration="1263000" />
+      <workItem from="1694612102596" duration="54000" />
+      <workItem from="1694612432184" duration="288000" />
+      <workItem from="1694618882076" duration="1313000" />
+      <workItem from="1694628128409" duration="3782000" />
+      <workItem from="1695010778522" duration="608000" />
+      <workItem from="1695076069615" duration="118000" />
+      <workItem from="1695521690147" duration="926000" />
+      <workItem from="1695605500283" duration="78000" />
+      <workItem from="1695607193144" duration="604000" />
+      <workItem from="1695823421787" duration="1000" />
+      <workItem from="1696428554948" duration="223000" />
+      <workItem from="1696531502986" duration="14000" />
+      <workItem from="1696958363198" duration="644000" />
+      <workItem from="1697495925804" duration="188000" />
+    </task>
+    <task id="LOCAL-00033" summary="feature: added loading overlay">
+      <option name="closed" value="true" />
+      <created>1692916399782</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692916399782</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fix: mongodb connection">
+      <option name="closed" value="true" />
+      <created>1692980049459</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1692980049460</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feature: added a connect to database function">
+      <option name="closed" value="true" />
+      <created>1692980440645</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692980440645</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fix: update hydration error">
+      <option name="closed" value="true" />
+      <created>1692985426689</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1692985426689</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix: fixed loading screen">
+      <option name="closed" value="true" />
+      <created>1692989950524</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1692989950524</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix: changed color">
+      <option name="closed" value="true" />
+      <created>1692990357240</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1692990357240</updated>
+    </task>
+    <task id="LOCAL-00039" summary="feature: added envalid for env">
+      <option name="closed" value="true" />
+      <created>1693087584417</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1693087584417</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feature: added middleware">
+      <option name="closed" value="true" />
+      <created>1693178815922</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1693178815922</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feature: styled desktop version">
+      <option name="closed" value="true" />
+      <created>1693250237528</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1693250237528</updated>
+    </task>
+    <task id="LOCAL-00042" summary="styles: adjusted styles">
+      <option name="closed" value="true" />
+      <created>1693251865274</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1693251865274</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix: fixed scroll behavior">
+      <option name="closed" value="true" />
+      <created>1693257656582</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1693257656582</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feature: credentials sign-in">
+      <option name="closed" value="true" />
+      <created>1693323249255</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1693323249255</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feature: add new user">
+      <option name="closed" value="true" />
+      <created>1693341615854</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1693341615854</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feature: added authentication">
+      <option name="closed" value="true" />
+      <created>1693367374720</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1693367374720</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fix: error sign in message">
+      <option name="closed" value="true" />
+      <created>1693505388869</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1693505388869</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fix: logout toaster">
+      <option name="closed" value="true" />
+      <created>1693509230230</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1693509230230</updated>
+    </task>
+    <task id="LOCAL-00049" summary="fix: adjusted margin channels button">
+      <option name="closed" value="true" />
+      <created>1693519565092</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1693519565092</updated>
+    </task>
+    <task id="LOCAL-00050" summary="feature: added playing icon">
+      <option name="closed" value="true" />
+      <created>1693530347490</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1693530347492</updated>
+    </task>
+    <task id="LOCAL-00051" summary="fix: removed header on sign-in and sign-out route">
+      <option name="closed" value="true" />
+      <created>1693537551206</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1693537551207</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fix: removed avatar on sign-in and sign-out route">
+      <option name="closed" value="true" />
+      <created>1693706847892</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1693706847893</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feature: avatar tooltip user details">
+      <option name="closed" value="true" />
+      <created>1693708372833</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1693708372833</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feature: profile settings page">
+      <option name="closed" value="true" />
+      <created>1693759800696</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1693759800697</updated>
+    </task>
+    <task id="LOCAL-00055" summary="feature: used url params instead of state to set channels">
+      <option name="closed" value="true" />
+      <created>1693783541129</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1693783541129</updated>
+    </task>
+    <task id="LOCAL-00056" summary="refactor: get individual channel">
+      <option name="closed" value="true" />
+      <created>1693787648815</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1693787648815</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix: redirect '/' to first channel">
+      <option name="closed" value="true" />
+      <created>1693789271286</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1693789271286</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fix: redirect to 465">
+      <option name="closed" value="true" />
+      <created>1693789973137</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1693789973137</updated>
+    </task>
+    <task id="LOCAL-00059" summary="chore: added useEffect dependency">
+      <option name="closed" value="true" />
+      <created>1693790073604</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1693790073604</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fix: removed video client component">
+      <option name="closed" value="true" />
+      <created>1693790355147</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1693790355147</updated>
+    </task>
+    <task id="LOCAL-00061" summary="fix: removed video client component">
+      <option name="closed" value="true" />
+      <created>1693790943516</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1693790943516</updated>
+    </task>
+    <task id="LOCAL-00062" summary="style: removed extra div">
+      <option name="closed" value="true" />
+      <created>1693791155571</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1693791155571</updated>
+    </task>
+    <task id="LOCAL-00063" summary="style: removed extra div">
+      <option name="closed" value="true" />
+      <created>1693791358038</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1693791358038</updated>
+    </task>
+    <task id="LOCAL-00064" summary="refactor: refactor guide into smaller components">
+      <option name="closed" value="true" />
+      <created>1693869273088</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1693869273088</updated>
+    </task>
+    <task id="LOCAL-00065" summary="feature: google signin">
+      <option name="closed" value="true" />
+      <created>1693872213496</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1693872213497</updated>
+    </task>
+    <task id="LOCAL-00066" summary="fix: avatar photo">
+      <option name="closed" value="true" />
+      <created>1693944478746</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1693944478746</updated>
+    </task>
+    <task id="LOCAL-00067" summary="chore: refactor">
+      <option name="closed" value="true" />
+      <created>1693944774021</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1693944774021</updated>
+    </task>
+    <task id="LOCAL-00068" summary="feature: signup function">
+      <option name="closed" value="true" />
+      <created>1693949293590</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1693949293590</updated>
+    </task>
+    <task id="LOCAL-00069" summary="fix: avatar photo loading">
+      <option name="closed" value="true" />
+      <created>1693951162743</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1693951162743</updated>
+    </task>
+    <task id="LOCAL-00070" summary="fix: loading spinner">
+      <option name="closed" value="true" />
+      <created>1693951743734</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1693951743734</updated>
+    </task>
+    <task id="LOCAL-00071" summary="fix: types for user">
+      <option name="closed" value="true" />
+      <created>1693951915746</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1693951915746</updated>
+    </task>
+    <task id="LOCAL-00072" summary="feature: forgot password">
+      <option name="closed" value="true" />
+      <created>1693965562902</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1693965562903</updated>
+    </task>
+    <task id="LOCAL-00073" summary="fix: email">
+      <option name="closed" value="true" />
+      <created>1694010602089</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1694010602089</updated>
+    </task>
+    <task id="LOCAL-00074" summary="fix: refactor variables">
+      <option name="closed" value="true" />
+      <created>1694188778052</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1694188778053</updated>
+    </task>
+    <task id="LOCAL-00075" summary="fix: renamed ui components">
+      <option name="closed" value="true" />
+      <created>1694302959369</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1694302959370</updated>
+    </task>
+    <task id="LOCAL-00076" summary="feature: created new component for button.tsx">
+      <option name="closed" value="true" />
+      <created>1694303369297</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1694303369297</updated>
+    </task>
+    <task id="LOCAL-00077" summary="fix: removed experimental tailwind.config.ts">
+      <option name="closed" value="true" />
+      <created>1694398105990</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1694398105990</updated>
+    </task>
+    <task id="LOCAL-00078" summary="feature: over sixteen confirmation">
+      <option name="closed" value="true" />
+      <created>1694443164461</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1694443164462</updated>
+    </task>
+    <task id="LOCAL-00079" summary="style: profile page">
+      <option name="closed" value="true" />
+      <created>1694526068004</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1694526068004</updated>
+    </task>
+    <task id="LOCAL-00080" summary="feature: scroll into view">
+      <option name="closed" value="true" />
+      <created>1694531333016</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1694531333016</updated>
+    </task>
+    <task id="LOCAL-00081" summary="fix: removed unused parameters">
+      <option name="closed" value="true" />
+      <created>1694531378177</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1694531378177</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feature: used url params instead of state to set channels" />
+    <MESSAGE value="refactor: get individual channel" />
+    <MESSAGE value="fix: redirect '/' to first channel" />
+    <MESSAGE value="fix: redirect to 465" />
+    <MESSAGE value="chore: added useEffect dependency" />
+    <MESSAGE value="fix: removed video client component" />
+    <MESSAGE value="style: removed extra div" />
+    <MESSAGE value="refactor: refactor guide into smaller components" />
+    <MESSAGE value="feature: google signin" />
+    <MESSAGE value="fix: avatar photo" />
+    <MESSAGE value="chore: refactor" />
+    <MESSAGE value="feature: signup function" />
+    <MESSAGE value="fix: avatar photo loading" />
+    <MESSAGE value="fix: loading spinner" />
+    <MESSAGE value="fix: types for user" />
+    <MESSAGE value="feature: forgot password" />
+    <MESSAGE value="fix: email" />
+    <MESSAGE value="fix: refactor variables" />
+    <MESSAGE value="fix: renamed ui components" />
+    <MESSAGE value="feature: created new component for button.tsx" />
+    <MESSAGE value="fix: removed experimental tailwind.config.ts" />
+    <MESSAGE value="feature: over sixteen confirmation" />
+    <MESSAGE value="style: profile page" />
+    <MESSAGE value="feature: scroll into view" />
+    <MESSAGE value="fix: removed unused parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: removed unused parameters" />
+  </component>
+</project>

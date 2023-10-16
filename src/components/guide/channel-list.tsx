@@ -127,7 +127,7 @@ const ChannelList = () => {
                           </span>
                         </div>
                       </ChannelButton>
-                      <OptionsButton {...{ channel }} />
+                      {/*<OptionsButton {...{ channel }} />*/}
                     </ChannelContainer>
                   );
                 })}

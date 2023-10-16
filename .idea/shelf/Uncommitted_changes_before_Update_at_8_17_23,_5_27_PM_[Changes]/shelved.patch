@@ -1,0 +1,6 @@
+diff --git a/src/app/(auth)/forgot-password/page.tsx b/src/app/account/(password)/forgot-password/page.tsx
+rename from src/app/(auth)/forgot-password/page.tsx
+rename to src/app/account/(password)/forgot-password/page.tsx
+diff --git a/src/app/(user)/profile/page.tsx b/src/app/account/(user)/manage-account/page.tsx
+rename from src/app/(user)/profile/page.tsx
+rename to src/app/account/(user)/manage-account/page.tsx

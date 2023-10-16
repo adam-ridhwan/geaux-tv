@@ -1,0 +1,48 @@
+Index: src/app/(marketing)/benefits/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Card } from './card';\n\nconst BenefitsPage = () => {\n  const benefits = [\n    {\n      title: 'Diverse Content',\n      description: 'Watch content that reflects the world around you',\n      image: 'https://illustrations.popsy.co/white/work-party.svg',\n    },\n    {\n      title: 'Watch Anywhere',\n      description: 'Free to stream on your phone, tablet or laptop anytime',\n      image: 'https://illustrations.popsy.co/white/remote-work.svg',\n    },\n    {\n      title: 'Game Changers',\n      description: 'Affect the outcome of the shows you watch in real time',\n      image: 'https://illustrations.popsy.co/white/man-riding-a-rocket.svg',\n    },\n    {\n      title: 'Special Channels',\n      description: 'Watch certain channels that are only available to users',\n      image: 'https://illustrations.popsy.co/amber/home-office.svg',\n    },\n    {\n      title: 'Buying Power',\n      description: 'Ability to buy what you see on certain channels',\n      image: 'https://illustrations.popsy.co/white/rich.svg',\n    },\n  ];\n  return (\n    <div className='overflow-y-scroll'>\n      <h2 className='flex w-full flex-col items-center justify-between px-24 py-10 text-fs-700 tracking-tight'>\n        Benefits\n      </h2>\n      <div className='mx-auto mb-12 flex flex-wrap items-center justify-center gap-6 px-4'>\n        {benefits.map((benefit, index) => (\n          <Card key={index} {...benefit} />\n        ))}\n      </div>\n    </div>\n  );\n};\n\nexport default BenefitsPage;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/(marketing)/benefits/page.tsx b/src/app/(marketing)/benefits/page.tsx
+--- a/src/app/(marketing)/benefits/page.tsx	
++++ b/src/app/(marketing)/benefits/page.tsx	
+@@ -20,7 +20,7 @@
+     {
+       title: 'Special Channels',
+       description: 'Watch certain channels that are only available to users',
+-      image: 'https://illustrations.popsy.co/amber/home-office.svg',
++      image: 'https://illustrations.popsy.co/white/home-office.svg',
+     },
+     {
+       title: 'Buying Power',
+@@ -28,6 +28,7 @@
+       image: 'https://illustrations.popsy.co/white/rich.svg',
+     },
+   ];
++
+   return (
+     <div className='overflow-y-scroll'>
+       <h2 className='flex w-full flex-col items-center justify-between px-24 py-10 text-fs-700 tracking-tight'>
+Index: src/app/(marketing)/benefits/card.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Image from 'next/image';\n\ntype CardProps = {\n  title: string;\n  description: string;\n  image: string;\n};\nexport function Card({ title, description, image }: CardProps) {\n  return (\n    <div className='flex h-[320px] w-full max-w-sm flex-col items-center rounded-md border border-primary-lighter duration-150 hover:border-white'>\n      <div className='flex w-full items-center justify-center rounded-t-md bg-white'>\n        <Image src={image} alt={title} width={200} height={200} />\n      </div>\n      <div className='px-6 py-4'>\n        <div className='text-fs-500 mb-2 font-semibold'>{title}</div>\n        <p className='text-primary-lighter'>{description}</p>\n      </div>\n    </div>\n  );\n}\n
+===================================================================
+diff --git a/src/app/(marketing)/benefits/card.tsx b/src/app/(marketing)/benefits/card.tsx
+--- a/src/app/(marketing)/benefits/card.tsx	
++++ b/src/app/(marketing)/benefits/card.tsx	
+@@ -5,9 +5,11 @@
+   description: string;
+   image: string;
+ };
++
+ export function Card({ title, description, image }: CardProps) {
+   return (
+-    <div className='flex h-[320px] w-full max-w-sm flex-col items-center rounded-md border border-primary-lighter duration-150 hover:border-white'>
++    <div
++      className='flex h-[320px] w-full max-w-sm flex-col items-center rounded-md border border-primary-lighter duration-150 hover:border-white'>
+       <div className='flex w-full items-center justify-center rounded-t-md bg-white'>
+         <Image src={image} alt={title} width={200} height={200} />
+       </div>
